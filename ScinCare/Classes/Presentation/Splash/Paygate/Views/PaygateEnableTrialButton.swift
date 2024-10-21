@@ -42,7 +42,7 @@ private extension PaygateEnableTrialButton {
         backgroundColor = Appearance.mono100
         layer.cornerRadius = 10.scale
         layer.borderWidth = 1.scale
-        layer.borderColor = Appearance.main200.cgColor
+        layer.borderColor = Appearance.main900.cgColor
     }
     
     func update() {
@@ -84,7 +84,7 @@ private extension PaygateEnableTrialButton {
     func makeSwitchView() -> UISwitch {
         let view = UISwitch()
         view.isUserInteractionEnabled = false
-        view.onTintColor = Appearance.main300
+        view.onTintColor = Appearance.main100
         view.tintColor = Appearance.mono100.withAlphaComponent(0.2)
         view.thumbTintColor = UIColor.white
         view.translatesAutoresizingMaskIntoConstraints = false

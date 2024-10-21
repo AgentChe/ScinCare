@@ -13,12 +13,12 @@ final class PaygateBestOfferView: UIView {
     private lazy var selectedAttrs = TextAttributes()
         .textColor(Appearance.mono100)
         .font(Fonts.Roboto.medium(size: 12.scale))
-        .lineHeight(19.6.scale)
+        .lineHeight(19.scale)
         .textAlignment(.center)
     private lazy var deselectedAttrs = TextAttributes()
         .textColor(Appearance.mono200)
         .font(Fonts.Roboto.medium(size: 12.scale))
-        .lineHeight(19.6.scale)
+        .lineHeight(19.scale)
         .textAlignment(.center)
     
     override init(frame: CGRect) {
@@ -43,10 +43,10 @@ extension PaygateBestOfferView {
         let attrs = marked ? selectedAttrs : deselectedAttrs
         label.attributedText = "Paygate.BestOffer".localized.attributed(with: attrs)
         
-        backgroundColor = marked ? Appearance.main400 : Appearance.main100
+        backgroundColor = marked ? Appearance.main100 : Appearance.mono100
         
         layer.borderWidth = 1.scale
-        layer.borderColor = marked ? Appearance.main400.cgColor : Appearance.main200.cgColor
+        layer.borderColor = marked ? Appearance.main100.cgColor : Appearance.main900.cgColor
     }
 }
 

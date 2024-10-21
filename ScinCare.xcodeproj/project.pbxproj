@@ -536,9 +536,9 @@
 			children = (
 				DEFD39CF2CC62541007050EF /* Utils */,
 				DEFD39D62CC62541007050EF /* Views */,
-				DEFD39D72CC62541007050EF /* PaygateView.swift */,
 				DEFD39D82CC62541007050EF /* PaygateViewController.swift */,
 				DEFD39D92CC62541007050EF /* PaygateViewModel.swift */,
+				DEFD39D72CC62541007050EF /* PaygateView.swift */,
 			);
 			path = Paygate;
 			sourceTree = "<group>";
@@ -1035,7 +1035,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = wed.ScinCare;
+				PRODUCT_BUNDLE_IDENTIFIER = app.iphone.tracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1068,7 +1068,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = wed.ScinCare;
+				PRODUCT_BUNDLE_IDENTIFIER = app.iphone.tracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

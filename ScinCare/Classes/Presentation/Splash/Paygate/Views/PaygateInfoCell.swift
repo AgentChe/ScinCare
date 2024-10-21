@@ -40,12 +40,12 @@ private extension PaygateInfoCell {
         NSLayoutConstraint.activate([
             imageView.widthAnchor.constraint(equalToConstant: 12.scale),
             imageView.heightAnchor.constraint(equalToConstant: 13.scale),
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35.scale),
+            imageView.trailingAnchor.constraint(equalTo: label.leadingAnchor, constant: -10.scale),
             imageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 57.scale),
+            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 66.scale),
             label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
             label.topAnchor.constraint(equalTo: topAnchor),
             label.bottomAnchor.constraint(equalTo: bottomAnchor)

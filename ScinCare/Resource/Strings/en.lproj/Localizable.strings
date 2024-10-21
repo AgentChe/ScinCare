@@ -29,9 +29,9 @@
 "Paygate.Error.Text" = "An error occurred during execution. Try later.";
 "Paygate.Error.Button" = "OK";
 "Paygate.Title" = "Upgrade Premium";
-"Paygate.Info1" = "Learn smarter with AI";
-"Paygate.Info2" = "Scan & solve in various sciences";
-"Paygate.Info3" = "Review your progress with prompt\nhistory";
+"Paygate.Info1" = "AI-powered skincare assistant";
+"Paygate.Info2" = "Access dermatologic guides & articles";
+"Paygate.Info3" = "Stay on track with medication and\nrescan reminders";
 "Paygate.EnableFreeTrial" = "Enable Free Trial";
 "Paygate.FreeTrialEnabled" = "Free Trial Enabled";
 "Paygate.Yearly" = "Yearly";
