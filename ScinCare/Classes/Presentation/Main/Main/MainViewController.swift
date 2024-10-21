@@ -25,32 +25,38 @@ final class MainViewController: UIViewController {
         rx.methodInvoked(#selector(UIViewController.viewDidLayoutSubviews))
             .take(1)
             .bind(to: Binder(self) { base, _ in
-                base.coordinator.change(tab: .assistant)
+                base.coordinator.change(tab: .home)
             })
             .disposed(by: disposeBag)
         
         Observable
             .merge([
-                mainView.tabView.assistantButton
-                    .rx.tap.map { TabView.Tab.assistant },
+                mainView.tabView.homeButton
+                    .rx.tap.map { TabView.Tab.home },
                 
-                mainView.tabView.accountButton
-                    .rx.tap.map { TabView.Tab.account }
+                mainView.tabView.favoritesButton
+                    .rx.tap.map { TabView.Tab.favorites },
+                
+                mainView.tabView.calendarButton
+                    .rx.tap.map { TabView.Tab.calendar },
+                
+                mainView.tabView.chatButton
+                    .rx.tap.map { TabView.Tab.chat }
             ])
             .bind(to: Binder(self) { base, tab in
                 base.coordinator.change(tab: tab)
             })
             .disposed(by: disposeBag)
         
-        mainView.tabView.recognizerButton
+        mainView.tabView.scanButton
             .rx.tap.bind(to: (Binder(self) { base, void in
-                
+                // TODO
             }))
             .disposed(by: disposeBag)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        .lightContent
+        .darkContent
     }
 }
 

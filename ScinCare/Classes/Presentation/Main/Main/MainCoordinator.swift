@@ -10,8 +10,10 @@ import UIKit
 final class MainCoordinator {
     weak var parentVC: MainViewController?
     
-    lazy var assistantVC = NavigationController(rootViewController: UIViewController())
-    lazy var accountVC = NavigationController(rootViewController: UIViewController())
+    lazy var homeVC = NavigationController(rootViewController: UIViewController())
+    lazy var favoritesVC = NavigationController(rootViewController: UIViewController())
+    lazy var calendarVC = NavigationController(rootViewController: UIViewController())
+    lazy var chatVC = NavigationController(rootViewController: UIViewController())
     
     private var previousVC: UIViewController?
     
@@ -23,12 +25,16 @@ final class MainCoordinator {
         parentVC?.mainView.tabView.selectedTab = tab
         
         switch tab {
-        case .recognizer:
+        case .home:
+            changeVC(on: homeVC)
+        case .favorites:
+            changeVC(on: favoritesVC)
+        case .scan:
             return
-        case .assistant:
-            changeVC(on: assistantVC)
-        case .account:
-            changeVC(on: accountVC)
+        case .calendar:
+            changeVC(on: calendarVC)
+        case .chat:
+            changeVC(on: chatVC)
         }
     }
 }

@@ -9,14 +9,17 @@ import UIKit
 
 final class TabView: UIView {
     enum Tab {
-        case recognizer, assistant, account
+        case home, favorites, scan, calendar, chat
     }
     
-    lazy var recognizerButton = makeRecognizerButton()
-    lazy var assistantButton = makeButton(code: "Main.Assistant")
-    lazy var accountButton = makeButton(code: "Main.Account")
+    lazy var container = makeContainer()
+    lazy var homeButton = makeButton(imageDomain: "Main.Home")
+    lazy var favoritesButton = makeButton(imageDomain: "Main.Favorites")
+    lazy var scanButton = makeScanButton()
+    lazy var calendarButton = makeButton(imageDomain: "Main.Calendar")
+    lazy var chatButton = makeButton(imageDomain: "Main.Chat")
     
-    var selectedTab = Tab.assistant {
+    var selectedTab = Tab.home {
         didSet {
             update()
         }
@@ -37,8 +40,10 @@ final class TabView: UIView {
 // MARK: Private
 private extension TabView {
     func update() {
-        assistantButton.marked = selectedTab == .assistant
-        accountButton.marked = selectedTab == .account
+        homeButton.marked = selectedTab == .home
+        favoritesButton.marked = selectedTab == .favorites
+        calendarButton.marked = selectedTab == .calendar
+        chatButton.marked = selectedTab == .chat
     }
 }
 
@@ -46,41 +51,78 @@ private extension TabView {
 private extension TabView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            recognizerButton.widthAnchor.constraint(equalToConstant: 75.scale),
-            recognizerButton.heightAnchor.constraint(equalToConstant: 80.scale),
-            recognizerButton.topAnchor.constraint(equalTo: topAnchor),
-            recognizerButton.trailingAnchor.constraint(equalTo: assistantButton.leadingAnchor, constant: -19.scale)
+            container.leadingAnchor.constraint(equalTo: leadingAnchor),
+            container.trailingAnchor.constraint(equalTo: trailingAnchor),
+            container.topAnchor.constraint(equalTo: topAnchor, constant: 14.scale),
+            container.heightAnchor.constraint(equalToConstant: 70.scale)
         ])
         
         NSLayoutConstraint.activate([
-            assistantButton.widthAnchor.constraint(equalToConstant: 75.scale),
-            assistantButton.heightAnchor.constraint(equalToConstant: 80.scale),
-            assistantButton.topAnchor.constraint(equalTo: topAnchor),
-            assistantButton.centerXAnchor.constraint(equalTo: centerXAnchor)
+            homeButton.widthAnchor.constraint(equalToConstant: 24.scale),
+            homeButton.heightAnchor.constraint(equalToConstant: 24.scale),
+            homeButton.centerYAnchor.constraint(equalTo: container.centerYAnchor),
+            homeButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 30.scale)
         ])
         
         NSLayoutConstraint.activate([
-            accountButton.widthAnchor.constraint(equalToConstant: 75.scale),
-            accountButton.heightAnchor.constraint(equalToConstant: 80.scale),
-            accountButton.leadingAnchor.constraint(equalTo: assistantButton.trailingAnchor, constant: 19.scale)
+            favoritesButton.widthAnchor.constraint(equalToConstant: 24.scale),
+            favoritesButton.heightAnchor.constraint(equalToConstant: 24.scale),
+            favoritesButton.centerYAnchor.constraint(equalTo: container.centerYAnchor),
+            favoritesButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 83.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            scanButton.widthAnchor.constraint(equalToConstant: 68.scale),
+            scanButton.heightAnchor.constraint(equalToConstant: 68.scale),
+            scanButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            scanButton.topAnchor.constraint(equalTo: topAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            calendarButton.widthAnchor.constraint(equalToConstant: 24.scale),
+            calendarButton.heightAnchor.constraint(equalToConstant: 24.scale),
+            calendarButton.centerYAnchor.constraint(equalTo: container.centerYAnchor),
+            calendarButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 235.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            chatButton.widthAnchor.constraint(equalToConstant: 24.scale),
+            chatButton.heightAnchor.constraint(equalToConstant: 24.scale),
+            chatButton.centerYAnchor.constraint(equalTo: container.centerYAnchor),
+            chatButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 289.scale)
         ])
     }
 }
 
 // MARK: Lazy initialization
 private extension TabView {
-    func makeRecognizerButton() -> TapAreaButton {
-        let view = TapAreaButton()
-        view.setImage(UIImage(named: "Main.Recognize"), for: .normal)
+    func makeContainer() -> UIView {
+        let view = UIView()
+        view.layer.shadowColor = Appearance.mono200.withAlphaComponent(0.4).cgColor
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = 4.scale
+        view.backgroundColor = Appearance.mono100
+        view.layer.cornerRadius = 35.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
     }
     
-    func makeButton(code: String) -> TabItemView {
-        let view = TabItemView(code: code)
+    func makeScanButton() -> TapAreaButton {
+        let view = TapAreaButton()
+        view.setImage(UIImage(named: "Main.Scan"), for: .normal)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
+        return view
+    }
+    
+    func makeButton(imageDomain: String) -> TabItemButton {
+        let view = TabItemButton(imageDomain: imageDomain)
+        view.dx = -15.scale
+        view.dy = -15.scale
+        view.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(view)
         return view
     }
 }

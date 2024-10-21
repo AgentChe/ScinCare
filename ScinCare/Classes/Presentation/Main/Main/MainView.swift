@@ -26,7 +26,7 @@ final class MainView: UIView {
 // MARK: Private
 private extension MainView {
     func initialize() {
-        backgroundColor = Appearance.main100
+        backgroundColor = Appearance.main700
     }
 }
 
@@ -41,10 +41,10 @@ private extension MainView {
         ])
         
         NSLayoutConstraint.activate([
-            tabView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tabView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tabView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            tabView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
             tabView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            tabView.heightAnchor.constraint(equalToConstant: 114.scale)
+            tabView.heightAnchor.constraint(equalToConstant: 125.scale)
         ])
     }
 }
@@ -54,10 +54,6 @@ private extension MainView {
     func makeContainer() -> UIView {
         let view = UIView()
         view.backgroundColor = UIColor.clear
-        view.layer.shadowColor = Appearance.mono200.withAlphaComponent(0.4).cgColor
-        view.layer.shadowOpacity = 0.1
-        view.layer.shadowOffset = .zero
-        view.layer.shadowRadius = 4.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
@@ -65,7 +61,7 @@ private extension MainView {
     
     func makeTabView() -> TabView {
         let view = TabView()
-        view.backgroundColor = Appearance.main100
+        view.backgroundColor = UIColor.clear
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
