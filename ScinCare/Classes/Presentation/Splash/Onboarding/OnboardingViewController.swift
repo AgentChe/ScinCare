@@ -12,12 +12,15 @@ final class OnboardingViewController: UIViewController {
         static let wasViewedKey = "onboarding_view_controller_was_viewed_key"
     }
     
-    private lazy var mainView = OnboardingView { [weak self] in
+    private lazy var mainView = OnboardingView(didFinish: { [weak self] in
         guard let self else { return }
         
         markAsViewed()
         goNext()
-    }
+    }, didTapReadMore: { [weak self] in
+        let vc = DisclaimerViewController.make()
+        self?.present(vc, animated: true)
+    })
     
     override func loadView() {
         view = mainView
@@ -30,8 +33,10 @@ extension OnboardingViewController {
         OnboardingViewController()
     }
     
+    // TODO
     static func wasViewed() -> Bool {
-        UserDefaults.standard.bool(forKey: OnboardingViewController.Constants.wasViewedKey)
+        false
+//        UserDefaults.standard.bool(forKey: OnboardingViewController.Constants.wasViewedKey)
     }
 }
 

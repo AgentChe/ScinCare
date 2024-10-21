@@ -117,6 +117,14 @@
 		DEFD3AD92CC628CA007050EF /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEFD3AD82CC628CA007050EF /* Roboto-Regular.ttf */; };
 		DEFD3ADB2CC628D1007050EF /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEFD3ADA2CC628D1007050EF /* Roboto-Bold.ttf */; };
 		DEFD3ADF2CC62957007050EF /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEFD3ADE2CC62957007050EF /* Roboto-Medium.ttf */; };
+		DEFD3AE12CC62E60007050EF /* OStepsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3AE02CC62E60007050EF /* OStepsView.swift */; };
+		DEFD3AE32CC6317C007050EF /* ODisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3AE22CC6317C007050EF /* ODisclaimerView.swift */; };
+		DEFD3AE52CC631DC007050EF /* OScanScinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3AE42CC631DC007050EF /* OScanScinView.swift */; };
+		DEFD3AE72CC631F3007050EF /* OExploreSkinInsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3AE62CC631F3007050EF /* OExploreSkinInsightsView.swift */; };
+		DEFD3AE92CC6320C007050EF /* OStayOnTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3AE82CC6320C007050EF /* OStayOnTrackView.swift */; };
+		DEFD3AEB2CC63227007050EF /* OChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3AEA2CC63227007050EF /* OChatView.swift */; };
+		DEFD3AEE2CC63BD3007050EF /* DisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3AED2CC63BD3007050EF /* DisclaimerViewController.swift */; };
+		DEFD3AF02CC63BDA007050EF /* DisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3AEF2CC63BDA007050EF /* DisclaimerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -234,6 +242,14 @@
 		DEFD3AD82CC628CA007050EF /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		DEFD3ADA2CC628D1007050EF /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		DEFD3ADE2CC62957007050EF /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		DEFD3AE02CC62E60007050EF /* OStepsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OStepsView.swift; sourceTree = "<group>"; };
+		DEFD3AE22CC6317C007050EF /* ODisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODisclaimerView.swift; sourceTree = "<group>"; };
+		DEFD3AE42CC631DC007050EF /* OScanScinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OScanScinView.swift; sourceTree = "<group>"; };
+		DEFD3AE62CC631F3007050EF /* OExploreSkinInsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OExploreSkinInsightsView.swift; sourceTree = "<group>"; };
+		DEFD3AE82CC6320C007050EF /* OStayOnTrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OStayOnTrackView.swift; sourceTree = "<group>"; };
+		DEFD3AEA2CC63227007050EF /* OChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OChatView.swift; sourceTree = "<group>"; };
+		DEFD3AED2CC63BD3007050EF /* DisclaimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerViewController.swift; sourceTree = "<group>"; };
+		DEFD3AEF2CC63BDA007050EF /* DisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -472,7 +488,13 @@
 		DEFD39C92CC62541007050EF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DEFD3AE02CC62E60007050EF /* OStepsView.swift */,
 				DEFD39C52CC62541007050EF /* OnboardingSlideView.swift */,
+				DEFD3AE22CC6317C007050EF /* ODisclaimerView.swift */,
+				DEFD3AE42CC631DC007050EF /* OScanScinView.swift */,
+				DEFD3AE62CC631F3007050EF /* OExploreSkinInsightsView.swift */,
+				DEFD3AE82CC6320C007050EF /* OStayOnTrackView.swift */,
+				DEFD3AEA2CC63227007050EF /* OChatView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -481,8 +503,8 @@
 			isa = PBXGroup;
 			children = (
 				DEFD39C92CC62541007050EF /* Views */,
-				DEFD39CA2CC62541007050EF /* OnboardingView.swift */,
 				DEFD39CB2CC62541007050EF /* OnboardingViewController.swift */,
+				DEFD39CA2CC62541007050EF /* OnboardingView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -543,6 +565,7 @@
 		DEFD39E22CC62541007050EF /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				DEFD3AEC2CC63BCA007050EF /* Disclaimer */,
 				DEFD39CC2CC62541007050EF /* Onboarding */,
 				DEFD39DA2CC62541007050EF /* Paygate */,
 				DEFD39E12CC62541007050EF /* Splash */,
@@ -720,6 +743,15 @@
 			path = Roboto;
 			sourceTree = "<group>";
 		};
+		DEFD3AEC2CC63BCA007050EF /* Disclaimer */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD3AED2CC63BD3007050EF /* DisclaimerViewController.swift */,
+				DEFD3AEF2CC63BDA007050EF /* DisclaimerView.swift */,
+			);
+			path = Disclaimer;
+			sourceTree = "<group>";
+		};
 		FE04B705B3CA285A65D0E513 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -889,8 +921,10 @@
 				DEFD3A602CC62541007050EF /* PaygateActionsView.swift in Sources */,
 				DEFD3A612CC62541007050EF /* PaygateInfoView.swift in Sources */,
 				DEFD3A632CC62541007050EF /* SessionManager.swift in Sources */,
+				DEFD3AEE2CC63BD3007050EF /* DisclaimerViewController.swift in Sources */,
 				DEFD3A642CC62541007050EF /* IAPError.swift in Sources */,
 				DEFD3A652CC62541007050EF /* Page.swift in Sources */,
+				DEFD3AF02CC63BDA007050EF /* DisclaimerView.swift in Sources */,
 				DEFD3A6C2CC62541007050EF /* IAPManager.swift in Sources */,
 				DEFD3A6D2CC62541007050EF /* AssistantHelpfulRequest.swift in Sources */,
 				DEFD3A6E2CC62541007050EF /* NetworkError.swift in Sources */,
@@ -900,12 +934,15 @@
 				DEFD3A732CC62541007050EF /* BranchManager.swift in Sources */,
 				DEFD3A752CC62541007050EF /* ImagePicker.swift in Sources */,
 				DEFD3A772CC62541007050EF /* ChemistryAssistantResult.swift in Sources */,
+				DEFD3AE52CC631DC007050EF /* OScanScinView.swift in Sources */,
 				DEFD3A782CC62541007050EF /* PaygateProductButton.swift in Sources */,
 				DEFD3A7A2CC62541007050EF /* ScreenSize.swift in Sources */,
 				DEFD3A7B2CC62541007050EF /* PaygateInfoCell.swift in Sources */,
 				DEFD3A7C2CC62541007050EF /* PaygateViewModel.swift in Sources */,
 				DEFD3A7D2CC62541007050EF /* MainViewController.swift in Sources */,
 				DEFD3A7E2CC62541007050EF /* AppDelegate.swift in Sources */,
+				DEFD3AE72CC631F3007050EF /* OExploreSkinInsightsView.swift in Sources */,
+				DEFD3AE32CC6317C007050EF /* ODisclaimerView.swift in Sources */,
 				DEFD3A822CC62541007050EF /* Collection+Extension.swift in Sources */,
 				DEFD3A832CC62541007050EF /* Currency.swift in Sources */,
 				DEFD3A852CC62541007050EF /* SplashViewModel.swift in Sources */,
@@ -919,6 +956,7 @@
 				DEFD3A912CC62541007050EF /* AssistantAnalyzeManualWritingRequest.swift in Sources */,
 				DEFD3A932CC62541007050EF /* SplashReceiptValidationObserver.swift in Sources */,
 				DEFD3A952CC62541007050EF /* NumberLaunches.swift in Sources */,
+				DEFD3AEB2CC63227007050EF /* OChatView.swift in Sources */,
 				DEFD3A962CC62541007050EF /* ObservableRetrySingle.swift in Sources */,
 				DEFD3A972CC62541007050EF /* AssistantTranslateImage.swift in Sources */,
 				DEFD3A982CC62541007050EF /* XOREncryption.swift in Sources */,
@@ -930,6 +968,7 @@
 				DEFD3AA12CC62541007050EF /* ProductPrice.swift in Sources */,
 				DEFD3AA22CC62541007050EF /* TapAreaButton.swift in Sources */,
 				DEFD3AA32CC62541007050EF /* GlobalDefinitions.swift in Sources */,
+				DEFD3AE12CC62E60007050EF /* OStepsView.swift in Sources */,
 				DEFD3AA42CC62541007050EF /* RequestReview.swift in Sources */,
 				DEFD3AA62CC62541007050EF /* PushNotificationsModel.swift in Sources */,
 				DEFD3AA82CC62541007050EF /* Fonts.swift in Sources */,
@@ -940,6 +979,7 @@
 				DEFD3AB12CC62541007050EF /* PaygateView.swift in Sources */,
 				DEFD3AB22CC62541007050EF /* AssistantHistoryItem.swift in Sources */,
 				DEFD3AB32CC62541007050EF /* IAPErrorHelper.swift in Sources */,
+				DEFD3AE92CC6320C007050EF /* OStayOnTrackView.swift in Sources */,
 				DEFD3AB42CC62541007050EF /* TranslateResult.swift in Sources */,
 				DEFD3AB52CC62541007050EF /* TextAttributes.swift in Sources */,
 				DEFD3AB62CC62541007050EF /* AssistantAnalyzeProcessRequest.swift in Sources */,

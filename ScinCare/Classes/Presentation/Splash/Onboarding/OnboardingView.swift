@@ -9,23 +9,31 @@ import UIKit
 
 final class OnboardingView: UIView {
     enum Slide: Int {
-        case welcome1, welcome2, welcome3
+        case disclaimer, scanScin, exploreSkinInsights, stayOnTrack, chat
     }
     
-    private lazy var slidesViews: [OnboardingSlideView] = [
-        OnboardingSlideView(slide: .welcome1),
-        OnboardingSlideView(slide: .welcome1)
+    lazy var container = makeContainer()
+    lazy var stepsView = makeStepsView()
+    lazy var slidesViews: [OnboardingSlideView] = [
+        ODisclaimerView(),
+        OScanScinView(),
+        OExploreSkinInsightsView(),
+        OStayOnTrackView(),
+        OChatView()
     ]
     
-    private lazy var currentSlide = Slide.welcome1
+    private lazy var currentSlide = Slide.disclaimer
     
     private let didFinish: (() -> Void)
+    private let didTapReadMore: (() -> Void)
     
-    init(didFinish: @escaping (() -> Void)) {
+    init(didFinish: @escaping (() -> Void), didTapReadMore: @escaping (() -> Void)) {
         self.didFinish = didFinish
+        self.didTapReadMore = didTapReadMore
         
         super.init(frame: .zero)
         
+        makeConstraints()
         initialize()
     }
     
@@ -65,6 +73,14 @@ extension OnboardingView: OnboardingSlideViewDelete {
         
         scroll(to: previousSlide)
     }
+    
+    func slideViewSkip() {
+        didFinish()
+    }
+    
+    func slideViewDidTapReadMore() {
+        didTapReadMore()
+    }
 }
 
 // MARK: Private
@@ -83,6 +99,8 @@ private extension OnboardingView {
                 addSubview(slideView)
                 
                 slideView.moveToThis()
+                
+                stepsView.update(at: slideView.slide)
             }
         }
     }
@@ -100,13 +118,14 @@ private extension OnboardingView {
         let currentView = slidesViews[currentIndex]
         let scrollToView = slidesViews[scrollToIndex]
         
-        scrollToView.frame.origin = CGPoint(x: 0, y: bounds.size.height * CGFloat(direction))
-        addSubview(scrollToView)
+        scrollToView.frame.origin = CGPoint(x: bounds.size.width * CGFloat(direction), y: 0)
+        
+        container.addSubview(scrollToView)
         
         UIView.animate(withDuration: 0.3, animations: { [weak self] in
             guard let self else { return }
             
-            currentView.frame.origin = CGPoint(x: 0, y: bounds.size.height * -CGFloat(direction))
+            currentView.frame.origin = CGPoint(x: bounds.size.width * CGFloat(-direction), y: 0)
             scrollToView.frame.origin = CGPoint(x: 0, y: 0)
         }, completion: { [weak self] result in
             guard let self = self else { return }
@@ -115,7 +134,44 @@ private extension OnboardingView {
             
             scrollToView.moveToThis()
             
-            self.currentSlide = slide
+            currentSlide = slide
+            stepsView.update(at: slide)
         })
+    }
+}
+
+// MARK: Make constraints
+private extension OnboardingView {
+    func makeConstraints() {
+        NSLayoutConstraint.activate([
+            container.leadingAnchor.constraint(equalTo: leadingAnchor),
+            container.trailingAnchor.constraint(equalTo: trailingAnchor),
+            container.topAnchor.constraint(equalTo: topAnchor),
+            container.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            stepsView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12.scale),
+            stepsView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12.scale),
+            stepsView.heightAnchor.constraint(equalToConstant: 6.scale),
+            stepsView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 44.scale)
+        ])
+    }
+}
+
+// MARK: Lazy initialization
+private extension OnboardingView {
+    func makeContainer() -> UIView {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeStepsView() -> OStepsView {
+        let view = OStepsView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
     }
 }

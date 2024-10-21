@@ -11,6 +11,7 @@
 "Continue" = "Continue";
 "Next" = "Next";
 "Done" = "Done";
+"Skip" = "Skip";
 
 // MARK: ImagePicker
 "ImagePicker.TakePhoto" = "Take a photo";
@@ -49,3 +50,29 @@
 
 // MARK: Splash
 "Splash.Preloader" = "Loading...";
+
+// MARK: Onboarding
+"Onboarding.Disclaimer.Title" = "Disclaimer";
+"Onboarding.Disclaimer.Text1" = "The information provided in this application ";
+"Onboarding.Disclaimer.Text2" = "MUST NOT";
+"Onboarding.Disclaimer.Text3" = " be regarded as a replacement for a professional medical advice. All of the medical decisions you make ";
+"Onboarding.Disclaimer.Text4" = "SHOULD BE ADVISED BY A QUALIFIED DOCTOR";
+"Onboarding.Disclaimer.Text5" = " who is able to take all of your conditions into account.";
+"Onboarding.BottomInfo1" = "The information provided in the app ";
+"Onboarding.BottomInfo2" = "MUST NOT";
+"Onboarding.BottomInfo3" = " be regarded as a replacement for a professional medical advice. Read more. ";
+"Onboarding.BottomInfo4" = "Read more";
+"Onboarding.ScanScin.Title" = "Scan Your Skin";
+"Onboarding.ScanScin.Text" = "Analyse your skin condition instantly with our AI-powered scanner";
+"Onboarding.ExploreSkinInsights.Title" = "Explore Skin Insights";
+"Onboarding.ExploreSkinInsights.Text" = "Learn about skin health, diseases, and treatments with expert guidance.";
+"Onboarding.StayOnTrack.Title" = "Stay on Track";
+"Onboarding.StayOnTrack.Text" = "Set reminders for medicaments and skin rescans";
+"Onboarding.Chat.Title" = "Chat with SkinBot";
+"Onboarding.Chat.Text" = "Ask any skin care question and get instant answers";
+
+// MARK: Disclaimer
+"Disclaimer.Title" = "Disclaimer";
+"Disclaimer.Text" = "The information provided in this application MUST NOT be regarded as a replacement for a professional medical advice. All of the medical decisions you make SHOULD BE ADVISED BY A QUALIFIED DOCTOR who is able to take all of your conditions into account.";
+"Disclaimer.Text.Bold1" = "MUST NOT";
+"Disclaimer.Text.Bold2" = "SHOULD BE ADVISED BY A QUALIFIED DOCTOR";

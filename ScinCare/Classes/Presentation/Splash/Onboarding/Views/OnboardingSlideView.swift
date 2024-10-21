@@ -10,6 +10,8 @@ import UIKit
 protocol OnboardingSlideViewDelete: AnyObject {
     func slideViewDidNext(from slide: OnboardingView.Slide)
     func slideViewDidBack(from slide: OnboardingView.Slide)
+    func slideViewSkip()
+    func slideViewDidTapReadMore()
 }
 
 class OnboardingSlideView: UIView {
@@ -37,5 +39,15 @@ class OnboardingSlideView: UIView {
     @objc
     func onBack() {
         delegate?.slideViewDidBack(from: slide)
+    }
+    
+    @objc
+    func onSkip() {
+        delegate?.slideViewSkip()
+    }
+    
+    @objc
+    func onReadMore() {
+        delegate?.slideViewDidTapReadMore()
     }
 }
