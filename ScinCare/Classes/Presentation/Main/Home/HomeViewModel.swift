@@ -11,6 +11,7 @@ import RxCocoa
 final class HomeViewModel {
     enum Route {
         case menu
+        case catalogs(CatalogsViewController.Item)
     }
 }
 
@@ -29,7 +30,10 @@ extension HomeViewModel {
     func configure(input: Input) -> Output {
         Output(
             elements: makeElements(),
-            route: makeRoute(didTapMenu: input.didTapMenu)
+            route: makeRoute(
+                didTapMenu: input.didTapMenu,
+                didTapExplore: input.didTapExplore
+            )
         )
     }
 }
@@ -44,12 +48,28 @@ private extension HomeViewModel {
         }
     }
     
-    func makeRoute(didTapMenu: Signal<Void>) -> Driver<Route> {
+    func makeRoute(
+        didTapMenu: Signal<Void>,
+        didTapExplore: Signal<HomeExploreItemButton.Item>
+    ) -> Driver<Route> {
         let menu = didTapMenu
             .map { Route.menu }
             .asDriver(onErrorDriveWith: .never())
         
+        let catalogs = didTapExplore
+            .map { item -> Route in
+                switch item {
+                case .glossary:
+                    return .catalogs(.glossary)
+                case .procedures:
+                    return .catalogs(.procedure)
+                case .disease:
+                    return .catalogs(.disease)
+                }
+            }
+            .asDriver(onErrorDriveWith: .never())
+        
         return Driver
-            .merge(menu)
+            .merge(menu, catalogs)
     }
 }

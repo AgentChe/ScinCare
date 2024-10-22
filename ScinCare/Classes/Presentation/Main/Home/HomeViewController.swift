@@ -57,6 +57,9 @@ private extension HomeViewController {
         case .menu:
             let vc = MenuViewController.make()
             navigationController?.pushViewController(vc, animated: true)
+        case .catalogs(let item):
+            let vc = CatalogsViewController.make(item: item)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

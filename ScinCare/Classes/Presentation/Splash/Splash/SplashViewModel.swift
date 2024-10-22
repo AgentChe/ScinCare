@@ -17,7 +17,7 @@ final class SplashViewModel {
     
     private lazy var sessionManager = SessionManager()
     private lazy var profileManager = ProfileManager()
-    private lazy var assistantManager = AssistantManager()
+    private lazy var catalogManager = CatalogManager()
     
     private lazy var observableRetrySingle = ObservableRetrySingle()
 }
@@ -63,15 +63,23 @@ private extension SplashViewModel {
             .flatMapLatest { [weak self] void -> Signal<Void> in
                 guard let self else { return .never() }
                 
-                let languages = assistantManager
-                    .obtainLanaguages(forceUpdate: true)
+                let glossaries = catalogManager
+                    .obtainGlossaries(forceUpdate: true)
                     .asSignal(onErrorJustReturn: [])
-                    .map { languages -> Void in Void() }
+                    .map { glossaries -> Void in Void() }
+                
+                let procedures = catalogManager
+                    .obtainProcedures(forceUpdate: true)
+                    .asSignal(onErrorJustReturn: [])
+                    .map { procedures -> Void in Void() }
+                
+                let diseases = catalogManager
+                    .obtainDiseases(forceUpdate: true)
+                    .asSignal(onErrorJustReturn: [])
+                    .map { diseases -> Void in Void() }
                 
                 return Signal
-                    .merge([
-                        languages
-                    ])
+                    .merge([glossaries, procedures, diseases])
             }
     }
     
@@ -84,7 +92,12 @@ private extension SplashViewModel {
                     let anonymousId = sessionManager.anonymousId
                     let internalId = sessionManager.internalId
                     
-                    return (anonymousId == internalId) ? profileManager.create() : profileManager.binding()
+                    let scinCare = (anonymousId == internalId) ? profileManager.create() : profileManager.binding()
+                    let dermatology = (anonymousId == internalId) ? profileManager.dermatologyLogin() : profileManager.dermatologySyncTokens()
+                    
+                    return Single
+                        .zip(scinCare, dermatology)
+                        .mapToVoid()
                 }
                 
                 func trigger(error: Error) -> Observable<Void> {

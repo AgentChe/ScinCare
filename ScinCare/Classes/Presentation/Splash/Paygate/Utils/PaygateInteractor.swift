@@ -22,6 +22,7 @@ final class PaygateInteractor {
     
     private lazy var iapManager = IAPManager()
     private lazy var sessionManager = SessionManager()
+    private lazy var profileManager = ProfileManager()
     
     private lazy var disposables = [Disposable]()
     
@@ -73,9 +74,28 @@ extension PaygateInteractor: OtterScaleReceiptValidationDelegate {
     func otterScaleDidValidatedReceipt(with result: AppStoreValidateResult?) {
         OtterScale.shared.removeReceiptValidation(delegate: self)
         
-        let hasActiveSubscriptions = sessionManager.hasActiveSubscriptions()
-        let callbackResult = PurchaseActionResult.completed(hasActiveSubscriptions)
-        callback.accept(callbackResult)
+        let complete: Single<Void> = {
+            let anonymousId = sessionManager.anonymousId
+            let internalId = sessionManager.internalId
+        
+            let scinCare = (anonymousId == internalId) ? profileManager.create() : profileManager.binding()
+            let dermatology = (anonymousId == internalId) ? profileManager.dermatologyLogin() : profileManager.dermatologySyncTokens()
+        
+            return Single
+                .zip(scinCare, dermatology)
+                .mapToVoid()
+                .catchAndReturn(())
+        }()
+        
+        let disposable = complete.subscribe(onSuccess: { [weak self] in
+            guard let self else { return }
+            
+            let hasActiveSubscriptions = sessionManager.hasActiveSubscriptions()
+            let callbackResult = PurchaseActionResult.completed(hasActiveSubscriptions)
+            callback.accept(callbackResult)
+        })
+        
+        disposables.append(disposable)
     }
 }
 

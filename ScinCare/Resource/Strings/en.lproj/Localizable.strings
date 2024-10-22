@@ -93,3 +93,9 @@
 "Menu.TermsOfUse" = "Terms of Use";
 "Menu.PrivacyPolicy" = "Privacy Policy";
 "Menu.Support" = "Support";
+
+// MARK: Catalogs
+"Catalogs.Diseases.Title" = "Disease Guide";
+"Catalogs.Procedures.Title" = "Procedures Guide";
+"Catalogs.Glossaries.Title" = "Glossary";
+"Catalogs.Search" = "Search";

@@ -11,6 +11,8 @@ import RxCocoa
 protocol ProfileManagerProtocol: AnyObject {
     func create() -> Single<Void>
     func binding() -> Single<Void>
+    func dermatologySyncTokens() -> Single<Void>
+    func dermatologyLogin() -> Single<Void>
 }
 
 final class ProfileManager {
@@ -37,6 +39,25 @@ extension ProfileManager: ProfileManagerProtocol {
             anonymousId: sessionManager.anonymousId,
             internalId: sessionManager.internalId
         )
+        
+        return restApiTransport
+            .callServerApi(requestBody: request)
+            .mapToVoid()
+    }
+    
+    func dermatologySyncTokens() -> Single<Void> {
+        let request = DermatologySyncTokensRequest(
+            oldToken: sessionManager.anonymousId,
+            newToken: sessionManager.internalId
+        )
+        
+        return restApiTransport
+            .callServerApi(requestBody: request)
+            .mapToVoid()
+    }
+    
+    func dermatologyLogin() -> Single<Void> {
+        let request = DermatologyLoginRequest(userToken: sessionManager.internalId)
         
         return restApiTransport
             .callServerApi(requestBody: request)

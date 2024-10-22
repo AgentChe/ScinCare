@@ -12,6 +12,9 @@ final class GlobalDefinitions {
     static let domain = "https://science.camplain-apps.com"
     static let apiKey = "zMvSnNSvO7NMJbdviV"
     
+    static let dermatologyDomain = "https://dermatology.awesum-apps.com"
+    static let dermatologyApiKey = "7LexM8IGOSmIrpEimANw"
+    
     static let otterScaleHost = "https://api.korrekted.com"
     static let otterScaleApiKey = "6ShpjkA5kIKzBA48"
     
