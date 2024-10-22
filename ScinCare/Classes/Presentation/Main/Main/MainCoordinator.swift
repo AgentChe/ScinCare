@@ -10,7 +10,7 @@ import UIKit
 final class MainCoordinator {
     weak var parentVC: MainViewController?
     
-    lazy var homeVC = NavigationController(rootViewController: UIViewController())
+    lazy var homeVC = NavigationController(rootViewController: HomeViewController.make())
     lazy var favoritesVC = NavigationController(rootViewController: UIViewController())
     lazy var calendarVC = NavigationController(rootViewController: UIViewController())
     lazy var chatVC = NavigationController(rootViewController: UIViewController())

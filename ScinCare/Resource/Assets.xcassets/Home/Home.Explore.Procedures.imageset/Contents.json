@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "drugs.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

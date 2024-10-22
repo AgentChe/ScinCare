@@ -125,6 +125,17 @@
 		DEFD3AEB2CC63227007050EF /* OChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3AEA2CC63227007050EF /* OChatView.swift */; };
 		DEFD3AEE2CC63BD3007050EF /* DisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3AED2CC63BD3007050EF /* DisclaimerViewController.swift */; };
 		DEFD3AF02CC63BDA007050EF /* DisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3AEF2CC63BDA007050EF /* DisclaimerView.swift */; };
+		DEFD3AF32CC67709007050EF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3AF22CC67709007050EF /* HomeViewController.swift */; };
+		DEFD3AF52CC67710007050EF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3AF42CC67710007050EF /* HomeViewModel.swift */; };
+		DEFD3AF72CC67714007050EF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3AF62CC67714007050EF /* HomeView.swift */; };
+		DEFD3AFB2CC679BC007050EF /* HomeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3AFA2CC679BC007050EF /* HomeCollectionView.swift */; };
+		DEFD3AFD2CC679E4007050EF /* HomeCollectionElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3AFC2CC679E4007050EF /* HomeCollectionElement.swift */; };
+		DEFD3B002CC679F8007050EF /* HomeExploreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3AFF2CC679F8007050EF /* HomeExploreCell.swift */; };
+		DEFD3B032CC78B98007050EF /* HomeExploreItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B022CC78B98007050EF /* HomeExploreItemButton.swift */; };
+		DEFD3B062CC79635007050EF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B052CC79635007050EF /* MenuViewController.swift */; };
+		DEFD3B082CC7963A007050EF /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B072CC7963A007050EF /* MenuViewModel.swift */; };
+		DEFD3B0A2CC7963E007050EF /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B092CC7963E007050EF /* MenuView.swift */; };
+		DEFD3B0E2CC797A3007050EF /* MenuRouteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B0D2CC797A3007050EF /* MenuRouteButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -250,6 +261,17 @@
 		DEFD3AEA2CC63227007050EF /* OChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OChatView.swift; sourceTree = "<group>"; };
 		DEFD3AED2CC63BD3007050EF /* DisclaimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerViewController.swift; sourceTree = "<group>"; };
 		DEFD3AEF2CC63BDA007050EF /* DisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerView.swift; sourceTree = "<group>"; };
+		DEFD3AF22CC67709007050EF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DEFD3AF42CC67710007050EF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		DEFD3AF62CC67714007050EF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		DEFD3AFA2CC679BC007050EF /* HomeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionView.swift; sourceTree = "<group>"; };
+		DEFD3AFC2CC679E4007050EF /* HomeCollectionElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionElement.swift; sourceTree = "<group>"; };
+		DEFD3AFF2CC679F8007050EF /* HomeExploreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExploreCell.swift; sourceTree = "<group>"; };
+		DEFD3B022CC78B98007050EF /* HomeExploreItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExploreItemButton.swift; sourceTree = "<group>"; };
+		DEFD3B052CC79635007050EF /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		DEFD3B072CC7963A007050EF /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		DEFD3B092CC7963E007050EF /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		DEFD3B0D2CC797A3007050EF /* MenuRouteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRouteButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -480,6 +502,8 @@
 		DEFD399B2CC62541007050EF /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				DEFD3B042CC7962C007050EF /* Menu */,
+				DEFD3AF12CC676FF007050EF /* Home */,
 				DEFD399A2CC62541007050EF /* Main */,
 			);
 			path = Main;
@@ -752,6 +776,71 @@
 			path = Disclaimer;
 			sourceTree = "<group>";
 		};
+		DEFD3AF12CC676FF007050EF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD3AF82CC679B0007050EF /* Views */,
+				DEFD3AF22CC67709007050EF /* HomeViewController.swift */,
+				DEFD3AF42CC67710007050EF /* HomeViewModel.swift */,
+				DEFD3AF62CC67714007050EF /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DEFD3AF82CC679B0007050EF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD3AF92CC679B4007050EF /* CollectionView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEFD3AF92CC679B4007050EF /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD3AFE2CC679E7007050EF /* Cells */,
+				DEFD3AFA2CC679BC007050EF /* HomeCollectionView.swift */,
+				DEFD3AFC2CC679E4007050EF /* HomeCollectionElement.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		DEFD3AFE2CC679E7007050EF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD3B012CC78B8C007050EF /* Atoms */,
+				DEFD3AFF2CC679F8007050EF /* HomeExploreCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DEFD3B012CC78B8C007050EF /* Atoms */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD3B022CC78B98007050EF /* HomeExploreItemButton.swift */,
+			);
+			path = Atoms;
+			sourceTree = "<group>";
+		};
+		DEFD3B042CC7962C007050EF /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD3B0C2CC79791007050EF /* Views */,
+				DEFD3B052CC79635007050EF /* MenuViewController.swift */,
+				DEFD3B072CC7963A007050EF /* MenuViewModel.swift */,
+				DEFD3B092CC7963E007050EF /* MenuView.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		DEFD3B0C2CC79791007050EF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD3B0D2CC797A3007050EF /* MenuRouteButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		FE04B705B3CA285A65D0E513 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -898,6 +987,7 @@
 				DEFD3A332CC62541007050EF /* PaygateEnableTrialButton.swift in Sources */,
 				DEFD3A342CC62541007050EF /* TabView.swift in Sources */,
 				DEFD3A372CC62541007050EF /* IAPProduct.swift in Sources */,
+				DEFD3B0E2CC797A3007050EF /* MenuRouteButton.swift in Sources */,
 				DEFD3A382CC62541007050EF /* UIColor+Extension.swift in Sources */,
 				DEFD3A392CC62541007050EF /* PaddingTextField.swift in Sources */,
 				DEFD3A3A2CC62541007050EF /* AssistantAnalyzeImageResponse.swift in Sources */,
@@ -923,11 +1013,13 @@
 				DEFD3A632CC62541007050EF /* SessionManager.swift in Sources */,
 				DEFD3AEE2CC63BD3007050EF /* DisclaimerViewController.swift in Sources */,
 				DEFD3A642CC62541007050EF /* IAPError.swift in Sources */,
+				DEFD3B062CC79635007050EF /* MenuViewController.swift in Sources */,
 				DEFD3A652CC62541007050EF /* Page.swift in Sources */,
 				DEFD3AF02CC63BDA007050EF /* DisclaimerView.swift in Sources */,
 				DEFD3A6C2CC62541007050EF /* IAPManager.swift in Sources */,
 				DEFD3A6D2CC62541007050EF /* AssistantHelpfulRequest.swift in Sources */,
 				DEFD3A6E2CC62541007050EF /* NetworkError.swift in Sources */,
+				DEFD3B0A2CC7963E007050EF /* MenuView.swift in Sources */,
 				DEFD3A702CC62541007050EF /* MainCoordinator.swift in Sources */,
 				DEFD3A712CC62541007050EF /* UIView+RxExtension.swift in Sources */,
 				DEFD3A722CC62541007050EF /* SplashViewController.swift in Sources */,
@@ -940,19 +1032,26 @@
 				DEFD3A7B2CC62541007050EF /* PaygateInfoCell.swift in Sources */,
 				DEFD3A7C2CC62541007050EF /* PaygateViewModel.swift in Sources */,
 				DEFD3A7D2CC62541007050EF /* MainViewController.swift in Sources */,
+				DEFD3B082CC7963A007050EF /* MenuViewModel.swift in Sources */,
 				DEFD3A7E2CC62541007050EF /* AppDelegate.swift in Sources */,
 				DEFD3AE72CC631F3007050EF /* OExploreSkinInsightsView.swift in Sources */,
 				DEFD3AE32CC6317C007050EF /* ODisclaimerView.swift in Sources */,
 				DEFD3A822CC62541007050EF /* Collection+Extension.swift in Sources */,
+				DEFD3AFB2CC679BC007050EF /* HomeCollectionView.swift in Sources */,
+				DEFD3B032CC78B98007050EF /* HomeExploreItemButton.swift in Sources */,
 				DEFD3A832CC62541007050EF /* Currency.swift in Sources */,
 				DEFD3A852CC62541007050EF /* SplashViewModel.swift in Sources */,
+				DEFD3AF52CC67710007050EF /* HomeViewModel.swift in Sources */,
 				DEFD3A862CC62541007050EF /* SplashView.swift in Sources */,
 				DEFD3A872CC62541007050EF /* PaddingLabel.swift in Sources */,
 				DEFD3A882CC62541007050EF /* PurchaseValidationObserver.swift in Sources */,
+				DEFD3AFD2CC679E4007050EF /* HomeCollectionElement.swift in Sources */,
 				DEFD3A892CC62541007050EF /* RxActivityIndicator.swift in Sources */,
 				DEFD3A8A2CC62541007050EF /* AssistantHistoryRequest.swift in Sources */,
 				DEFD3A8F2CC62541007050EF /* PaygateBestOfferView.swift in Sources */,
+				DEFD3AF72CC67714007050EF /* HomeView.swift in Sources */,
 				DEFD3A902CC62541007050EF /* UITapGestureRecognizer+Extension.swift in Sources */,
+				DEFD3AF32CC67709007050EF /* HomeViewController.swift in Sources */,
 				DEFD3A912CC62541007050EF /* AssistantAnalyzeManualWritingRequest.swift in Sources */,
 				DEFD3A932CC62541007050EF /* SplashReceiptValidationObserver.swift in Sources */,
 				DEFD3A952CC62541007050EF /* NumberLaunches.swift in Sources */,
@@ -989,6 +1088,7 @@
 				DEFD3ABB2CC62541007050EF /* MainView.swift in Sources */,
 				DEFD3ABF2CC62541007050EF /* TabItemButton.swift in Sources */,
 				DEFD3AC22CC62541007050EF /* OnboardingViewController.swift in Sources */,
+				DEFD3B002CC679F8007050EF /* HomeExploreCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

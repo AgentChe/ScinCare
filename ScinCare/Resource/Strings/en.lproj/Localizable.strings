@@ -76,3 +76,20 @@
 "Disclaimer.Text" = "The information provided in this application MUST NOT be regarded as a replacement for a professional medical advice. All of the medical decisions you make SHOULD BE ADVISED BY A QUALIFIED DOCTOR who is able to take all of your conditions into account.";
 "Disclaimer.Text.Bold1" = "MUST NOT";
 "Disclaimer.Text.Bold2" = "SHOULD BE ADVISED BY A QUALIFIED DOCTOR";
+
+// MARK: Home
+"Home.Title" = "AI Skin Scanner";
+"Home.Explore.Title" = "Explore";
+"Home.Explore.Procedures.Title" = "Procedures";
+"Home.Explore.Procedures.Text" = "A concise glossary of essential procedures";
+"Home.Explore.Disease.Title" = "Disease";
+"Home.Explore.Disease.Text" = "Discover an extensive guide ";
+"Home.Explore.Glossary.Title" = "Glossary";
+"Home.Explore.Glossary.Text" = "A compilation of key terms ";
+
+// MARK: Menu
+"Menu.Title" = "Menu";
+"Menu.Disclaimer" = "Disclaimer";
+"Menu.TermsOfUse" = "Terms of Use";
+"Menu.PrivacyPolicy" = "Privacy Policy";
+"Menu.Support" = "Support";
