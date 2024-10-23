@@ -78,9 +78,18 @@ private extension CatalogsViewController {
                 let vc = PaygateViewController.make()
                 present(vc, animated: true)
             } else {
-                // TODO
-//                let vc = TermViewController.make(term: element.term)
-//                navigationController?.pushViewController(vc, animated: true)
+                let detailsItem: CatalogDetailsViewController.Item = {
+                    switch item {
+                    case .glossary:
+                        return .glossary
+                    case .procedure:
+                        return .procedure
+                    case .disease:
+                        return .disease
+                    }
+                }()
+                let vc = CatalogDetailsViewController.make(item: detailsItem, catalog: element.catalog)
+                navigationController?.pushViewController(vc, animated: true)
             }
         }
     }

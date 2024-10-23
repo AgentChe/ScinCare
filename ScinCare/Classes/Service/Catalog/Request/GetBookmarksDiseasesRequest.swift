@@ -11,7 +11,7 @@ struct GetBookmarksDiseasesRequest: APIRequestBody {
     let userToken: String
 
     var url: String {
-        GlobalDefinitions.domain + "/api/disease/bookmarks"
+        GlobalDefinitions.dermatologyDomain + "/api/disease/bookmarks"
     }
     
     var method: HTTPMethod {
@@ -20,7 +20,7 @@ struct GetBookmarksDiseasesRequest: APIRequestBody {
     
     var parameters: Parameters? {
         [
-            "_api_key": GlobalDefinitions.apiKey,
+            "_api_key": GlobalDefinitions.dermatologyApiKey,
             "_user_token": userToken
         ]
     }

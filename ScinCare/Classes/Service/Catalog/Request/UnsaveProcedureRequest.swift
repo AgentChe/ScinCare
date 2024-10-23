@@ -12,7 +12,7 @@ struct UnsaveProcedureRequest: APIRequestBody {
     let ids: [Int]
 
     var url: String {
-        GlobalDefinitions.domain + "/api/procedure/unsave"
+        GlobalDefinitions.dermatologyDomain + "/api/procedure/unsave"
     }
     
     var method: HTTPMethod {
@@ -21,7 +21,7 @@ struct UnsaveProcedureRequest: APIRequestBody {
     
     var parameters: Parameters? {
         [
-            "_api_key": GlobalDefinitions.apiKey,
+            "_api_key": GlobalDefinitions.dermatologyApiKey,
             "_user_token": userToken,
             "procedures_ids": ids
         ]

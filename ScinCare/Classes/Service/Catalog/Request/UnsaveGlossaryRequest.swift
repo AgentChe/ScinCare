@@ -12,7 +12,7 @@ struct UnsaveGlossaryRequest: APIRequestBody {
     let ids: [Int]
 
     var url: String {
-        GlobalDefinitions.domain + "/api/dermatologic_term/unsave"
+        GlobalDefinitions.dermatologyDomain + "/api/dermatologic_term/unsave"
     }
     
     var method: HTTPMethod {
@@ -21,7 +21,7 @@ struct UnsaveGlossaryRequest: APIRequestBody {
     
     var parameters: Parameters? {
         [
-            "_api_key": GlobalDefinitions.apiKey,
+            "_api_key": GlobalDefinitions.dermatologyApiKey,
             "_user_token": userToken,
             "dermatologic_terms": ids
         ]

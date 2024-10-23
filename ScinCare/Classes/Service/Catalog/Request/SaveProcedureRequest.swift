@@ -12,7 +12,7 @@ struct SaveProcedureRequest: APIRequestBody {
     let id: Int
 
     var url: String {
-        GlobalDefinitions.domain + "/api/procedure/save"
+        GlobalDefinitions.dermatologyDomain + "/api/procedure/save"
     }
     
     var method: HTTPMethod {
@@ -21,7 +21,7 @@ struct SaveProcedureRequest: APIRequestBody {
     
     var parameters: Parameters? {
         [
-            "_api_key": GlobalDefinitions.apiKey,
+            "_api_key": GlobalDefinitions.dermatologyApiKey,
             "_user_token": userToken,
             "procedure_id": id
         ]

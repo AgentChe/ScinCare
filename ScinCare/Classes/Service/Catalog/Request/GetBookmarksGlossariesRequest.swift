@@ -11,7 +11,7 @@ struct GetBookmarksGlossariesRequest: APIRequestBody {
     let userToken: String
 
     var url: String {
-        GlobalDefinitions.domain + "/api/dermatologic_term/bookmarks"
+        GlobalDefinitions.dermatologyDomain + "/api/dermatologic_term/bookmarks"
     }
     
     var method: HTTPMethod {
@@ -20,7 +20,7 @@ struct GetBookmarksGlossariesRequest: APIRequestBody {
     
     var parameters: Parameters? {
         [
-            "_api_key": GlobalDefinitions.apiKey,
+            "_api_key": GlobalDefinitions.dermatologyApiKey,
             "_user_token": userToken
         ]
     }

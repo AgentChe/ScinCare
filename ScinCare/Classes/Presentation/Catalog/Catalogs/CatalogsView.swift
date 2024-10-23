@@ -89,7 +89,6 @@ private extension CatalogsView {
         addSubview(view)
         return view
     }
-
     
     func makeSearchField() -> CatalogsSearchField {
         let view = CatalogsSearchField()

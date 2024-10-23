@@ -140,6 +140,17 @@
 		DEFD3B4D2CC7B479007050EF /* CatalogsSearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B4C2CC7B479007050EF /* CatalogsSearchField.swift */; };
 		DEFD3B4F2CC7CCAD007050EF /* DermatologyLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B4E2CC7CCAD007050EF /* DermatologyLoginRequest.swift */; };
 		DEFD3B512CC7CCD3007050EF /* DermatologySyncTokensRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B502CC7CCD3007050EF /* DermatologySyncTokensRequest.swift */; };
+		DEFD3B542CC8DEF7007050EF /* CatalogDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B532CC8DEF7007050EF /* CatalogDetailsViewController.swift */; };
+		DEFD3B562CC8DF00007050EF /* CatalogDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B552CC8DF00007050EF /* CatalogDetailsViewModel.swift */; };
+		DEFD3B582CC8DF04007050EF /* CatalogDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B572CC8DF04007050EF /* CatalogDetailsView.swift */; };
+		DEFD3B5C2CC8DF4B007050EF /* CDTableTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B5B2CC8DF4B007050EF /* CDTableTitleCell.swift */; };
+		DEFD3B5E2CC8DF54007050EF /* CDTableSeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B5D2CC8DF54007050EF /* CDTableSeparatorCell.swift */; };
+		DEFD3B602CC8DF5D007050EF /* CDTableTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B5F2CC8DF5D007050EF /* CDTableTextCell.swift */; };
+		DEFD3B622CC8DF64007050EF /* CDTableNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B612CC8DF64007050EF /* CDTableNameCell.swift */; };
+		DEFD3B642CC8DF6B007050EF /* CDTableSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B632CC8DF6B007050EF /* CDTableSectionCell.swift */; };
+		DEFD3B662CC8DF76007050EF /* CDTableImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B652CC8DF76007050EF /* CDTableImageCell.swift */; };
+		DEFD3B692CC8DF86007050EF /* CDTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B682CC8DF86007050EF /* CDTableView.swift */; };
+		DEFD3B6B2CC8DF8E007050EF /* CDTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B6A2CC8DF8E007050EF /* CDTableElement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -280,6 +291,17 @@
 		DEFD3B4C2CC7B479007050EF /* CatalogsSearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogsSearchField.swift; sourceTree = "<group>"; };
 		DEFD3B4E2CC7CCAD007050EF /* DermatologyLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DermatologyLoginRequest.swift; sourceTree = "<group>"; };
 		DEFD3B502CC7CCD3007050EF /* DermatologySyncTokensRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DermatologySyncTokensRequest.swift; sourceTree = "<group>"; };
+		DEFD3B532CC8DEF7007050EF /* CatalogDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDetailsViewController.swift; sourceTree = "<group>"; };
+		DEFD3B552CC8DF00007050EF /* CatalogDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDetailsViewModel.swift; sourceTree = "<group>"; };
+		DEFD3B572CC8DF04007050EF /* CatalogDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDetailsView.swift; sourceTree = "<group>"; };
+		DEFD3B5B2CC8DF4B007050EF /* CDTableTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTableTitleCell.swift; sourceTree = "<group>"; };
+		DEFD3B5D2CC8DF54007050EF /* CDTableSeparatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTableSeparatorCell.swift; sourceTree = "<group>"; };
+		DEFD3B5F2CC8DF5D007050EF /* CDTableTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTableTextCell.swift; sourceTree = "<group>"; };
+		DEFD3B612CC8DF64007050EF /* CDTableNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTableNameCell.swift; sourceTree = "<group>"; };
+		DEFD3B632CC8DF6B007050EF /* CDTableSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTableSectionCell.swift; sourceTree = "<group>"; };
+		DEFD3B652CC8DF76007050EF /* CDTableImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTableImageCell.swift; sourceTree = "<group>"; };
+		DEFD3B682CC8DF86007050EF /* CDTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTableView.swift; sourceTree = "<group>"; };
+		DEFD3B6A2CC8DF8E007050EF /* CDTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTableElement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -842,6 +864,7 @@
 		DEFD3B3C2CC7B2AB007050EF /* Catalog */ = {
 			isa = PBXGroup;
 			children = (
+				DEFD3B522CC8DEDD007050EF /* CatalogDetails */,
 				DEFD3B3D2CC7B306007050EF /* Catalogs */,
 			);
 			path = Catalog;
@@ -875,6 +898,48 @@
 				DEFD3B4A2CC7B362007050EF /* CatalogsTableCell.swift */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		DEFD3B522CC8DEDD007050EF /* CatalogDetails */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD3B592CC8DF25007050EF /* Views */,
+				DEFD3B532CC8DEF7007050EF /* CatalogDetailsViewController.swift */,
+				DEFD3B552CC8DF00007050EF /* CatalogDetailsViewModel.swift */,
+				DEFD3B572CC8DF04007050EF /* CatalogDetailsView.swift */,
+			);
+			path = CatalogDetails;
+			sourceTree = "<group>";
+		};
+		DEFD3B592CC8DF25007050EF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD3B5A2CC8DF29007050EF /* TableView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEFD3B5A2CC8DF29007050EF /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD3B672CC8DF7B007050EF /* Cells */,
+				DEFD3B682CC8DF86007050EF /* CDTableView.swift */,
+				DEFD3B6A2CC8DF8E007050EF /* CDTableElement.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DEFD3B672CC8DF7B007050EF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD3B5B2CC8DF4B007050EF /* CDTableTitleCell.swift */,
+				DEFD3B5D2CC8DF54007050EF /* CDTableSeparatorCell.swift */,
+				DEFD3B5F2CC8DF5D007050EF /* CDTableTextCell.swift */,
+				DEFD3B612CC8DF64007050EF /* CDTableNameCell.swift */,
+				DEFD3B632CC8DF6B007050EF /* CDTableSectionCell.swift */,
+				DEFD3B652CC8DF76007050EF /* CDTableImageCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		FE04B705B3CA285A65D0E513 /* Frameworks */ = {
@@ -1008,6 +1073,8 @@
 				DEFD3B1F2CC7A88E007050EF /* GetProceduresRequest.swift in Sources */,
 				DEFD3A1C2CC62541007050EF /* IAPActionResult.swift in Sources */,
 				DEFD3A1E2CC62541007050EF /* UIDevice+Extension.swift in Sources */,
+				DEFD3B642CC8DF6B007050EF /* CDTableSectionCell.swift in Sources */,
+				DEFD3B562CC8DF00007050EF /* CatalogDetailsViewModel.swift in Sources */,
 				DEFD3A1F2CC62541007050EF /* PaygateViewController.swift in Sources */,
 				DEFD3A232CC62541007050EF /* OnboardingSlideView.swift in Sources */,
 				DEFD3A282CC62541007050EF /* ProfileBindingRequest.swift in Sources */,
@@ -1020,8 +1087,10 @@
 				DEFD3A332CC62541007050EF /* PaygateEnableTrialButton.swift in Sources */,
 				DEFD3A342CC62541007050EF /* TabView.swift in Sources */,
 				DEFD3A372CC62541007050EF /* IAPProduct.swift in Sources */,
+				DEFD3B6B2CC8DF8E007050EF /* CDTableElement.swift in Sources */,
 				DEFD3B0E2CC797A3007050EF /* MenuRouteButton.swift in Sources */,
 				DEFD3A382CC62541007050EF /* UIColor+Extension.swift in Sources */,
+				DEFD3B602CC8DF5D007050EF /* CDTableTextCell.swift in Sources */,
 				DEFD3A392CC62541007050EF /* PaddingTextField.swift in Sources */,
 				DEFD3A3B2CC62541007050EF /* TryAgainViewController.swift in Sources */,
 				DEFD3B3F2CC7B318007050EF /* CatalogsViewController.swift in Sources */,
@@ -1029,6 +1098,7 @@
 				DEFD3A412CC62541007050EF /* OnboardingView.swift in Sources */,
 				DEFD3A422CC62541007050EF /* SceneDelegate.swift in Sources */,
 				DEFD3B472CC7B348007050EF /* CatalogsTableView.swift in Sources */,
+				DEFD3B542CC8DEF7007050EF /* CatalogDetailsViewController.swift in Sources */,
 				DEFD3B492CC7B34F007050EF /* CatalogsTableElement.swift in Sources */,
 				DEFD3A4A2CC62541007050EF /* PushNotificationsAuthorizationStatus.swift in Sources */,
 				DEFD3B1D2CC7A83E007050EF /* GetGlossariesRequest.swift in Sources */,
@@ -1052,6 +1122,7 @@
 				DEFD3AF02CC63BDA007050EF /* DisclaimerView.swift in Sources */,
 				DEFD3A6C2CC62541007050EF /* IAPManager.swift in Sources */,
 				DEFD3A6E2CC62541007050EF /* NetworkError.swift in Sources */,
+				DEFD3B582CC8DF04007050EF /* CatalogDetailsView.swift in Sources */,
 				DEFD3B0A2CC7963E007050EF /* MenuView.swift in Sources */,
 				DEFD3A702CC62541007050EF /* MainCoordinator.swift in Sources */,
 				DEFD3A712CC62541007050EF /* UIView+RxExtension.swift in Sources */,
@@ -1059,6 +1130,7 @@
 				DEFD3B2D2CC7AA7B007050EF /* SaveProcedureRequest.swift in Sources */,
 				DEFD3A732CC62541007050EF /* BranchManager.swift in Sources */,
 				DEFD3B172CC7A412007050EF /* Catalog.swift in Sources */,
+				DEFD3B662CC8DF76007050EF /* CDTableImageCell.swift in Sources */,
 				DEFD3B332CC7AAB8007050EF /* UnsaveDiseaseRequest.swift in Sources */,
 				DEFD3A752CC62541007050EF /* ImagePicker.swift in Sources */,
 				DEFD3AE52CC631DC007050EF /* OScanScinView.swift in Sources */,
@@ -1067,6 +1139,7 @@
 				DEFD3B152CC7A406007050EF /* CatalogDetails.swift in Sources */,
 				DEFD3A7B2CC62541007050EF /* PaygateInfoCell.swift in Sources */,
 				DEFD3A7C2CC62541007050EF /* PaygateViewModel.swift in Sources */,
+				DEFD3B692CC8DF86007050EF /* CDTableView.swift in Sources */,
 				DEFD3A7D2CC62541007050EF /* MainViewController.swift in Sources */,
 				DEFD3B082CC7963A007050EF /* MenuViewModel.swift in Sources */,
 				DEFD3A7E2CC62541007050EF /* AppDelegate.swift in Sources */,
@@ -1078,6 +1151,7 @@
 				DEFD3A822CC62541007050EF /* Collection+Extension.swift in Sources */,
 				DEFD3AFB2CC679BC007050EF /* HomeCollectionView.swift in Sources */,
 				DEFD3B032CC78B98007050EF /* HomeExploreItemButton.swift in Sources */,
+				DEFD3B5C2CC8DF4B007050EF /* CDTableTitleCell.swift in Sources */,
 				DEFD3B252CC7A955007050EF /* GetProcedureDetailsRequest.swift in Sources */,
 				DEFD3A832CC62541007050EF /* Currency.swift in Sources */,
 				DEFD3A852CC62541007050EF /* SplashViewModel.swift in Sources */,
@@ -1086,6 +1160,7 @@
 				DEFD3A872CC62541007050EF /* PaddingLabel.swift in Sources */,
 				DEFD3A882CC62541007050EF /* PurchaseValidationObserver.swift in Sources */,
 				DEFD3B4F2CC7CCAD007050EF /* DermatologyLoginRequest.swift in Sources */,
+				DEFD3B622CC8DF64007050EF /* CDTableNameCell.swift in Sources */,
 				DEFD3AFD2CC679E4007050EF /* HomeCollectionElement.swift in Sources */,
 				DEFD3B192CC7A462007050EF /* CatalogSection.swift in Sources */,
 				DEFD3A892CC62541007050EF /* RxActivityIndicator.swift in Sources */,
@@ -1117,6 +1192,7 @@
 				DEFD3AAE2CC62541007050EF /* ContentError.swift in Sources */,
 				DEFD3B352CC7AACF007050EF /* GetBookmarksGlossariesRequest.swift in Sources */,
 				DEFD3B412CC7B31E007050EF /* CatalogsViewModel.swift in Sources */,
+				DEFD3B5E2CC8DF54007050EF /* CDTableSeparatorCell.swift in Sources */,
 				DEFD3AB02CC62541007050EF /* Weak.swift in Sources */,
 				DEFD3AB12CC62541007050EF /* PaygateView.swift in Sources */,
 				DEFD3AB32CC62541007050EF /* IAPErrorHelper.swift in Sources */,
