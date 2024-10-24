@@ -151,6 +151,17 @@
 		DEFD3B662CC8DF76007050EF /* CDTableImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B652CC8DF76007050EF /* CDTableImageCell.swift */; };
 		DEFD3B692CC8DF86007050EF /* CDTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B682CC8DF86007050EF /* CDTableView.swift */; };
 		DEFD3B6B2CC8DF8E007050EF /* CDTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B6A2CC8DF8E007050EF /* CDTableElement.swift */; };
+		DEFD3B6E2CC9023E007050EF /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B6D2CC9023E007050EF /* BookmarksViewController.swift */; };
+		DEFD3B702CC90243007050EF /* BookmarksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B6F2CC90243007050EF /* BookmarksViewModel.swift */; };
+		DEFD3B722CC9024D007050EF /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B712CC9024D007050EF /* BookmarksView.swift */; };
+		DEFD3B762CC9026A007050EF /* BookmarksFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B752CC9026A007050EF /* BookmarksFilterView.swift */; };
+		DEFD3B782CC90273007050EF /* BookmarksFilterItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B772CC90273007050EF /* BookmarksFilterItemButton.swift */; };
+		DEFD3B7B2CC90622007050EF /* BookmarksTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B7A2CC90622007050EF /* BookmarksTableView.swift */; };
+		DEFD3B7D2CC9062E007050EF /* BookmarksTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B7C2CC9062E007050EF /* BookmarksTableElement.swift */; };
+		DEFD3B7F2CC90657007050EF /* BookmarksTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B7E2CC90657007050EF /* BookmarksTableCell.swift */; };
+		DEFD3B822CC90989007050EF /* BookmarksEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B812CC90989007050EF /* BookmarksEmptyView.swift */; };
+		DEFD3B862CCA7CDD007050EF /* CDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B852CCA7CDD007050EF /* CDBViewController.swift */; };
+		DEFD3B882CCA7CE4007050EF /* CDBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3B872CCA7CE4007050EF /* CDBView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -302,6 +313,17 @@
 		DEFD3B652CC8DF76007050EF /* CDTableImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTableImageCell.swift; sourceTree = "<group>"; };
 		DEFD3B682CC8DF86007050EF /* CDTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTableView.swift; sourceTree = "<group>"; };
 		DEFD3B6A2CC8DF8E007050EF /* CDTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTableElement.swift; sourceTree = "<group>"; };
+		DEFD3B6D2CC9023E007050EF /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		DEFD3B6F2CC90243007050EF /* BookmarksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewModel.swift; sourceTree = "<group>"; };
+		DEFD3B712CC9024D007050EF /* BookmarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksView.swift; sourceTree = "<group>"; };
+		DEFD3B752CC9026A007050EF /* BookmarksFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksFilterView.swift; sourceTree = "<group>"; };
+		DEFD3B772CC90273007050EF /* BookmarksFilterItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksFilterItemButton.swift; sourceTree = "<group>"; };
+		DEFD3B7A2CC90622007050EF /* BookmarksTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksTableView.swift; sourceTree = "<group>"; };
+		DEFD3B7C2CC9062E007050EF /* BookmarksTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksTableElement.swift; sourceTree = "<group>"; };
+		DEFD3B7E2CC90657007050EF /* BookmarksTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksTableCell.swift; sourceTree = "<group>"; };
+		DEFD3B812CC90989007050EF /* BookmarksEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksEmptyView.swift; sourceTree = "<group>"; };
+		DEFD3B852CCA7CDD007050EF /* CDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDBViewController.swift; sourceTree = "<group>"; };
+		DEFD3B872CCA7CE4007050EF /* CDBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDBView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -630,6 +652,7 @@
 		DEFD39E62CC62541007050EF /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DEFD3B6C2CC90232007050EF /* Bookmarks */,
 				DEFD3B3C2CC7B2AB007050EF /* Catalog */,
 				DEFD399B2CC62541007050EF /* Main */,
 				DEFD39E22CC62541007050EF /* Splash */,
@@ -942,6 +965,64 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		DEFD3B6C2CC90232007050EF /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD3B842CCA7CBD007050EF /* ConfirmDeleteBookmarks */,
+				DEFD3B832CCA7CAD007050EF /* Bookmarks */,
+			);
+			path = Bookmarks;
+			sourceTree = "<group>";
+		};
+		DEFD3B732CC9025D007050EF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD3B792CC9060C007050EF /* TableView */,
+				DEFD3B742CC90260007050EF /* Filter */,
+				DEFD3B812CC90989007050EF /* BookmarksEmptyView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEFD3B742CC90260007050EF /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD3B752CC9026A007050EF /* BookmarksFilterView.swift */,
+				DEFD3B772CC90273007050EF /* BookmarksFilterItemButton.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		DEFD3B792CC9060C007050EF /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD3B7A2CC90622007050EF /* BookmarksTableView.swift */,
+				DEFD3B7C2CC9062E007050EF /* BookmarksTableElement.swift */,
+				DEFD3B7E2CC90657007050EF /* BookmarksTableCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DEFD3B832CCA7CAD007050EF /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD3B732CC9025D007050EF /* Views */,
+				DEFD3B6D2CC9023E007050EF /* BookmarksViewController.swift */,
+				DEFD3B6F2CC90243007050EF /* BookmarksViewModel.swift */,
+				DEFD3B712CC9024D007050EF /* BookmarksView.swift */,
+			);
+			path = Bookmarks;
+			sourceTree = "<group>";
+		};
+		DEFD3B842CCA7CBD007050EF /* ConfirmDeleteBookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD3B852CCA7CDD007050EF /* CDBViewController.swift */,
+				DEFD3B872CCA7CE4007050EF /* CDBView.swift */,
+			);
+			path = ConfirmDeleteBookmarks;
+			sourceTree = "<group>";
+		};
 		FE04B705B3CA285A65D0E513 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1070,6 +1151,7 @@
 			files = (
 				DEFD3A182CC62541007050EF /* FacebookManager.swift in Sources */,
 				DEFD3A192CC62541007050EF /* SignError.swift in Sources */,
+				DEFD3B7F2CC90657007050EF /* BookmarksTableCell.swift in Sources */,
 				DEFD3B1F2CC7A88E007050EF /* GetProceduresRequest.swift in Sources */,
 				DEFD3A1C2CC62541007050EF /* IAPActionResult.swift in Sources */,
 				DEFD3A1E2CC62541007050EF /* UIDevice+Extension.swift in Sources */,
@@ -1110,9 +1192,11 @@
 				DEFD3B4B2CC7B362007050EF /* CatalogsTableCell.swift in Sources */,
 				DEFD3A592CC62541007050EF /* ObservableAndSingle+Extension.swift in Sources */,
 				DEFD3A5D2CC62541007050EF /* Scalable.swift in Sources */,
+				DEFD3B702CC90243007050EF /* BookmarksViewModel.swift in Sources */,
 				DEFD3B112CC7A39A007050EF /* CatalogManager.swift in Sources */,
 				DEFD3A5F2CC62541007050EF /* ProfileCreateRequest.swift in Sources */,
 				DEFD3A602CC62541007050EF /* PaygateActionsView.swift in Sources */,
+				DEFD3B762CC9026A007050EF /* BookmarksFilterView.swift in Sources */,
 				DEFD3B512CC7CCD3007050EF /* DermatologySyncTokensRequest.swift in Sources */,
 				DEFD3A612CC62541007050EF /* PaygateInfoView.swift in Sources */,
 				DEFD3A632CC62541007050EF /* SessionManager.swift in Sources */,
@@ -1125,6 +1209,7 @@
 				DEFD3B582CC8DF04007050EF /* CatalogDetailsView.swift in Sources */,
 				DEFD3B0A2CC7963E007050EF /* MenuView.swift in Sources */,
 				DEFD3A702CC62541007050EF /* MainCoordinator.swift in Sources */,
+				DEFD3B722CC9024D007050EF /* BookmarksView.swift in Sources */,
 				DEFD3A712CC62541007050EF /* UIView+RxExtension.swift in Sources */,
 				DEFD3A722CC62541007050EF /* SplashViewController.swift in Sources */,
 				DEFD3B2D2CC7AA7B007050EF /* SaveProcedureRequest.swift in Sources */,
@@ -1132,6 +1217,7 @@
 				DEFD3B172CC7A412007050EF /* Catalog.swift in Sources */,
 				DEFD3B662CC8DF76007050EF /* CDTableImageCell.swift in Sources */,
 				DEFD3B332CC7AAB8007050EF /* UnsaveDiseaseRequest.swift in Sources */,
+				DEFD3B882CCA7CE4007050EF /* CDBView.swift in Sources */,
 				DEFD3A752CC62541007050EF /* ImagePicker.swift in Sources */,
 				DEFD3AE52CC631DC007050EF /* OScanScinView.swift in Sources */,
 				DEFD3A782CC62541007050EF /* PaygateProductButton.swift in Sources */,
@@ -1146,6 +1232,7 @@
 				DEFD3B2F2CC7AA90007050EF /* UnsaveProcedureRequest.swift in Sources */,
 				DEFD3AE72CC631F3007050EF /* OExploreSkinInsightsView.swift in Sources */,
 				DEFD3B2B2CC7A9A3007050EF /* UnsaveGlossaryRequest.swift in Sources */,
+				DEFD3B7D2CC9062E007050EF /* BookmarksTableElement.swift in Sources */,
 				DEFD3B392CC7AB56007050EF /* GetBookmarksDiseasesRequest.swift in Sources */,
 				DEFD3AE32CC6317C007050EF /* ODisclaimerView.swift in Sources */,
 				DEFD3A822CC62541007050EF /* Collection+Extension.swift in Sources */,
@@ -1158,6 +1245,7 @@
 				DEFD3AF52CC67710007050EF /* HomeViewModel.swift in Sources */,
 				DEFD3A862CC62541007050EF /* SplashView.swift in Sources */,
 				DEFD3A872CC62541007050EF /* PaddingLabel.swift in Sources */,
+				DEFD3B6E2CC9023E007050EF /* BookmarksViewController.swift in Sources */,
 				DEFD3A882CC62541007050EF /* PurchaseValidationObserver.swift in Sources */,
 				DEFD3B4F2CC7CCAD007050EF /* DermatologyLoginRequest.swift in Sources */,
 				DEFD3B622CC8DF64007050EF /* CDTableNameCell.swift in Sources */,
@@ -1166,6 +1254,7 @@
 				DEFD3A892CC62541007050EF /* RxActivityIndicator.swift in Sources */,
 				DEFD3A8F2CC62541007050EF /* PaygateBestOfferView.swift in Sources */,
 				DEFD3B1B2CC7A46A007050EF /* CatalogBlock.swift in Sources */,
+				DEFD3B7B2CC90622007050EF /* BookmarksTableView.swift in Sources */,
 				DEFD3AF72CC67714007050EF /* HomeView.swift in Sources */,
 				DEFD3A902CC62541007050EF /* UITapGestureRecognizer+Extension.swift in Sources */,
 				DEFD3B232CC7A935007050EF /* GetGlossaryDetailsRequest.swift in Sources */,
@@ -1178,10 +1267,12 @@
 				DEFD3B292CC7A983007050EF /* SaveGlossaryRequest.swift in Sources */,
 				DEFD3A9C2CC62541007050EF /* RestAPITransport.swift in Sources */,
 				DEFD3A9D2CC62541007050EF /* GradientView.swift in Sources */,
+				DEFD3B782CC90273007050EF /* BookmarksFilterItemButton.swift in Sources */,
 				DEFD3B432CC7B322007050EF /* CatalogsView.swift in Sources */,
 				DEFD3AA02CC62541007050EF /* NavigationController.swift in Sources */,
 				DEFD3AA12CC62541007050EF /* ProductPrice.swift in Sources */,
 				DEFD3AA22CC62541007050EF /* TapAreaButton.swift in Sources */,
+				DEFD3B822CC90989007050EF /* BookmarksEmptyView.swift in Sources */,
 				DEFD3AA32CC62541007050EF /* GlobalDefinitions.swift in Sources */,
 				DEFD3AE12CC62E60007050EF /* OStepsView.swift in Sources */,
 				DEFD3AA42CC62541007050EF /* RequestReview.swift in Sources */,
@@ -1191,6 +1282,7 @@
 				DEFD3AAC2CC62541007050EF /* PushNotificationsManager.swift in Sources */,
 				DEFD3AAE2CC62541007050EF /* ContentError.swift in Sources */,
 				DEFD3B352CC7AACF007050EF /* GetBookmarksGlossariesRequest.swift in Sources */,
+				DEFD3B862CCA7CDD007050EF /* CDBViewController.swift in Sources */,
 				DEFD3B412CC7B31E007050EF /* CatalogsViewModel.swift in Sources */,
 				DEFD3B5E2CC8DF54007050EF /* CDTableSeparatorCell.swift in Sources */,
 				DEFD3AB02CC62541007050EF /* Weak.swift in Sources */,

@@ -99,3 +99,18 @@
 "Catalogs.Procedures.Title" = "Procedures Guide";
 "Catalogs.Glossaries.Title" = "Glossary";
 "Catalogs.Search" = "Search";
+
+// MARK: Bookmarks
+"Bookmarks.Title" = "Bookmark";
+"Bookmarks.Procedures" = "Procedures";
+"Bookmarks.Diseases" = "Disease";
+"Bookmarks.Glossaries" = "Glossary";
+"Bookmarks.ConfirmDelete.Title" = "Are you sure?";
+"Bookmarks.ConfirmDelete.Text" = "Do you really want to delete this bookmark?";
+"Bookmarks.ConfirmDelete.Remove" = "Remove";
+"Bookmarks.Empty.Procedures.Title" = "Nothing’s here yet";
+"Bookmarks.Empty.Procedures.SubTitle" = "Saved procedures will appear here";
+"Bookmarks.Empty.Disease.Title" = "Nothing’s here yet";
+"Bookmarks.Empty.Disease.SubTitle" = "Saved diseases will appear here";
+"Bookmarks.Empty.Glossary.Title" = "Nothing’s here yet";
+"Bookmarks.Empty.Glossary.SubTitle" = "Saved dermatologic terms will appear here";
