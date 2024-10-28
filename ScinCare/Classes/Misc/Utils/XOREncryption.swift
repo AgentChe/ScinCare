@@ -9,9 +9,7 @@ import Foundation
 
 final class XOREncryption {
     static func encryptDecrypt(_ input: String, key: String) -> String? {
-        guard !input.isEmpty else {
-            return nil
-        }
+        guard !input.isEmpty else { return nil }
         
         var decrypted = [UInt8]()
         
@@ -29,11 +27,10 @@ final class XOREncryption {
     
     static func toJSON(_ input: String, key: String) -> [String: Any]? {
         guard
-            let encryptDecrypt = encryptDecrypt(input, key: key),
+            let base64 = input.base64Decoded(),
+            let encryptDecrypt = encryptDecrypt(base64, key: key),
             let data = encryptDecrypt.data(using: .utf8)
-        else {
-            return nil
-        }
+        else { return nil }
         
         return try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
     }

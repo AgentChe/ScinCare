@@ -76,7 +76,7 @@ private extension TryAgainView {
             tryAgainButton.widthAnchor.constraint(equalToConstant: 343.scale),
             tryAgainButton.heightAnchor.constraint(equalToConstant: 54.scale),
             tryAgainButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            tryAgainButton.bottomAnchor.constraint(equalTo: contactButton.topAnchor)
+            tryAgainButton.bottomAnchor.constraint(equalTo: contactButton.topAnchor, constant: -8.scale)
         ])
         
         NSLayoutConstraint.activate([

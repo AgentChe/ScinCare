@@ -9,8 +9,8 @@ import Foundation
 
 // TODO
 final class GlobalDefinitions {
-    static let domain = "https://science.camplain-apps.com"
-    static let apiKey = "zMvSnNSvO7NMJbdviV"
+    static let domain = "https://skin.thinkaboutapps.com"
+    static let apiKey = "K9tK6iIQ4mZZNnWhs9c9y3DI"
     
     static let dermatologyDomain = "https://dermatology.awesum-apps.com"
     static let dermatologyApiKey = "7LexM8IGOSmIrpEimANw"
@@ -24,6 +24,8 @@ final class GlobalDefinitions {
     static let termsOfServiceUrl = URL(string: "https://camplain-apps.com/terms-of-use.html")!
     static let privacyPolicyUrl = URL(string: "https://camplain-apps.com/privacy-policy.html")!
     static let contactUsUrl = URL(string: "https://camplain-apps.com/contacts.html")!
+    
+    static let XORKey = "W4o24tt2bkUR"
     
     enum Paygate {
         static let yearly = "app.iphone.tracker.lifetime"

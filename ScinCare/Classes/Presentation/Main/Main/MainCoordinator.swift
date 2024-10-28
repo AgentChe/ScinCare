@@ -13,7 +13,7 @@ final class MainCoordinator {
     lazy var homeVC = NavigationController(rootViewController: HomeViewController.make())
     lazy var favoritesVC = NavigationController(rootViewController: BookmarksViewController.make())
     lazy var calendarVC = NavigationController(rootViewController: UIViewController())
-    lazy var chatVC = NavigationController(rootViewController: UIViewController())
+    lazy var chatVC = NavigationController(rootViewController: ChatViewController.make())
     
     private var previousVC: UIViewController?
     

@@ -18,8 +18,10 @@ final class SessionManager {}
 
 // MARK: SessionManagerProtocol
 extension SessionManager: SessionManagerProtocol {
+    // TODO
     var anonymousId: String {
-        OtterScale.shared.getAnonymousID()
+        "anon_id_39857398578"
+//        OtterScale.shared.getAnonymousID()
     }
     
     var internalId: String {

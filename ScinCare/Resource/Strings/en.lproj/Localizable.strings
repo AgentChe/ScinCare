@@ -114,3 +114,9 @@
 "Bookmarks.Empty.Disease.SubTitle" = "Saved diseases will appear here";
 "Bookmarks.Empty.Glossary.Title" = "Nothing’s here yet";
 "Bookmarks.Empty.Glossary.SubTitle" = "Saved dermatologic terms will appear here";
+
+// MARK: Chat
+"Chat.Title" = "AI Dermatologist";
+"Chat.Placeholder.Title" = "Ask the AI Dermatologist";
+"Chat.Placeholder.SubTitle" = "Type any skin question for instant answers";
+"Chat.Input.Placeholder" = "Type in your quiestion";
