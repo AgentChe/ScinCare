@@ -22,6 +22,7 @@ final class ChatViewModel {
     
     enum Action {
         case reset
+        case insertPage([ChatTableElement])
         case add([ChatTableElement])
         case removeAnswer(String)
         case startWaiting
@@ -29,6 +30,7 @@ final class ChatViewModel {
         case changeInput(DisplayInput)
         case clearInput
         case copy(String)
+        case lockSendMessage(Bool)
     }
     
     var tryAgain: ((Error) -> (Observable<Void>))?
@@ -73,7 +75,8 @@ extension ChatViewModel {
                 didSendMessage: input.didSendMessage,
                 didTapRegenerate: input.didTapRegenerate,
                 didTapCopy: input.didTapCopy,
-                didTapRefresh: input.didTapRefresh
+                didTapRefresh: input.didTapRefresh,
+                didScrollToTop: input.didScrollToTop
             )
         )
     }
@@ -113,7 +116,8 @@ private extension ChatViewModel {
         didSendMessage: Signal<DataForSendMessage>,
         didTapRegenerate: Signal<DataForSendMessage>,
         didTapCopy: Signal<String>,
-        didTapRefresh: Signal<ChatTableAnswerElement>
+        didTapRefresh: Signal<ChatTableAnswerElement>,
+        didScrollToTop: Signal<Void>
     ) -> Driver<Action> {
         let reset = mode
             .map { _ in Action.reset }
@@ -169,12 +173,18 @@ private extension ChatViewModel {
                         return .add([.answer(element)])
                     }
                 
-                let waiting = Driver<Action>
+                let loading = Driver<Bool>
                     .merge(
-                        sendMessageResponse.compactMap { $0 == nil ? nil : .startWaiting },
-                        didTapRefresh.map { _ in .startWaiting }.asDriver(onErrorDriveWith: .never()),
-                        answerMessageResponse.map { _ in .stopWaiting }
+                        sendMessageResponse.compactMap { $0 == nil ? nil : true },
+                        didTapRefresh.map { _ in true }.asDriver(onErrorDriveWith: .never()),
+                        answerMessageResponse.map { _ in false }
                     )
+                
+                let waiting = loading
+                    .map { $0 ? Action.startWaiting : Action.stopWaiting }
+                
+                let lockSendMessage = loading
+                    .map { Action.lockSendMessage($0) }
                 
                 let displayInput = Driver<DisplayInput>
                     .merge(
@@ -195,8 +205,35 @@ private extension ChatViewModel {
                     .map { Action.removeAnswer($0.message.messageId) }
                     .asDriver(onErrorDriveWith: .never())
                 
+                let historyPage = makeHistoryPage(
+                    mode: mode,
+                    didScrollToTop: didScrollToTop,
+                    chatId: chatId
+                )
+                
+                let historyElements = historyPage
+                    .map { $0.messages }
+                    .map { messages -> [ChatTableElement] in
+                        var elements = [ChatTableElement]()
+                        
+                        messages.reversed().forEach { message in
+                            switch message.role {
+                            case .user:
+                                if let imageUrl = message.imageUrl {
+                                    elements.append(.questionImageUrl(imageUrl))
+                                }
+                                elements.append(.questionText(message.content))
+                            case .assistant:
+                                elements.append(.historyAnswer(message))
+                            }
+                        }
+                        
+                        return elements
+                    }
+                    .map { Action.insertPage($0) }
+                
                 return Driver
-                    .merge(addQuestionInTable, addAnswerInTable, waiting, displayInput, removeAnswer)
+                    .merge(addQuestionInTable, addAnswerInTable, waiting, lockSendMessage, displayInput, removeAnswer, historyElements)
             }
         
         return Driver
@@ -274,5 +311,52 @@ private extension ChatViewModel {
                     )
                     .asDriver(onErrorDriveWith: .never())
             }
+    }
+    
+    func makeHistoryPage(mode: Driver<Mode>, didScrollToTop: Signal<Void>, chatId: Driver<String>) -> Driver<ChatMessagesPage> {
+        chatId
+            .withLatestFrom(mode) { ($0, $1) }
+            .flatMapLatest { [weak self] args -> Driver<ChatMessagesPage> in
+                let (chatId, mode) = args
+                
+                guard let self, mode.isHistory else { return .never() }
+                
+                var lastPage: ChatMessagesPage?
+                
+                func fetch(page: Int) -> Driver<ChatMessagesPage> {
+                    chatManager
+                        .messagesPage(chatId: chatId, page: page)
+                        .compactMap { $0 }
+                        .asDriver(onErrorDriveWith: .never())
+                        .do(onNext: { page in
+                            lastPage = page
+                        })
+                }
+                
+                let firstPage = fetch(page: 1)
+                
+                return firstPage
+                    .flatMapLatest { firstPage -> Driver<ChatMessagesPage> in
+                        didScrollToTop
+                            .compactMap { lastPage }
+                            .filter { (($0.page.current + 1) <= $0.page.total) && ($0.page.current != $0.page.total) }
+                            .flatMapFirst { lastPage -> Driver<ChatMessagesPage> in
+                                fetch(page: lastPage.page.current + 1)
+                            }
+                            .startWith(firstPage)
+                    }
+            }
+    }
+}
+
+// MARK: Additional
+private extension ChatViewModel.Mode {
+    var isHistory: Bool {
+        switch self {
+        case .history:
+            return true
+        case .newChat:
+            return false
+        }
     }
 }

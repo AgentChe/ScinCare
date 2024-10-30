@@ -120,6 +120,8 @@ private extension ChatViewController {
         switch action {
         case .reset:
             mainView.tableView.reset()
+        case .insertPage(let elements):
+            mainView.tableView.insert(elements: elements)
         case .add(let elements):
             mainView.tableView.add(elements: elements)
         case .removeAnswer(let messageId):
@@ -137,6 +139,8 @@ private extension ChatViewController {
             UIPasteboard.general.string = text
             
             mainView.makeToast("Chat.Copied.Toast".localized)
+        case .lockSendMessage(let lock):
+            mainView.inputField.sendButton.isEnabled = !lock
         }
     }
 }

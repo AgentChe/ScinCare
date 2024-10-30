@@ -43,6 +43,17 @@ extension ChatTableView {
         
         reloadData()
         
+        if self.elements.count == elements.count {
+            let index = IndexPath(row: self.elements.count - 1, section: 0)
+            scrollToRow(at: index, at: .bottom, animated: false)
+        } else {
+            let index = self.elements.count - elements.count
+            if elements.indices.contains(index) {
+                let indexPath = IndexPath(row: index, section: 0)
+                scrollToRow(at: indexPath, at: .bottom, animated: false)
+            }
+        }
+        
         didChangeElementsCountTrigger.accept(elements.count)
     }
     
@@ -50,6 +61,11 @@ extension ChatTableView {
         self.elements.append(contentsOf: elements)
         
         reloadData()
+        
+        if !self.elements.isEmpty {
+            let index = IndexPath(row: self.elements.count - 1, section: 0)
+            scrollToRow(at: index, at: .bottom, animated: false)
+        }
         
         didChangeElementsCountTrigger.accept(elements.count)
     }
@@ -154,6 +170,12 @@ extension ChatTableView: UITableViewDataSource {
 extension ChatTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            didScrollToTopTrigger.accept(Void())
+        }
     }
 }
 

@@ -97,7 +97,7 @@ private extension ChatsViewModel {
                 }
                 
                 return grouped
-                    .sorted(by: { $0.key < $1.key })
+                    .sorted(by: { $0.key > $1.key })
                     .map { date, chats -> ChatsTableSection in
                         ChatsTableSection(
                             title: Self.dateFormatter.string(from: date),
