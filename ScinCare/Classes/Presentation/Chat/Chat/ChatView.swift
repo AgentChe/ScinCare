@@ -9,9 +9,12 @@ import UIKit
 
 final class ChatView: UIView {
     lazy var titleLabel = makeTitleLabel()
+    lazy var startNewChatButton = makeStartNewChatButton()
     lazy var historyButton = makeHistoryButton()
     lazy var placeholderView = makePlaceholderView()
+    lazy var tableView = makeTableView()
     lazy var inputField = makeInputField()
+    lazy var regenerateView = makeRegenerateView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,6 +44,13 @@ private extension ChatView {
         ])
         
         NSLayoutConstraint.activate([
+            startNewChatButton.widthAnchor.constraint(equalToConstant: 24.scale),
+            startNewChatButton.heightAnchor.constraint(equalToConstant: 24.scale),
+            startNewChatButton.trailingAnchor.constraint(equalTo: historyButton.leadingAnchor, constant: -16.scale),
+            startNewChatButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
             historyButton.widthAnchor.constraint(equalToConstant: 24.scale),
             historyButton.heightAnchor.constraint(equalToConstant: 24.scale),
             historyButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
@@ -54,9 +64,22 @@ private extension ChatView {
         ])
         
         NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 2.scale),
+            tableView.bottomAnchor.constraint(equalTo: inputField.topAnchor, constant: -8.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
             inputField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             inputField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
             inputField.bottomAnchor.constraint(equalTo: keyboardLayoutGuide.topAnchor, constant: -14.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            regenerateView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            regenerateView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            regenerateView.bottomAnchor.constraint(equalTo: keyboardLayoutGuide.topAnchor, constant: -14.scale)
         ])
     }
 }
@@ -71,6 +94,14 @@ private extension ChatView {
         
         let view = UILabel()
         view.attributedText = "Chat.Title".localized.attributed(with: attrs)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeStartNewChatButton() -> TapAreaButton {
+        let view = TapAreaButton()
+        view.setImage(UIImage(named: "Chat.StartNewChat"), for: .normal)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
@@ -91,8 +122,28 @@ private extension ChatView {
         return view
     }
     
+    func makeTableView() -> ChatTableView {
+        let view = ChatTableView()
+        view.contentInset = UIEdgeInsets(t: 16.scale, b: 42.scale)
+        view.setContentOffset(CGPoint(x: 0, y: -16.scale), animated: false)
+        view.separatorStyle = .none
+        view.showsVerticalScrollIndicator = false
+        view.contentInsetAdjustmentBehavior = .never
+        view.backgroundColor = UIColor.clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
     func makeInputField() -> ChatInputField {
         let view = ChatInputField()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeRegenerateView() -> ChatRegenerateView {
+        let view = ChatRegenerateView()
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

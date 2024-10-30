@@ -120,3 +120,12 @@
 "Chat.Placeholder.Title" = "Ask the AI Dermatologist";
 "Chat.Placeholder.SubTitle" = "Type any skin question for instant answers";
 "Chat.Input.Placeholder" = "Type in your quiestion";
+"Chat.Regenerate.Text" = "There was an error generating a response";
+"Chat.Regenerate.Button" = "Regenerate";
+"Chat.Copied.Toast" = "Text copied";
+
+// MARK: Chats
+"Chats.Title" = "Chat history";
+"Chats.ConfirmDelete.Title" = "Are you sure?";
+"Chats.ConfirmDelete.SubTitle" = "Do you really want to delete this chat?";
+"Chats.ConfirmDelete.Delete" = "Remove";

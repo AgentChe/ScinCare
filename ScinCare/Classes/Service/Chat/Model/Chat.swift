@@ -10,7 +10,7 @@ import Foundation
 struct Chat {
     let id: String
     let created: Date
-    let firstMessage: ChatMessage
+    let lastMessage: ChatMessage
 }
 
 // MARK: Public
@@ -34,7 +34,7 @@ extension Chat {
             return Chat(
                 id: id,
                 created: Date(timeIntervalSince1970: created),
-                firstMessage: message
+                lastMessage: message
             )
         }
     }

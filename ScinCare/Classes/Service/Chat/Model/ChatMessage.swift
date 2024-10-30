@@ -17,6 +17,7 @@ struct ChatMessage {
     let messageId: String
     let role: Role
     let content: String
+    let imageUrl: URL?
     let created: Date
 }
 
@@ -36,6 +37,10 @@ extension ChatMessage {
         self.messageId = messageId
         self.role = role
         self.content = content
+        self.imageUrl = {
+            guard let path = json["image"] as? String else { return nil }
+            return URL(string: path)
+        }()
         self.created = Date(timeIntervalSince1970: created)
     }
     
@@ -52,6 +57,10 @@ extension ChatMessage {
         self.messageId = messageId
         self.role = role
         self.content = content
+        self.imageUrl = {
+            guard let path = json["image"] as? String else { return nil }
+            return URL(string: path)
+        }()
         self.created = Date(timeIntervalSince1970: created)
     }
 }

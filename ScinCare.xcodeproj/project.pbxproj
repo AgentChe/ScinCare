@@ -25,7 +25,6 @@
 		DEDC83AA2CCD59EE00F7120F /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83A92CCD59EE00F7120F /* Chat.swift */; };
 		DEDC83AE2CCD5C7600F7120F /* CreateChatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83AD2CCD5C7600F7120F /* CreateChatResponse.swift */; };
 		DEDC83B02CCD5CF000F7120F /* CreateChatRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83AF2CCD5CF000F7120F /* CreateChatRequest.swift */; };
-		DEDC83B22CCD614800F7120F /* SendMessageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83B12CCD614800F7120F /* SendMessageRequest.swift */; };
 		DEDC83B42CCD644E00F7120F /* CheckMessageCompleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83B32CCD644E00F7120F /* CheckMessageCompleteRequest.swift */; };
 		DEDC83B62CCD659500F7120F /* CheckMessageCompleteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83B52CCD659500F7120F /* CheckMessageCompleteResponse.swift */; };
 		DEDC83B82CCD685700F7120F /* GetMessagesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83B72CCD685700F7120F /* GetMessagesRequest.swift */; };
@@ -33,6 +32,20 @@
 		DEDC83BD2CCD6A0D00F7120F /* ChatMessagesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83BC2CCD6A0D00F7120F /* ChatMessagesPage.swift */; };
 		DEDC83BF2CCD6C0D00F7120F /* GetChatsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83BE2CCD6C0D00F7120F /* GetChatsRequest.swift */; };
 		DEDC83C12CCD6ED800F7120F /* DeleteChatRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83C02CCD6ED800F7120F /* DeleteChatRequest.swift */; };
+		DEDC83C52CCF8F4600F7120F /* ChatsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83C42CCF8F4600F7120F /* ChatsTableView.swift */; };
+		DEDC83C72CCF8F4C00F7120F /* ChatsTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83C62CCF8F4C00F7120F /* ChatsTableSection.swift */; };
+		DEDC83CA2CCF905F00F7120F /* ChatsTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83C92CCF905F00F7120F /* ChatsTableHeaderView.swift */; };
+		DEDC83CC2CCF906A00F7120F /* ChatsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83CB2CCF906A00F7120F /* ChatsTableCell.swift */; };
+		DEDC83CE2CCFA17000F7120F /* ChatsTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83CD2CCFA17000F7120F /* ChatsTableFooterView.swift */; };
+		DEDC83D22CCFAB6C00F7120F /* CDCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83D12CCFAB6C00F7120F /* CDCView.swift */; };
+		DEDC83D42CCFAB7100F7120F /* CDCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83D32CCFAB7100F7120F /* CDCViewController.swift */; };
+		DEDC83D62CD0B83900F7120F /* ChatTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83D52CD0B83900F7120F /* ChatTableView.swift */; };
+		DEDC83D82CD0B84000F7120F /* ChatTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83D72CD0B84000F7120F /* ChatTableElement.swift */; };
+		DEDC83DB2CD0BFCE00F7120F /* ChatQuestionImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83DA2CD0BFCE00F7120F /* ChatQuestionImageCell.swift */; };
+		DEDC83DD2CD0D29E00F7120F /* ChatQuestionTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83DC2CD0D29E00F7120F /* ChatQuestionTextCell.swift */; };
+		DEDC83DF2CD0D59800F7120F /* ChatLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83DE2CD0D59800F7120F /* ChatLoadingCell.swift */; };
+		DEDC83E12CD0D7D900F7120F /* ChatAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83E02CD0D7D900F7120F /* ChatAnswerCell.swift */; };
+		DEDC83E32CD0F85B00F7120F /* ChatRegenerateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83E22CD0F85B00F7120F /* ChatRegenerateView.swift */; };
 		DEFD3A182CC62541007050EF /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD391D2CC62541007050EF /* FacebookManager.swift */; };
 		DEFD3A192CC62541007050EF /* SignError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD39422CC62541007050EF /* SignError.swift */; };
 		DEFD3A1C2CC62541007050EF /* IAPActionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3A0B2CC62541007050EF /* IAPActionResult.swift */; };
@@ -210,7 +223,6 @@
 		DEDC83A92CCD59EE00F7120F /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		DEDC83AD2CCD5C7600F7120F /* CreateChatResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChatResponse.swift; sourceTree = "<group>"; };
 		DEDC83AF2CCD5CF000F7120F /* CreateChatRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChatRequest.swift; sourceTree = "<group>"; };
-		DEDC83B12CCD614800F7120F /* SendMessageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageRequest.swift; sourceTree = "<group>"; };
 		DEDC83B32CCD644E00F7120F /* CheckMessageCompleteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMessageCompleteRequest.swift; sourceTree = "<group>"; };
 		DEDC83B52CCD659500F7120F /* CheckMessageCompleteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMessageCompleteResponse.swift; sourceTree = "<group>"; };
 		DEDC83B72CCD685700F7120F /* GetMessagesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMessagesRequest.swift; sourceTree = "<group>"; };
@@ -218,6 +230,20 @@
 		DEDC83BC2CCD6A0D00F7120F /* ChatMessagesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessagesPage.swift; sourceTree = "<group>"; };
 		DEDC83BE2CCD6C0D00F7120F /* GetChatsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChatsRequest.swift; sourceTree = "<group>"; };
 		DEDC83C02CCD6ED800F7120F /* DeleteChatRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteChatRequest.swift; sourceTree = "<group>"; };
+		DEDC83C42CCF8F4600F7120F /* ChatsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableView.swift; sourceTree = "<group>"; };
+		DEDC83C62CCF8F4C00F7120F /* ChatsTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableSection.swift; sourceTree = "<group>"; };
+		DEDC83C92CCF905F00F7120F /* ChatsTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableHeaderView.swift; sourceTree = "<group>"; };
+		DEDC83CB2CCF906A00F7120F /* ChatsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableCell.swift; sourceTree = "<group>"; };
+		DEDC83CD2CCFA17000F7120F /* ChatsTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableFooterView.swift; sourceTree = "<group>"; };
+		DEDC83D12CCFAB6C00F7120F /* CDCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCView.swift; sourceTree = "<group>"; };
+		DEDC83D32CCFAB7100F7120F /* CDCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCViewController.swift; sourceTree = "<group>"; };
+		DEDC83D52CD0B83900F7120F /* ChatTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableView.swift; sourceTree = "<group>"; };
+		DEDC83D72CD0B84000F7120F /* ChatTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableElement.swift; sourceTree = "<group>"; };
+		DEDC83DA2CD0BFCE00F7120F /* ChatQuestionImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatQuestionImageCell.swift; sourceTree = "<group>"; };
+		DEDC83DC2CD0D29E00F7120F /* ChatQuestionTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatQuestionTextCell.swift; sourceTree = "<group>"; };
+		DEDC83DE2CD0D59800F7120F /* ChatLoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLoadingCell.swift; sourceTree = "<group>"; };
+		DEDC83E02CD0D7D900F7120F /* ChatAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAnswerCell.swift; sourceTree = "<group>"; };
+		DEDC83E22CD0F85B00F7120F /* ChatRegenerateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRegenerateView.swift; sourceTree = "<group>"; };
 		DEFD391B2CC62541007050EF /* AmplitudeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplitudeManager.swift; sourceTree = "<group>"; };
 		DEFD391C2CC62541007050EF /* BranchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchManager.swift; sourceTree = "<group>"; };
 		DEFD391D2CC62541007050EF /* FacebookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
@@ -458,6 +484,7 @@
 				DEDC839E2CCD4C9D00F7120F /* TableView */,
 				DEDC83932CCD458E00F7120F /* ChatPlaceholderView.swift */,
 				DEDC83952CCD493100F7120F /* ChatInputField.swift */,
+				DEDC83E22CD0F85B00F7120F /* ChatRegenerateView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -465,9 +492,8 @@
 		DEDC83972CCD4C1700F7120F /* Chats */ = {
 			isa = PBXGroup;
 			children = (
-				DEDC83982CCD4C2200F7120F /* ChatsViewController.swift */,
-				DEDC839A2CCD4C2700F7120F /* ChatsViewModel.swift */,
-				DEDC839C2CCD4C2B00F7120F /* ChatsView.swift */,
+				DEDC83D02CCFAB1F00F7120F /* ConfirmDelete */,
+				DEDC83CF2CCFAB1700F7120F /* Chats */,
 			);
 			path = Chats;
 			sourceTree = "<group>";
@@ -475,6 +501,9 @@
 		DEDC839E2CCD4C9D00F7120F /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				DEDC83D92CD0BFB500F7120F /* Cells */,
+				DEDC83D52CD0B83900F7120F /* ChatTableView.swift */,
+				DEDC83D72CD0B84000F7120F /* ChatTableElement.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -507,7 +536,6 @@
 			isa = PBXGroup;
 			children = (
 				DEDC83AC2CCD5C6C00F7120F /* CreateChat */,
-				DEDC83B12CCD614800F7120F /* SendMessageRequest.swift */,
 				DEDC83B32CCD644E00F7120F /* CheckMessageCompleteRequest.swift */,
 				DEDC83B72CCD685700F7120F /* GetMessagesRequest.swift */,
 				DEDC83BE2CCD6C0D00F7120F /* GetChatsRequest.swift */,
@@ -523,6 +551,65 @@
 				DEDC83AD2CCD5C7600F7120F /* CreateChatResponse.swift */,
 			);
 			path = CreateChat;
+			sourceTree = "<group>";
+		};
+		DEDC83C22CCF8F2E00F7120F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC83C32CCF8F3A00F7120F /* TableView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEDC83C32CCF8F3A00F7120F /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC83C82CCF902E00F7120F /* Cells */,
+				DEDC83C42CCF8F4600F7120F /* ChatsTableView.swift */,
+				DEDC83C62CCF8F4C00F7120F /* ChatsTableSection.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DEDC83C82CCF902E00F7120F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC83C92CCF905F00F7120F /* ChatsTableHeaderView.swift */,
+				DEDC83CD2CCFA17000F7120F /* ChatsTableFooterView.swift */,
+				DEDC83CB2CCF906A00F7120F /* ChatsTableCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DEDC83CF2CCFAB1700F7120F /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC83C22CCF8F2E00F7120F /* Views */,
+				DEDC83982CCD4C2200F7120F /* ChatsViewController.swift */,
+				DEDC839A2CCD4C2700F7120F /* ChatsViewModel.swift */,
+				DEDC839C2CCD4C2B00F7120F /* ChatsView.swift */,
+			);
+			path = Chats;
+			sourceTree = "<group>";
+		};
+		DEDC83D02CCFAB1F00F7120F /* ConfirmDelete */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC83D32CCFAB7100F7120F /* CDCViewController.swift */,
+				DEDC83D12CCFAB6C00F7120F /* CDCView.swift */,
+			);
+			path = ConfirmDelete;
+			sourceTree = "<group>";
+		};
+		DEDC83D92CD0BFB500F7120F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC83DA2CD0BFCE00F7120F /* ChatQuestionImageCell.swift */,
+				DEDC83DC2CD0D29E00F7120F /* ChatQuestionTextCell.swift */,
+				DEDC83DE2CD0D59800F7120F /* ChatLoadingCell.swift */,
+				DEDC83E02CD0D7D900F7120F /* ChatAnswerCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		DEFD391F2CC62541007050EF /* Analytics */ = {
@@ -1298,11 +1385,15 @@
 				DEFD3A1C2CC62541007050EF /* IAPActionResult.swift in Sources */,
 				DEFD3A1E2CC62541007050EF /* UIDevice+Extension.swift in Sources */,
 				DEFD3B642CC8DF6B007050EF /* CDTableSectionCell.swift in Sources */,
+				DEDC83E32CD0F85B00F7120F /* ChatRegenerateView.swift in Sources */,
 				DEFD3B562CC8DF00007050EF /* CatalogDetailsViewModel.swift in Sources */,
 				DEFD3A1F2CC62541007050EF /* PaygateViewController.swift in Sources */,
 				DEFD3A232CC62541007050EF /* OnboardingSlideView.swift in Sources */,
 				DEDC83A22CCD52CF00F7120F /* ChatManager.swift in Sources */,
 				DEFD3A282CC62541007050EF /* ProfileBindingRequest.swift in Sources */,
+				DEDC83D22CCFAB6C00F7120F /* CDCView.swift in Sources */,
+				DEDC83C72CCF8F4C00F7120F /* ChatsTableSection.swift in Sources */,
+				DEDC83D62CD0B83900F7120F /* ChatTableView.swift in Sources */,
 				DEFD3A2D2CC62541007050EF /* AmplitudeManager.swift in Sources */,
 				DEFD3B212CC7A8FA007050EF /* GetDiseasesRequest.swift in Sources */,
 				DEFD3B272CC7A969007050EF /* GetDiseaseDetailsRequest.swift in Sources */,
@@ -1311,10 +1402,12 @@
 				DEFD3B312CC7AAA8007050EF /* SaveDiseaseRequest.swift in Sources */,
 				DEFD3A332CC62541007050EF /* PaygateEnableTrialButton.swift in Sources */,
 				DEDC83912CCD40FE00F7120F /* ChatView.swift in Sources */,
+				DEDC83DF2CD0D59800F7120F /* ChatLoadingCell.swift in Sources */,
 				DEFD3A342CC62541007050EF /* TabView.swift in Sources */,
 				DEFD3A372CC62541007050EF /* IAPProduct.swift in Sources */,
 				DEFD3B6B2CC8DF8E007050EF /* CDTableElement.swift in Sources */,
 				DEFD3B0E2CC797A3007050EF /* MenuRouteButton.swift in Sources */,
+				DEDC83CE2CCFA17000F7120F /* ChatsTableFooterView.swift in Sources */,
 				DEFD3A382CC62541007050EF /* UIColor+Extension.swift in Sources */,
 				DEFD3B602CC8DF5D007050EF /* CDTableTextCell.swift in Sources */,
 				DEFD3A392CC62541007050EF /* PaddingTextField.swift in Sources */,
@@ -1325,6 +1418,7 @@
 				DEFD3A422CC62541007050EF /* SceneDelegate.swift in Sources */,
 				DEFD3B472CC7B348007050EF /* CatalogsTableView.swift in Sources */,
 				DEDC83BF2CCD6C0D00F7120F /* GetChatsRequest.swift in Sources */,
+				DEDC83D42CCFAB7100F7120F /* CDCViewController.swift in Sources */,
 				DEFD3B542CC8DEF7007050EF /* CatalogDetailsViewController.swift in Sources */,
 				DEFD3B492CC7B34F007050EF /* CatalogsTableElement.swift in Sources */,
 				DEFD3A4A2CC62541007050EF /* PushNotificationsAuthorizationStatus.swift in Sources */,
@@ -1340,8 +1434,10 @@
 				DEFD3B702CC90243007050EF /* BookmarksViewModel.swift in Sources */,
 				DEFD3B112CC7A39A007050EF /* CatalogManager.swift in Sources */,
 				DEFD3A5F2CC62541007050EF /* ProfileCreateRequest.swift in Sources */,
+				DEDC83E12CD0D7D900F7120F /* ChatAnswerCell.swift in Sources */,
 				DEDC83B42CCD644E00F7120F /* CheckMessageCompleteRequest.swift in Sources */,
 				DEFD3A602CC62541007050EF /* PaygateActionsView.swift in Sources */,
+				DEDC83CC2CCF906A00F7120F /* ChatsTableCell.swift in Sources */,
 				DEDC83C12CCD6ED800F7120F /* DeleteChatRequest.swift in Sources */,
 				DEFD3B762CC9026A007050EF /* BookmarksFilterView.swift in Sources */,
 				DEFD3B512CC7CCD3007050EF /* DermatologySyncTokensRequest.swift in Sources */,
@@ -1359,6 +1455,7 @@
 				DEFD3B0A2CC7963E007050EF /* MenuView.swift in Sources */,
 				DEFD3A702CC62541007050EF /* MainCoordinator.swift in Sources */,
 				DEFD3B722CC9024D007050EF /* BookmarksView.swift in Sources */,
+				DEDC83DD2CD0D29E00F7120F /* ChatQuestionTextCell.swift in Sources */,
 				DEFD3A712CC62541007050EF /* UIView+RxExtension.swift in Sources */,
 				DEFD3A722CC62541007050EF /* SplashViewController.swift in Sources */,
 				DEFD3B2D2CC7AA7B007050EF /* SaveProcedureRequest.swift in Sources */,
@@ -1370,7 +1467,6 @@
 				DEFD3B662CC8DF76007050EF /* CDTableImageCell.swift in Sources */,
 				DEFD3B332CC7AAB8007050EF /* UnsaveDiseaseRequest.swift in Sources */,
 				DEFD3B882CCA7CE4007050EF /* CDBView.swift in Sources */,
-				DEDC83B22CCD614800F7120F /* SendMessageRequest.swift in Sources */,
 				DEFD3A752CC62541007050EF /* ImagePicker.swift in Sources */,
 				DEFD3AE52CC631DC007050EF /* OScanScinView.swift in Sources */,
 				DEFD3A782CC62541007050EF /* PaygateProductButton.swift in Sources */,
@@ -1395,6 +1491,7 @@
 				DEFD3AFB2CC679BC007050EF /* HomeCollectionView.swift in Sources */,
 				DEFD3B032CC78B98007050EF /* HomeExploreItemButton.swift in Sources */,
 				DEFD3B5C2CC8DF4B007050EF /* CDTableTitleCell.swift in Sources */,
+				DEDC83C52CCF8F4600F7120F /* ChatsTableView.swift in Sources */,
 				DEFD3B252CC7A955007050EF /* GetProcedureDetailsRequest.swift in Sources */,
 				DEFD3A832CC62541007050EF /* Currency.swift in Sources */,
 				DEFD3A852CC62541007050EF /* SplashViewModel.swift in Sources */,
@@ -1413,6 +1510,7 @@
 				DEFD3B7B2CC90622007050EF /* BookmarksTableView.swift in Sources */,
 				DEFD3AF72CC67714007050EF /* HomeView.swift in Sources */,
 				DEFD3A902CC62541007050EF /* UITapGestureRecognizer+Extension.swift in Sources */,
+				DEDC83CA2CCF905F00F7120F /* ChatsTableHeaderView.swift in Sources */,
 				DEFD3B232CC7A935007050EF /* GetGlossaryDetailsRequest.swift in Sources */,
 				DEFD3AF32CC67709007050EF /* HomeViewController.swift in Sources */,
 				DEFD3A932CC62541007050EF /* SplashReceiptValidationObserver.swift in Sources */,
@@ -1420,6 +1518,7 @@
 				DEFD3A952CC62541007050EF /* NumberLaunches.swift in Sources */,
 				DEDC83992CCD4C2200F7120F /* ChatsViewController.swift in Sources */,
 				DEFD3AEB2CC63227007050EF /* OChatView.swift in Sources */,
+				DEDC83DB2CD0BFCE00F7120F /* ChatQuestionImageCell.swift in Sources */,
 				DEFD3A962CC62541007050EF /* ObservableRetrySingle.swift in Sources */,
 				DEFD3A982CC62541007050EF /* XOREncryption.swift in Sources */,
 				DEFD3B292CC7A983007050EF /* SaveGlossaryRequest.swift in Sources */,
@@ -1447,6 +1546,7 @@
 				DEFD3B412CC7B31E007050EF /* CatalogsViewModel.swift in Sources */,
 				DEFD3B5E2CC8DF54007050EF /* CDTableSeparatorCell.swift in Sources */,
 				DEFD3AB02CC62541007050EF /* Weak.swift in Sources */,
+				DEDC83D82CD0B84000F7120F /* ChatTableElement.swift in Sources */,
 				DEDC83A82CCD57D900F7120F /* SendMessageResponse.swift in Sources */,
 				DEFD3AB12CC62541007050EF /* PaygateView.swift in Sources */,
 				DEFD3AB32CC62541007050EF /* IAPErrorHelper.swift in Sources */,

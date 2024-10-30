@@ -7,6 +7,8 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
+import Toast_Swift
 
 final class ChatViewController: UIViewController {
     private lazy var mainView = ChatView()
@@ -15,6 +17,8 @@ final class ChatViewController: UIViewController {
     
     private lazy var disposeBag = DisposeBag()
     
+    private lazy var didSelectChatFromHistoryTrigger = PublishRelay<Chat>()
+    
     override func loadView() {
         view = mainView
     }
@@ -22,13 +26,54 @@ final class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.tryAgain = { [weak self] error -> Observable<Void> in
+            guard let self = self else {
+                return .never()
+            }
+            
+            return self.open(error: error)
+        }
+        
+        mainView.tableView
+            .didChangeElementsCount
+            .emit(to: Binder(mainView) { base, count in
+                base.placeholderView.isHidden = (count > 0)
+                base.tableView.isHidden = (count == 0)
+            })
+            .disposed(by: disposeBag)
+        
+        let didSendMessage = mainView.inputField
+            .sendButton.rx.tap
+            .withLatestFrom(mainView.inputField.textField.rx.text)
+            .compactMap { message -> ChatViewModel.DataForSendMessage? in
+                guard let message, !message.isEmpty else { return nil }
+                return (nil, message)
+            }
+            .asSignal(onErrorSignalWith: .never())
+        let didTapRegenerate = mainView.regenerateView
+            .regenerateButton.rx.tap.asSignal()
+            .withLatestFrom(didSendMessage)
+        
         let output = viewModel.configure(input: ChatViewModel.Input(
-            didTapHistory: mainView.historyButton.rx.tap.asSignal()
+            didTapHistory: mainView.historyButton.rx.tap.asSignal(),
+            didSelectChatFromHistory: didSelectChatFromHistoryTrigger.asSignal(),
+            didStartNewChat: mainView.startNewChatButton.rx.tap.asSignal(),
+            didScrollToTop: mainView.tableView.didScrollToTop,
+            didSendMessage: didSendMessage,
+            didTapRegenerate: didTapRegenerate,
+            didTapCopy: mainView.tableView.didCopy,
+            didTapRefresh: mainView.tableView.didRefresh
         ))
         
         output.route
             .drive(Binder(self) { base, route in
                 base.route(route)
+            })
+            .disposed(by: disposeBag)
+        
+        output.action
+            .drive(Binder(self) { base, action in
+                base.action(action)
             })
             .disposed(by: disposeBag)
     }
@@ -45,10 +90,53 @@ extension ChatViewController {
 
 // MARK: Private
 private extension ChatViewController {
+    func open(error: Error) -> Observable<Void> {
+        Observable<Void>
+            .create { [weak self] observe in
+                guard let self = self else {
+                    return Disposables.create()
+                }
+                
+                let vc = TryAgainViewController.make(error: error) {
+                    observe.onNext(())
+                }
+                self.present(vc, animated: true)
+                
+                return Disposables.create()
+            }
+    }
+    
     func route(_ route: ChatViewModel.Route) {
         switch route {
         case .history:
-            break
+            let vc = ChatsViewController.make { [weak self] chat in
+                self?.didSelectChatFromHistoryTrigger.accept(chat)
+            }
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func action(_ action: ChatViewModel.Action) {
+        switch action {
+        case .reset:
+            mainView.tableView.reset()
+        case .add(let elements):
+            mainView.tableView.add(elements: elements)
+        case .removeAnswer(let messageId):
+            mainView.tableView.remove(answer: messageId)
+        case .startWaiting:
+            mainView.tableView.loading(waitAnswer: true)
+        case .stopWaiting:
+            mainView.tableView.loading(waitAnswer: false)
+        case .changeInput(let input):
+            mainView.inputField.isHidden = (input != .questionInput)
+            mainView.regenerateView.isHidden = (input != .regenerateLastQuestion)
+        case .clearInput:
+            mainView.inputField.textField.text = ""
+        case .copy(let text):
+            UIPasteboard.general.string = text
+            
+            mainView.makeToast("Chat.Copied.Toast".localized)
         }
     }
 }

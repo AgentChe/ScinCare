@@ -9,7 +9,7 @@ import RxSwift
 
 protocol ChatManagerProtocol {
     func createChat() -> Single<String?>
-    func send(message: String, chatId: String) -> Single<SendMessageResponse?>
+    func send(image: UIImage?, message: String, chatId: String) -> Single<SendMessageResponse?>
     func checkMessageComplete(chatId: String, runnerId: String) -> Single<CheckMessageCompleteResponse?>
     func messagesPage(chatId: String, page: Int) -> Single<ChatMessagesPage?>
     func chats() -> Single<[Chat]>
@@ -38,19 +38,18 @@ extension ChatManager: ChatManagerProtocol {
             .map { CreateChatResponse.map(response: $0) }
     }
     
-    func send(message: String, chatId: String) -> Single<SendMessageResponse?> {
+    func send(image: UIImage?, message: String, chatId: String) -> Single<SendMessageResponse?> {
         let anonymousId = sessionManager.anonymousId
         let internalId = sessionManager.internalId
         
-        let request = SendMessageRequest(
-            anonymousId: anonymousId,
-            internalId: (internalId == anonymousId) ? nil : internalId,
-            chatId: chatId,
-            message: message
-        )
-        
         return restAPITransport
-            .callServerApi(requestBody: request)
+            .sendMessage(
+                anonymousId: anonymousId,
+                internalId: internalId,
+                chatId: chatId,
+                image: image,
+                message: message
+            )
             .map { SendMessageResponse(response: $0) }
     }
     
