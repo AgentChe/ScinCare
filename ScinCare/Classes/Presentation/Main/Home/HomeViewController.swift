@@ -24,7 +24,9 @@ final class HomeViewController: UIViewController {
         
         let output = viewModel.configure(input: HomeViewModel.Input(
             didTapMenu: mainView.menuButton.rx.tap.asSignal(),
-            didTapExplore: mainView.collectionView.didTapExplore
+            didTapExplore: mainView.collectionView.didTapExplore,
+            didOpenScanner: mainView.collectionView.didOpenScanner,
+            didOpenHistory: mainView.collectionView.didOpenHistory
         ))
         
         output.elements
@@ -60,6 +62,10 @@ private extension HomeViewController {
         case .catalogs(let item):
             let vc = CatalogsViewController.make(item: item)
             navigationController?.pushViewController(vc, animated: true)
+        case .openScanner:
+            AnalyseScanAssembly().scan(from: self)
+        case .openHistory:
+            break // TODO
         }
     }
 }

@@ -6,5 +6,7 @@
 //
 
 enum HomeCollectionElement {
+    case openScanner
+    case openHistory
     case explore
 }

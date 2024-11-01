@@ -108,7 +108,6 @@ PODS:
   - GoogleUtilities/UserDefaults (7.13.3):
     - GoogleUtilities/Logger
     - GoogleUtilities/Privacy
-  - iosMath (0.9.4)
   - Kingfisher (7.11.0)
   - lottie-ios (4.4.3)
   - Mantis (2.21.0)
@@ -135,7 +134,6 @@ DEPENDENCIES:
   - FBSDKCoreKit
   - Firebase/Analytics
   - Firebase/Messaging
-  - iosMath
   - Kingfisher
   - lottie-ios
   - Mantis
@@ -162,7 +160,6 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
-    - iosMath
     - Kingfisher
     - lottie-ios
     - Mantis
@@ -199,7 +196,6 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 9abf64b682732fed36da827aa2a68f0221fd2356
   GoogleDataTransport: 6c09b596d841063d76d4288cc2d2f42cc36e1e2a
   GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
-  iosMath: f7a6cbadf9d836d2149c2a84c435b1effc244cba
   Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
   lottie-ios: fcb5e73e17ba4c983140b7d21095c834b3087418
   Mantis: e9712f7b0d07709326e6f333bf16bd5828c0a4c9
@@ -212,6 +208,6 @@ SPEC CHECKSUMS:
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
   Toast-Swift: 7a03a532afe3a560d4044bc7c237e2864d295173
 
-PODFILE CHECKSUM: b9468972812104539fcea145cf4472b5d6e0ebba
+PODFILE CHECKSUM: 34313a8f7f17e24c1212ccc41f8365ed6e29ff24
 
 COCOAPODS: 1.15.2

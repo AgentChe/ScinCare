@@ -12,7 +12,11 @@ final class HomeViewModel {
     enum Route {
         case menu
         case catalogs(CatalogsViewController.Item)
+        case openScanner
+        case openHistory
     }
+    
+    private lazy var analyseManager = AnalyseManager()
 }
 
 // MARK: Public
@@ -20,6 +24,8 @@ extension HomeViewModel {
     struct Input {
         let didTapMenu: Signal<Void>
         let didTapExplore: Signal<HomeExploreItemButton.Item>
+        let didOpenScanner: Signal<Void>
+        let didOpenHistory: Signal<Void>
     }
     
     struct Output {
@@ -28,11 +34,15 @@ extension HomeViewModel {
     }
     
     func configure(input: Input) -> Output {
-        Output(
-            elements: makeElements(),
+        let hasHistory = makeHasHistory()
+        
+        return Output(
+            elements: makeElements(hasHistory: hasHistory),
             route: makeRoute(
                 didTapMenu: input.didTapMenu,
-                didTapExplore: input.didTapExplore
+                didTapExplore: input.didTapExplore,
+                didOpenScanner: input.didOpenScanner,
+                didOpenHistory: input.didOpenHistory
             )
         )
     }
@@ -40,17 +50,29 @@ extension HomeViewModel {
 
 // MARK: Private
 private extension HomeViewModel {
-    func makeElements() -> Driver<[HomeCollectionElement]> {
-        .deferred {
-            .just([
-                HomeCollectionElement.explore
-            ])
-        }
+    func makeElements(hasHistory: Driver<Bool>) -> Driver<[HomeCollectionElement]> {
+        hasHistory
+            .map { hasHistory -> [HomeCollectionElement] in
+                [
+                    hasHistory ? .openHistory : .openScanner,
+                    .explore
+                ]
+            }
+            .startWith([.explore])
+    }
+    
+    func makeHasHistory() -> Driver<Bool> {
+        analyseManager
+            .obtainHistory()
+            .map { !($0 ?? []).isEmpty }
+            .asDriver(onErrorJustReturn: false)
     }
     
     func makeRoute(
         didTapMenu: Signal<Void>,
-        didTapExplore: Signal<HomeExploreItemButton.Item>
+        didTapExplore: Signal<HomeExploreItemButton.Item>,
+        didOpenScanner: Signal<Void>,
+        didOpenHistory: Signal<Void>
     ) -> Driver<Route> {
         let menu = didTapMenu
             .map { Route.menu }
@@ -69,7 +91,15 @@ private extension HomeViewModel {
             }
             .asDriver(onErrorDriveWith: .never())
         
+        let scanner = didOpenScanner
+            .map { Route.openScanner }
+            .asDriver(onErrorDriveWith: .never())
+        
+        let history = didOpenHistory
+            .map { Route.openHistory }
+            .asDriver(onErrorDriveWith: .never())
+        
         return Driver
-            .merge(menu, catalogs)
+            .merge(menu, catalogs, scanner, history)
     }
 }

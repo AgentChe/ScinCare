@@ -8,6 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		5A2D19C91F498CCD1F3E33CA /* Pods_ScinCare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3772ABB1EDB261C98D3A6613 /* Pods_ScinCare.framework */; };
+		DECA03742CD395B9005E7C38 /* AnalyseImageResizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03732CD395B9005E7C38 /* AnalyseImageResizeViewController.swift */; };
+		DECA03762CD395C0005E7C38 /* AnalyseImageResizeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03752CD395BF005E7C38 /* AnalyseImageResizeViewModel.swift */; };
+		DECA03782CD395C4005E7C38 /* AnalyseImageResizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03772CD395C4005E7C38 /* AnalyseImageResizeView.swift */; };
+		DECA037B2CD39BA0005E7C38 /* AnalyseImageResizeOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA037A2CD39BA0005E7C38 /* AnalyseImageResizeOptionsView.swift */; };
+		DECA037D2CD3F8DD005E7C38 /* AnalyseScanTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA037C2CD3F8DD005E7C38 /* AnalyseScanTemplate.swift */; };
+		DECA037F2CD3FABB005E7C38 /* GetAnalyseHistoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA037E2CD3FABB005E7C38 /* GetAnalyseHistoryRequest.swift */; };
+		DECA03822CD4DDDD005E7C38 /* AnalyseScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03812CD4DDDD005E7C38 /* AnalyseScanResultViewController.swift */; };
+		DECA03842CD4DDE2005E7C38 /* AnalyseScanResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03832CD4DDE2005E7C38 /* AnalyseScanResultViewModel.swift */; };
+		DECA03862CD4DDE6005E7C38 /* AnalyseScanResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03852CD4DDE6005E7C38 /* AnalyseScanResultView.swift */; };
+		DECA038A2CD4E3ED005E7C38 /* AnalyseScanResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03892CD4E3ED005E7C38 /* AnalyseScanResultTableView.swift */; };
+		DECA038C2CD4E3F3005E7C38 /* AnalyseScanResultTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA038B2CD4E3F3005E7C38 /* AnalyseScanResultTableElement.swift */; };
+		DECA038F2CD4E4B9005E7C38 /* AnalyseScanResultImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA038E2CD4E4B9005E7C38 /* AnalyseScanResultImageCell.swift */; };
+		DECA03912CD4E4BF005E7C38 /* AnalyseScanResultNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03902CD4E4BF005E7C38 /* AnalyseScanResultNameCell.swift */; };
+		DECA03932CD4E4C9005E7C38 /* AnalyseScanResultAssessmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03922CD4E4C9005E7C38 /* AnalyseScanResultAssessmentCell.swift */; };
+		DECA03952CD4E4D8005E7C38 /* AnalyseScanResultConclusionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03942CD4E4D8005E7C38 /* AnalyseScanResultConclusionCell.swift */; };
+		DECA03972CD4E4E3005E7C38 /* AnalyseScanResultRecommendationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03962CD4E4E3005E7C38 /* AnalyseScanResultRecommendationsCell.swift */; };
+		DECA03992CD4E4EB005E7C38 /* AnalyseScanResultDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03982CD4E4EB005E7C38 /* AnalyseScanResultDescriptionCell.swift */; };
+		DECA039C2CD51956005E7C38 /* ASRCircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA039B2CD51956005E7C38 /* ASRCircleProgressView.swift */; };
 		DEDB8FA12CC6237F00E5BE41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDB8F952CC6237F00E5BE41 /* Assets.xcassets */; };
 		DEDB8FA32CC6237F00E5BE41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDB8F982CC6237F00E5BE41 /* LaunchScreen.storyboard */; };
 		DEDC838D2CCD40F500F7120F /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC838C2CCD40F500F7120F /* ChatViewController.swift */; };
@@ -46,6 +64,21 @@
 		DEDC83DF2CD0D59800F7120F /* ChatLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83DE2CD0D59800F7120F /* ChatLoadingCell.swift */; };
 		DEDC83E12CD0D7D900F7120F /* ChatAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83E02CD0D7D900F7120F /* ChatAnswerCell.swift */; };
 		DEDC83E32CD0F85B00F7120F /* ChatRegenerateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83E22CD0F85B00F7120F /* ChatRegenerateView.swift */; };
+		DEDC83E82CD35EDC00F7120F /* HomeOpenScannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83E72CD35EDC00F7120F /* HomeOpenScannerCell.swift */; };
+		DEDC83EA2CD365A700F7120F /* HomeOpenHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83E92CD365A700F7120F /* HomeOpenHistoryCell.swift */; };
+		DEDC83EE2CD36B1700F7120F /* AnalyseCheckCorrentImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83ED2CD36B1700F7120F /* AnalyseCheckCorrentImage.swift */; };
+		DEDC83F12CD36C5000F7120F /* AnalyseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83F02CD36C5000F7120F /* AnalyseManager.swift */; };
+		DEDC83F32CD36D0100F7120F /* APIFormDataRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83F22CD36D0100F7120F /* APIFormDataRequestBody.swift */; };
+		DEDC83F62CD36F9100F7120F /* AnalyseCheckCorrectImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83F52CD36F9100F7120F /* AnalyseCheckCorrectImageRequest.swift */; };
+		DEDC83F82CD372D900F7120F /* AnalyseScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83F72CD372D900F7120F /* AnalyseScanResult.swift */; };
+		DEDC83FA2CD375F700F7120F /* GetAnalyseScanResultRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83F92CD375F700F7120F /* GetAnalyseScanResultRequest.swift */; };
+		DEDC83FC2CD376FB00F7120F /* AnalyseScanImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83FB2CD376FB00F7120F /* AnalyseScanImageRequest.swift */; };
+		DEDC83FE2CD377AF00F7120F /* AnalyseSaveScanResultRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC83FD2CD377AF00F7120F /* AnalyseSaveScanResultRequest.swift */; };
+		DEDC84072CD37B3D00F7120F /* AnalyseCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC84062CD37B3D00F7120F /* AnalyseCameraViewController.swift */; };
+		DEDC840B2CD37B4700F7120F /* AnalyseCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC840A2CD37B4700F7120F /* AnalyseCameraView.swift */; };
+		DEDC840D2CD37B6C00F7120F /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC840C2CD37B6C00F7120F /* CameraService.swift */; };
+		DEDC840F2CD37D4000F7120F /* AnalyseCameraOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC840E2CD37D4000F7120F /* AnalyseCameraOptionsView.swift */; };
+		DEDC84112CD386B600F7120F /* AnalyseScanAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC84102CD386B600F7120F /* AnalyseScanAssembly.swift */; };
 		DEFD3A182CC62541007050EF /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD391D2CC62541007050EF /* FacebookManager.swift */; };
 		DEFD3A192CC62541007050EF /* SignError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD39422CC62541007050EF /* SignError.swift */; };
 		DEFD3A1C2CC62541007050EF /* IAPActionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD3A0B2CC62541007050EF /* IAPActionResult.swift */; };
@@ -204,6 +237,24 @@
 		2007A49DE42A1F19BAD75436 /* Pods-ScinCare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScinCare.release.xcconfig"; path = "Target Support Files/Pods-ScinCare/Pods-ScinCare.release.xcconfig"; sourceTree = "<group>"; };
 		3772ABB1EDB261C98D3A6613 /* Pods_ScinCare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScinCare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67A0ABED1B078A961C00D7C2 /* Pods-ScinCare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScinCare.debug.xcconfig"; path = "Target Support Files/Pods-ScinCare/Pods-ScinCare.debug.xcconfig"; sourceTree = "<group>"; };
+		DECA03732CD395B9005E7C38 /* AnalyseImageResizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseImageResizeViewController.swift; sourceTree = "<group>"; };
+		DECA03752CD395BF005E7C38 /* AnalyseImageResizeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseImageResizeViewModel.swift; sourceTree = "<group>"; };
+		DECA03772CD395C4005E7C38 /* AnalyseImageResizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseImageResizeView.swift; sourceTree = "<group>"; };
+		DECA037A2CD39BA0005E7C38 /* AnalyseImageResizeOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseImageResizeOptionsView.swift; sourceTree = "<group>"; };
+		DECA037C2CD3F8DD005E7C38 /* AnalyseScanTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseScanTemplate.swift; sourceTree = "<group>"; };
+		DECA037E2CD3FABB005E7C38 /* GetAnalyseHistoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAnalyseHistoryRequest.swift; sourceTree = "<group>"; };
+		DECA03812CD4DDDD005E7C38 /* AnalyseScanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseScanResultViewController.swift; sourceTree = "<group>"; };
+		DECA03832CD4DDE2005E7C38 /* AnalyseScanResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseScanResultViewModel.swift; sourceTree = "<group>"; };
+		DECA03852CD4DDE6005E7C38 /* AnalyseScanResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseScanResultView.swift; sourceTree = "<group>"; };
+		DECA03892CD4E3ED005E7C38 /* AnalyseScanResultTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseScanResultTableView.swift; sourceTree = "<group>"; };
+		DECA038B2CD4E3F3005E7C38 /* AnalyseScanResultTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseScanResultTableElement.swift; sourceTree = "<group>"; };
+		DECA038E2CD4E4B9005E7C38 /* AnalyseScanResultImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseScanResultImageCell.swift; sourceTree = "<group>"; };
+		DECA03902CD4E4BF005E7C38 /* AnalyseScanResultNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseScanResultNameCell.swift; sourceTree = "<group>"; };
+		DECA03922CD4E4C9005E7C38 /* AnalyseScanResultAssessmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseScanResultAssessmentCell.swift; sourceTree = "<group>"; };
+		DECA03942CD4E4D8005E7C38 /* AnalyseScanResultConclusionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseScanResultConclusionCell.swift; sourceTree = "<group>"; };
+		DECA03962CD4E4E3005E7C38 /* AnalyseScanResultRecommendationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseScanResultRecommendationsCell.swift; sourceTree = "<group>"; };
+		DECA03982CD4E4EB005E7C38 /* AnalyseScanResultDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseScanResultDescriptionCell.swift; sourceTree = "<group>"; };
+		DECA039B2CD51956005E7C38 /* ASRCircleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASRCircleProgressView.swift; sourceTree = "<group>"; };
 		DEDB8F7C2CC6236000E5BE41 /* ScinCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScinCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDB8F952CC6237F00E5BE41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEDB8F962CC6237F00E5BE41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -244,6 +295,21 @@
 		DEDC83DE2CD0D59800F7120F /* ChatLoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLoadingCell.swift; sourceTree = "<group>"; };
 		DEDC83E02CD0D7D900F7120F /* ChatAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAnswerCell.swift; sourceTree = "<group>"; };
 		DEDC83E22CD0F85B00F7120F /* ChatRegenerateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRegenerateView.swift; sourceTree = "<group>"; };
+		DEDC83E72CD35EDC00F7120F /* HomeOpenScannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOpenScannerCell.swift; sourceTree = "<group>"; };
+		DEDC83E92CD365A700F7120F /* HomeOpenHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOpenHistoryCell.swift; sourceTree = "<group>"; };
+		DEDC83ED2CD36B1700F7120F /* AnalyseCheckCorrentImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseCheckCorrentImage.swift; sourceTree = "<group>"; };
+		DEDC83F02CD36C5000F7120F /* AnalyseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseManager.swift; sourceTree = "<group>"; };
+		DEDC83F22CD36D0100F7120F /* APIFormDataRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFormDataRequestBody.swift; sourceTree = "<group>"; };
+		DEDC83F52CD36F9100F7120F /* AnalyseCheckCorrectImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseCheckCorrectImageRequest.swift; sourceTree = "<group>"; };
+		DEDC83F72CD372D900F7120F /* AnalyseScanResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseScanResult.swift; sourceTree = "<group>"; };
+		DEDC83F92CD375F700F7120F /* GetAnalyseScanResultRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAnalyseScanResultRequest.swift; sourceTree = "<group>"; };
+		DEDC83FB2CD376FB00F7120F /* AnalyseScanImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseScanImageRequest.swift; sourceTree = "<group>"; };
+		DEDC83FD2CD377AF00F7120F /* AnalyseSaveScanResultRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseSaveScanResultRequest.swift; sourceTree = "<group>"; };
+		DEDC84062CD37B3D00F7120F /* AnalyseCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseCameraViewController.swift; sourceTree = "<group>"; };
+		DEDC840A2CD37B4700F7120F /* AnalyseCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseCameraView.swift; sourceTree = "<group>"; };
+		DEDC840C2CD37B6C00F7120F /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		DEDC840E2CD37D4000F7120F /* AnalyseCameraOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseCameraOptionsView.swift; sourceTree = "<group>"; };
+		DEDC84102CD386B600F7120F /* AnalyseScanAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseScanAssembly.swift; sourceTree = "<group>"; };
 		DEFD391B2CC62541007050EF /* AmplitudeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplitudeManager.swift; sourceTree = "<group>"; };
 		DEFD391C2CC62541007050EF /* BranchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchManager.swift; sourceTree = "<group>"; };
 		DEFD391D2CC62541007050EF /* FacebookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
@@ -417,6 +483,76 @@
 				2007A49DE42A1F19BAD75436 /* Pods-ScinCare.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DECA03722CD395A7005E7C38 /* AnalyseImageResize */ = {
+			isa = PBXGroup;
+			children = (
+				DECA03792CD39B85005E7C38 /* Views */,
+				DECA03732CD395B9005E7C38 /* AnalyseImageResizeViewController.swift */,
+				DECA03752CD395BF005E7C38 /* AnalyseImageResizeViewModel.swift */,
+				DECA03772CD395C4005E7C38 /* AnalyseImageResizeView.swift */,
+			);
+			path = AnalyseImageResize;
+			sourceTree = "<group>";
+		};
+		DECA03792CD39B85005E7C38 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DECA037A2CD39BA0005E7C38 /* AnalyseImageResizeOptionsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DECA03802CD4DDCC005E7C38 /* AnalyseScanResult */ = {
+			isa = PBXGroup;
+			children = (
+				DECA03872CD4E3D1005E7C38 /* Views */,
+				DECA03812CD4DDDD005E7C38 /* AnalyseScanResultViewController.swift */,
+				DECA03832CD4DDE2005E7C38 /* AnalyseScanResultViewModel.swift */,
+				DECA03852CD4DDE6005E7C38 /* AnalyseScanResultView.swift */,
+			);
+			path = AnalyseScanResult;
+			sourceTree = "<group>";
+		};
+		DECA03872CD4E3D1005E7C38 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DECA03882CD4E3E1005E7C38 /* TableView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DECA03882CD4E3E1005E7C38 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DECA038D2CD4E3F6005E7C38 /* Cells */,
+				DECA03892CD4E3ED005E7C38 /* AnalyseScanResultTableView.swift */,
+				DECA038B2CD4E3F3005E7C38 /* AnalyseScanResultTableElement.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DECA038D2CD4E3F6005E7C38 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DECA039A2CD51941005E7C38 /* Atoms */,
+				DECA038E2CD4E4B9005E7C38 /* AnalyseScanResultImageCell.swift */,
+				DECA03902CD4E4BF005E7C38 /* AnalyseScanResultNameCell.swift */,
+				DECA03922CD4E4C9005E7C38 /* AnalyseScanResultAssessmentCell.swift */,
+				DECA03942CD4E4D8005E7C38 /* AnalyseScanResultConclusionCell.swift */,
+				DECA03962CD4E4E3005E7C38 /* AnalyseScanResultRecommendationsCell.swift */,
+				DECA03982CD4E4EB005E7C38 /* AnalyseScanResultDescriptionCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DECA039A2CD51941005E7C38 /* Atoms */ = {
+			isa = PBXGroup;
+			children = (
+				DECA039B2CD51956005E7C38 /* ASRCircleProgressView.swift */,
+			);
+			path = Atoms;
 			sourceTree = "<group>";
 		};
 		DEDB8F732CC6236000E5BE41 = {
@@ -612,6 +748,84 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		DEDC83EB2CD36A0A00F7120F /* Analyse */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC83F42CD36F6A00F7120F /* Request */,
+				DEDC83EC2CD36B0000F7120F /* Model */,
+				DEDC83F02CD36C5000F7120F /* AnalyseManager.swift */,
+			);
+			path = Analyse;
+			sourceTree = "<group>";
+		};
+		DEDC83EC2CD36B0000F7120F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC83ED2CD36B1700F7120F /* AnalyseCheckCorrentImage.swift */,
+				DEDC83F72CD372D900F7120F /* AnalyseScanResult.swift */,
+				DECA037C2CD3F8DD005E7C38 /* AnalyseScanTemplate.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DEDC83F42CD36F6A00F7120F /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC83F52CD36F9100F7120F /* AnalyseCheckCorrectImageRequest.swift */,
+				DEDC83F92CD375F700F7120F /* GetAnalyseScanResultRequest.swift */,
+				DEDC83FB2CD376FB00F7120F /* AnalyseScanImageRequest.swift */,
+				DEDC83FD2CD377AF00F7120F /* AnalyseSaveScanResultRequest.swift */,
+				DECA037E2CD3FABB005E7C38 /* GetAnalyseHistoryRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		DEDC84012CD379CF00F7120F /* Analyse */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC84022CD379DA00F7120F /* Scan */,
+			);
+			path = Analyse;
+			sourceTree = "<group>";
+		};
+		DEDC84022CD379DA00F7120F /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				DECA03802CD4DDCC005E7C38 /* AnalyseScanResult */,
+				DECA03722CD395A7005E7C38 /* AnalyseImageResize */,
+				DEDC84032CD379E000F7120F /* AnalyseCamera */,
+				DEDC84102CD386B600F7120F /* AnalyseScanAssembly.swift */,
+			);
+			path = Scan;
+			sourceTree = "<group>";
+		};
+		DEDC84032CD379E000F7120F /* AnalyseCamera */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC84042CD37B2F00F7120F /* Utils */,
+				DEDC84052CD37B3300F7120F /* Views */,
+				DEDC84062CD37B3D00F7120F /* AnalyseCameraViewController.swift */,
+				DEDC840A2CD37B4700F7120F /* AnalyseCameraView.swift */,
+			);
+			path = AnalyseCamera;
+			sourceTree = "<group>";
+		};
+		DEDC84042CD37B2F00F7120F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC840C2CD37B6C00F7120F /* CameraService.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		DEDC84052CD37B3300F7120F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC840E2CD37D4000F7120F /* AnalyseCameraOptionsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		DEFD391F2CC62541007050EF /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
@@ -673,6 +887,7 @@
 			isa = PBXGroup;
 			children = (
 				DEFD39382CC62541007050EF /* APIRequestBody.swift */,
+				DEDC83F22CD36D0100F7120F /* APIFormDataRequestBody.swift */,
 				DEFD39392CC62541007050EF /* RestAPITransport.swift */,
 			);
 			path = Network;
@@ -878,6 +1093,7 @@
 		DEFD39E62CC62541007050EF /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DEDC84012CD379CF00F7120F /* Analyse */,
 				DEDC838A2CCD40E700F7120F /* Chat */,
 				DEFD3B6C2CC90232007050EF /* Bookmarks */,
 				DEFD3B3C2CC7B2AB007050EF /* Catalog */,
@@ -949,6 +1165,7 @@
 		DEFD3A142CC62541007050EF /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				DEDC83EB2CD36A0A00F7120F /* Analyse */,
 				DEDC839F2CCD50E300F7120F /* Chat */,
 				DEFD3B0F2CC7A38C007050EF /* Catalog */,
 				DEFD3A072CC62541007050EF /* Profile */,
@@ -1037,6 +1254,8 @@
 			children = (
 				DEFD3B012CC78B8C007050EF /* Atoms */,
 				DEFD3AFF2CC679F8007050EF /* HomeExploreCell.swift */,
+				DEDC83E72CD35EDC00F7120F /* HomeOpenScannerCell.swift */,
+				DEDC83E92CD365A700F7120F /* HomeOpenHistoryCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1379,21 +1598,25 @@
 			files = (
 				DEFD3A182CC62541007050EF /* FacebookManager.swift in Sources */,
 				DEFD3A192CC62541007050EF /* SignError.swift in Sources */,
+				DEDC83FA2CD375F700F7120F /* GetAnalyseScanResultRequest.swift in Sources */,
 				DEDC83942CCD458E00F7120F /* ChatPlaceholderView.swift in Sources */,
 				DEFD3B7F2CC90657007050EF /* BookmarksTableCell.swift in Sources */,
 				DEFD3B1F2CC7A88E007050EF /* GetProceduresRequest.swift in Sources */,
 				DEFD3A1C2CC62541007050EF /* IAPActionResult.swift in Sources */,
 				DEFD3A1E2CC62541007050EF /* UIDevice+Extension.swift in Sources */,
 				DEFD3B642CC8DF6B007050EF /* CDTableSectionCell.swift in Sources */,
+				DECA038A2CD4E3ED005E7C38 /* AnalyseScanResultTableView.swift in Sources */,
 				DEDC83E32CD0F85B00F7120F /* ChatRegenerateView.swift in Sources */,
 				DEFD3B562CC8DF00007050EF /* CatalogDetailsViewModel.swift in Sources */,
 				DEFD3A1F2CC62541007050EF /* PaygateViewController.swift in Sources */,
+				DECA038F2CD4E4B9005E7C38 /* AnalyseScanResultImageCell.swift in Sources */,
 				DEFD3A232CC62541007050EF /* OnboardingSlideView.swift in Sources */,
 				DEDC83A22CCD52CF00F7120F /* ChatManager.swift in Sources */,
 				DEFD3A282CC62541007050EF /* ProfileBindingRequest.swift in Sources */,
 				DEDC83D22CCFAB6C00F7120F /* CDCView.swift in Sources */,
 				DEDC83C72CCF8F4C00F7120F /* ChatsTableSection.swift in Sources */,
 				DEDC83D62CD0B83900F7120F /* ChatTableView.swift in Sources */,
+				DECA03822CD4DDDD005E7C38 /* AnalyseScanResultViewController.swift in Sources */,
 				DEFD3A2D2CC62541007050EF /* AmplitudeManager.swift in Sources */,
 				DEFD3B212CC7A8FA007050EF /* GetDiseasesRequest.swift in Sources */,
 				DEFD3B272CC7A969007050EF /* GetDiseaseDetailsRequest.swift in Sources */,
@@ -1401,6 +1624,8 @@
 				DEFD3B4D2CC7B479007050EF /* CatalogsSearchField.swift in Sources */,
 				DEFD3B312CC7AAA8007050EF /* SaveDiseaseRequest.swift in Sources */,
 				DEFD3A332CC62541007050EF /* PaygateEnableTrialButton.swift in Sources */,
+				DEDC84072CD37B3D00F7120F /* AnalyseCameraViewController.swift in Sources */,
+				DECA039C2CD51956005E7C38 /* ASRCircleProgressView.swift in Sources */,
 				DEDC83912CCD40FE00F7120F /* ChatView.swift in Sources */,
 				DEDC83DF2CD0D59800F7120F /* ChatLoadingCell.swift in Sources */,
 				DEFD3A342CC62541007050EF /* TabView.swift in Sources */,
@@ -1409,18 +1634,25 @@
 				DEFD3B0E2CC797A3007050EF /* MenuRouteButton.swift in Sources */,
 				DEDC83CE2CCFA17000F7120F /* ChatsTableFooterView.swift in Sources */,
 				DEFD3A382CC62541007050EF /* UIColor+Extension.swift in Sources */,
+				DEDC840B2CD37B4700F7120F /* AnalyseCameraView.swift in Sources */,
+				DECA03992CD4E4EB005E7C38 /* AnalyseScanResultDescriptionCell.swift in Sources */,
 				DEFD3B602CC8DF5D007050EF /* CDTableTextCell.swift in Sources */,
 				DEFD3A392CC62541007050EF /* PaddingTextField.swift in Sources */,
 				DEFD3A3B2CC62541007050EF /* TryAgainViewController.swift in Sources */,
+				DECA03782CD395C4005E7C38 /* AnalyseImageResizeView.swift in Sources */,
 				DEFD3B3F2CC7B318007050EF /* CatalogsViewController.swift in Sources */,
 				DEFD3A3F2CC62541007050EF /* ProfileManager.swift in Sources */,
 				DEFD3A412CC62541007050EF /* OnboardingView.swift in Sources */,
+				DECA037F2CD3FABB005E7C38 /* GetAnalyseHistoryRequest.swift in Sources */,
 				DEFD3A422CC62541007050EF /* SceneDelegate.swift in Sources */,
 				DEFD3B472CC7B348007050EF /* CatalogsTableView.swift in Sources */,
 				DEDC83BF2CCD6C0D00F7120F /* GetChatsRequest.swift in Sources */,
+				DEDC840D2CD37B6C00F7120F /* CameraService.swift in Sources */,
 				DEDC83D42CCFAB7100F7120F /* CDCViewController.swift in Sources */,
 				DEFD3B542CC8DEF7007050EF /* CatalogDetailsViewController.swift in Sources */,
+				DECA03912CD4E4BF005E7C38 /* AnalyseScanResultNameCell.swift in Sources */,
 				DEFD3B492CC7B34F007050EF /* CatalogsTableElement.swift in Sources */,
+				DEDC83F32CD36D0100F7120F /* APIFormDataRequestBody.swift in Sources */,
 				DEFD3A4A2CC62541007050EF /* PushNotificationsAuthorizationStatus.swift in Sources */,
 				DEFD3B1D2CC7A83E007050EF /* GetGlossariesRequest.swift in Sources */,
 				DEFD3A552CC62541007050EF /* UIEdgeInsets+Extension.swift in Sources */,
@@ -1429,7 +1661,9 @@
 				DEFD3A572CC62541007050EF /* NavigationControllerSettings.swift in Sources */,
 				DEFD3A582CC62541007050EF /* TryAgainView.swift in Sources */,
 				DEFD3B4B2CC7B362007050EF /* CatalogsTableCell.swift in Sources */,
+				DECA03932CD4E4C9005E7C38 /* AnalyseScanResultAssessmentCell.swift in Sources */,
 				DEFD3A592CC62541007050EF /* ObservableAndSingle+Extension.swift in Sources */,
+				DEDC83EA2CD365A700F7120F /* HomeOpenHistoryCell.swift in Sources */,
 				DEFD3A5D2CC62541007050EF /* Scalable.swift in Sources */,
 				DEFD3B702CC90243007050EF /* BookmarksViewModel.swift in Sources */,
 				DEFD3B112CC7A39A007050EF /* CatalogManager.swift in Sources */,
@@ -1438,6 +1672,7 @@
 				DEDC83B42CCD644E00F7120F /* CheckMessageCompleteRequest.swift in Sources */,
 				DEFD3A602CC62541007050EF /* PaygateActionsView.swift in Sources */,
 				DEDC83CC2CCF906A00F7120F /* ChatsTableCell.swift in Sources */,
+				DECA03972CD4E4E3005E7C38 /* AnalyseScanResultRecommendationsCell.swift in Sources */,
 				DEDC83C12CCD6ED800F7120F /* DeleteChatRequest.swift in Sources */,
 				DEFD3B762CC9026A007050EF /* BookmarksFilterView.swift in Sources */,
 				DEFD3B512CC7CCD3007050EF /* DermatologySyncTokensRequest.swift in Sources */,
@@ -1462,6 +1697,7 @@
 				DEFD3A732CC62541007050EF /* BranchManager.swift in Sources */,
 				DEDC83A42CCD550800F7120F /* ChatMessage.swift in Sources */,
 				DEDC83B62CCD659500F7120F /* CheckMessageCompleteResponse.swift in Sources */,
+				DECA03762CD395C0005E7C38 /* AnalyseImageResizeViewModel.swift in Sources */,
 				DEFD3B172CC7A412007050EF /* Catalog.swift in Sources */,
 				DEDC83BB2CCD696600F7120F /* Page.swift in Sources */,
 				DEFD3B662CC8DF76007050EF /* CDTableImageCell.swift in Sources */,
@@ -1470,19 +1706,23 @@
 				DEFD3A752CC62541007050EF /* ImagePicker.swift in Sources */,
 				DEFD3AE52CC631DC007050EF /* OScanScinView.swift in Sources */,
 				DEFD3A782CC62541007050EF /* PaygateProductButton.swift in Sources */,
+				DECA037B2CD39BA0005E7C38 /* AnalyseImageResizeOptionsView.swift in Sources */,
 				DEFD3A7A2CC62541007050EF /* ScreenSize.swift in Sources */,
 				DEFD3B152CC7A406007050EF /* CatalogDetails.swift in Sources */,
 				DEFD3A7B2CC62541007050EF /* PaygateInfoCell.swift in Sources */,
 				DEFD3A7C2CC62541007050EF /* PaygateViewModel.swift in Sources */,
+				DEDC83F82CD372D900F7120F /* AnalyseScanResult.swift in Sources */,
 				DEFD3B692CC8DF86007050EF /* CDTableView.swift in Sources */,
 				DEFD3A7D2CC62541007050EF /* MainViewController.swift in Sources */,
 				DEFD3B082CC7963A007050EF /* MenuViewModel.swift in Sources */,
 				DEFD3A7E2CC62541007050EF /* AppDelegate.swift in Sources */,
 				DEFD3B2F2CC7AA90007050EF /* UnsaveProcedureRequest.swift in Sources */,
 				DEFD3AE72CC631F3007050EF /* OExploreSkinInsightsView.swift in Sources */,
+				DEDC83FC2CD376FB00F7120F /* AnalyseScanImageRequest.swift in Sources */,
 				DEFD3B2B2CC7A9A3007050EF /* UnsaveGlossaryRequest.swift in Sources */,
 				DEFD3B7D2CC9062E007050EF /* BookmarksTableElement.swift in Sources */,
 				DEFD3B392CC7AB56007050EF /* GetBookmarksDiseasesRequest.swift in Sources */,
+				DEDC84112CD386B600F7120F /* AnalyseScanAssembly.swift in Sources */,
 				DEDC83BD2CCD6A0D00F7120F /* ChatMessagesPage.swift in Sources */,
 				DEFD3AE32CC6317C007050EF /* ODisclaimerView.swift in Sources */,
 				DEFD3A822CC62541007050EF /* Collection+Extension.swift in Sources */,
@@ -1493,10 +1733,14 @@
 				DEFD3B5C2CC8DF4B007050EF /* CDTableTitleCell.swift in Sources */,
 				DEDC83C52CCF8F4600F7120F /* ChatsTableView.swift in Sources */,
 				DEFD3B252CC7A955007050EF /* GetProcedureDetailsRequest.swift in Sources */,
+				DECA038C2CD4E3F3005E7C38 /* AnalyseScanResultTableElement.swift in Sources */,
+				DECA03862CD4DDE6005E7C38 /* AnalyseScanResultView.swift in Sources */,
 				DEFD3A832CC62541007050EF /* Currency.swift in Sources */,
 				DEFD3A852CC62541007050EF /* SplashViewModel.swift in Sources */,
 				DEFD3AF52CC67710007050EF /* HomeViewModel.swift in Sources */,
+				DEDC83EE2CD36B1700F7120F /* AnalyseCheckCorrentImage.swift in Sources */,
 				DEFD3A862CC62541007050EF /* SplashView.swift in Sources */,
+				DECA03742CD395B9005E7C38 /* AnalyseImageResizeViewController.swift in Sources */,
 				DEFD3A872CC62541007050EF /* PaddingLabel.swift in Sources */,
 				DEFD3B6E2CC9023E007050EF /* BookmarksViewController.swift in Sources */,
 				DEFD3A882CC62541007050EF /* PurchaseValidationObserver.swift in Sources */,
@@ -1505,6 +1749,7 @@
 				DEFD3AFD2CC679E4007050EF /* HomeCollectionElement.swift in Sources */,
 				DEFD3B192CC7A462007050EF /* CatalogSection.swift in Sources */,
 				DEFD3A892CC62541007050EF /* RxActivityIndicator.swift in Sources */,
+				DECA03952CD4E4D8005E7C38 /* AnalyseScanResultConclusionCell.swift in Sources */,
 				DEFD3A8F2CC62541007050EF /* PaygateBestOfferView.swift in Sources */,
 				DEFD3B1B2CC7A46A007050EF /* CatalogBlock.swift in Sources */,
 				DEFD3B7B2CC90622007050EF /* BookmarksTableView.swift in Sources */,
@@ -1517,10 +1762,12 @@
 				DEDC839B2CCD4C2700F7120F /* ChatsViewModel.swift in Sources */,
 				DEFD3A952CC62541007050EF /* NumberLaunches.swift in Sources */,
 				DEDC83992CCD4C2200F7120F /* ChatsViewController.swift in Sources */,
+				DECA03842CD4DDE2005E7C38 /* AnalyseScanResultViewModel.swift in Sources */,
 				DEFD3AEB2CC63227007050EF /* OChatView.swift in Sources */,
 				DEDC83DB2CD0BFCE00F7120F /* ChatQuestionImageCell.swift in Sources */,
 				DEFD3A962CC62541007050EF /* ObservableRetrySingle.swift in Sources */,
 				DEFD3A982CC62541007050EF /* XOREncryption.swift in Sources */,
+				DEDC83F62CD36F9100F7120F /* AnalyseCheckCorrectImageRequest.swift in Sources */,
 				DEFD3B292CC7A983007050EF /* SaveGlossaryRequest.swift in Sources */,
 				DEFD3A9C2CC62541007050EF /* RestAPITransport.swift in Sources */,
 				DEFD3A9D2CC62541007050EF /* GradientView.swift in Sources */,
@@ -1529,10 +1776,13 @@
 				DEDC83AA2CCD59EE00F7120F /* Chat.swift in Sources */,
 				DEFD3AA02CC62541007050EF /* NavigationController.swift in Sources */,
 				DEFD3AA12CC62541007050EF /* ProductPrice.swift in Sources */,
+				DEDC83F12CD36C5000F7120F /* AnalyseManager.swift in Sources */,
 				DEFD3AA22CC62541007050EF /* TapAreaButton.swift in Sources */,
 				DEFD3B822CC90989007050EF /* BookmarksEmptyView.swift in Sources */,
+				DEDC83FE2CD377AF00F7120F /* AnalyseSaveScanResultRequest.swift in Sources */,
 				DEFD3AA32CC62541007050EF /* GlobalDefinitions.swift in Sources */,
 				DEFD3AE12CC62E60007050EF /* OStepsView.swift in Sources */,
+				DEDC83E82CD35EDC00F7120F /* HomeOpenScannerCell.swift in Sources */,
 				DEDC839D2CCD4C2B00F7120F /* ChatsView.swift in Sources */,
 				DEFD3AA42CC62541007050EF /* RequestReview.swift in Sources */,
 				DEFD3AA62CC62541007050EF /* PushNotificationsModel.swift in Sources */,
@@ -1545,6 +1795,7 @@
 				DEFD3B862CCA7CDD007050EF /* CDBViewController.swift in Sources */,
 				DEFD3B412CC7B31E007050EF /* CatalogsViewModel.swift in Sources */,
 				DEFD3B5E2CC8DF54007050EF /* CDTableSeparatorCell.swift in Sources */,
+				DECA037D2CD3F8DD005E7C38 /* AnalyseScanTemplate.swift in Sources */,
 				DEFD3AB02CC62541007050EF /* Weak.swift in Sources */,
 				DEDC83D82CD0B84000F7120F /* ChatTableElement.swift in Sources */,
 				DEDC83A82CCD57D900F7120F /* SendMessageResponse.swift in Sources */,
@@ -1554,6 +1805,7 @@
 				DEDC83A62CCD56F000F7120F /* ChatMessageRunner.swift in Sources */,
 				DEFD3B372CC7AAF1007050EF /* GetBookmarksProceduresRequest.swift in Sources */,
 				DEFD3AB52CC62541007050EF /* TextAttributes.swift in Sources */,
+				DEDC840F2CD37D4000F7120F /* AnalyseCameraOptionsView.swift in Sources */,
 				DEFD3AB92CC62541007050EF /* String+Extension.swift in Sources */,
 				DEDC83962CCD493100F7120F /* ChatInputField.swift in Sources */,
 				DEFD3ABA2CC62541007050EF /* PaygateInteractor.swift in Sources */,
@@ -1594,9 +1846,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2GY8CB289H;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ScinCare/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1607,7 +1862,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.iphone.tracker;
+				PRODUCT_BUNDLE_IDENTIFIER = scincare.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1627,9 +1882,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2GY8CB289H;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ScinCare/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1640,7 +1898,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.iphone.tracker;
+				PRODUCT_BUNDLE_IDENTIFIER = scincare.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

@@ -65,7 +65,7 @@ private extension ChatsView {
 private extension ChatsView {
     func makeBackButton() -> TapAreaButton {
         let view = TapAreaButton()
-        view.setImage(UIImage(named: "Back"), for: .normal)
+        view.setImage(UIImage(named: "Back.Black"), for: .normal)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

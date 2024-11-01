@@ -12,6 +12,8 @@ import RxCocoa
 final class HomeCollectionView: UICollectionView {
     private lazy var elements = [HomeCollectionElement]()
     
+    private lazy var didOpenScannerTrigger = PublishRelay<Void>()
+    private lazy var didOpenHistoryTrigger = PublishRelay<Void>()
     private lazy var didTapExploreTrigger = PublishRelay<HomeExploreItemButton.Item>()
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -33,6 +35,14 @@ extension HomeCollectionView {
         reloadData()
     }
     
+    var didOpenScanner: Signal<Void> {
+        didOpenScannerTrigger.asSignal()
+    }
+    
+    var didOpenHistory: Signal<Void> {
+        didOpenHistoryTrigger.asSignal()
+    }
+    
     var didTapExplore: Signal<HomeExploreItemButton.Item> {
         didTapExploreTrigger.asSignal()
     }
@@ -46,6 +56,18 @@ extension HomeCollectionView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch elements[indexPath.row] {
+        case .openScanner:
+            let cell = dequeueReusableCell(withReuseIdentifier: String(describing: HomeOpenScannerCell.self), for: indexPath) as! HomeOpenScannerCell
+            cell.didOpenScanner = { [weak self] in
+                self?.didOpenScannerTrigger.accept(())
+            }
+            return cell
+        case .openHistory:
+            let cell = dequeueReusableCell(withReuseIdentifier: String(describing: HomeOpenHistoryCell.self), for: indexPath) as! HomeOpenHistoryCell
+            cell.didOpenHistory = { [weak self] in
+                self?.didOpenHistoryTrigger.accept(Void())
+            }
+            return cell
         case .explore:
             let cell = dequeueReusableCell(withReuseIdentifier: String(describing: HomeExploreCell.self), for: indexPath) as! HomeExploreCell
             cell.didTap = { [weak self] item in
@@ -60,6 +82,8 @@ extension HomeCollectionView: UICollectionViewDataSource {
 extension HomeCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch elements[indexPath.row] {
+        case .openScanner, .openHistory:
+            return CGSize(width: bounds.width, height: 194.scale)
         case .explore:
             return CGSize(width: bounds.width, height: 411.scale)
         }
@@ -69,6 +93,8 @@ extension HomeCollectionView: UICollectionViewDelegateFlowLayout {
 // MARK: Private
 private extension HomeCollectionView {
     func initialize() {
+        register(HomeOpenScannerCell.self, forCellWithReuseIdentifier: String(describing: HomeOpenScannerCell.self))
+        register(HomeOpenHistoryCell.self, forCellWithReuseIdentifier: String(describing: HomeOpenHistoryCell.self))
         register(HomeExploreCell.self, forCellWithReuseIdentifier: String(describing: HomeExploreCell.self))
         
         dataSource = self

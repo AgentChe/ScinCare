@@ -12,6 +12,7 @@
 "Next" = "Next";
 "Done" = "Done";
 "Skip" = "Skip";
+"OK" = "OK";
 
 // MARK: ImagePicker
 "ImagePicker.TakePhoto" = "Take a photo";
@@ -86,6 +87,12 @@
 "Home.Explore.Disease.Text" = "Discover an extensive guide ";
 "Home.Explore.Glossary.Title" = "Glossary";
 "Home.Explore.Glossary.Text" = "A compilation of key terms ";
+"Home.OpenScanner.Title" = "Start skin scanning";
+"Home.OpenScanner.SubTitle" = "Make your first AI scan";
+"Home.OpenScanner.Button" = "Open scanner";
+"Home.OpenHistory.Title" = "Skin scan history";
+"Home.OpenHistory.SubTitle" = "Check your scan results";
+"Home.OpenHistory.Button" = "Open history";
 
 // MARK: Menu
 "Menu.Title" = "Menu";
@@ -129,3 +136,25 @@
 "Chats.ConfirmDelete.Title" = "Are you sure?";
 "Chats.ConfirmDelete.SubTitle" = "Do you really want to delete this chat?";
 "Chats.ConfirmDelete.Delete" = "Remove";
+
+// MARK: AnalyseCamera
+"AnalyseCamera.Placeholder" = "Center the skin area in the frame";
+"AnalyseCamera.NotPermissions.Title" = "No permission";
+"AnalyseCamera.NotPermissions.Text" = "Please go to settings and give permission to receive images for scanning";
+
+// MARK: AnalyseImageResize
+"AnalyseImageResize.AcceptPhoto" = "Accept photo";
+"AnalyseImageResize.Retake" = "Retake";
+"AnalyseImageResize.RetakePhoto" = "Retake photo";
+"AnalyseImageResize.Preloader" = "Scanning in progress...";
+"AnalyseImageResize.Correct" = "The photo is suitable";
+"AnalyseImageResize.Incorrect" = "Cannot scan the photo";
+
+// MARK: AnalyseScanResult
+"AnalyseScanResult.Title" = "Scan result";
+"AnalyseScanResult.Name" = "Name: ";
+"AnalyseScanResult.Assessment" = "Assessment: ";
+"AnalyseScanResult.Conclusion" = "Conclusion: ";
+"AnalyseScanResult.Recommendation" = "Recommendation: ";
+"AnalyseScanResult.Description" = "Description: ";
+"AnalyseScanResult.SaveButton" = "Save result";
