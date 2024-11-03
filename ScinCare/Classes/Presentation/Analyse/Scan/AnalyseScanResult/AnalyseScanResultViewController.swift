@@ -11,6 +11,7 @@ import RxSwift
 final class AnalyseScanResultViewController: UIViewController {
     enum Result {
         case close
+        case save(String)
     }
     
     private lazy var mainView = AnalyseScanResultView()
@@ -53,7 +54,10 @@ final class AnalyseScanResultViewController: UIViewController {
         
         let output = viewModel.configure(input: AnalyseScanResultViewModel.Input(
             didTapClose: mainView.closeButton.rx.tap.asSignal(),
-            didTapDisclaimer: disclaimerTapGesture.rx.event.mapToVoid().asSignal(onErrorSignalWith: .never())
+            didTapDisclaimer: disclaimerTapGesture.rx.event
+                .mapToVoid()
+                .asSignal(onErrorSignalWith: .never()),
+            didTapSave: mainView.saveButton.rx.tap.asSignal()
         ))
         
         output.activity
@@ -117,6 +121,8 @@ private extension AnalyseScanResultViewController {
         case .disclaimer:
             let vc = DisclaimerViewController.make()
             present(vc, animated: true)
+        case .save(let analyseId):
+            complete(.save(analyseId))
         }
     }
 }

@@ -12,6 +12,7 @@ final class AnalyseScanResultViewModel {
     enum Route {
         case close
         case disclaimer
+        case save(String)
     }
     
     var tryAgain: ((Error) -> (Observable<Void>))?
@@ -34,6 +35,7 @@ extension AnalyseScanResultViewModel {
     struct Input {
         let didTapClose: Signal<Void>
         let didTapDisclaimer: Signal<Void>
+        let didTapSave: Signal<Void>
     }
     
     struct Output {
@@ -52,7 +54,9 @@ extension AnalyseScanResultViewModel {
             elements: makeElements(scanResult: scanResult),
             route: makeRoute(
                 didTapClose: input.didTapClose,
-                didTapDisclaimer: input.didTapDisclaimer
+                didTapDisclaimer: input.didTapDisclaimer,
+                didTapSave: input.didTapSave,
+                scanResult: scanResult
             )
         )
     }
@@ -134,7 +138,9 @@ private extension AnalyseScanResultViewModel {
     
     func makeRoute(
         didTapClose: Signal<Void>,
-        didTapDisclaimer: Signal<Void>
+        didTapDisclaimer: Signal<Void>,
+        didTapSave: Signal<Void>,
+        scanResult: Driver<AnalyseScanResult>
     ) -> Driver<Route> {
         let close = didTapClose
             .map { Route.close }
@@ -144,7 +150,12 @@ private extension AnalyseScanResultViewModel {
             .map { Route.disclaimer }
             .asDriver(onErrorDriveWith: .never())
         
+        let save = didTapSave
+            .withLatestFrom(scanResult)
+            .map { Route.save($0.id) }
+            .asDriver(onErrorDriveWith: .never())
+        
         return Driver
-            .merge(close, disclaimer)
+            .merge(close, disclaimer, save)
     }
 }

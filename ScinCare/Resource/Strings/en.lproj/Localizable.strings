@@ -158,3 +158,34 @@
 "AnalyseScanResult.Recommendation" = "Recommendation: ";
 "AnalyseScanResult.Description" = "Description: ";
 "AnalyseScanResult.SaveButton" = "Save result";
+
+// MARK: SaveAnalyseSelectSkinArea
+"SaveAnalyseSelectSkinArea.Title" = "Save result";
+"SaveAnalyseSelectSkinArea.SubTitle" = "Select the side of the scanned skin area";
+
+// MARK: Side
+"Side.Front" = "Front";
+"Side.Back" = "Back";
+
+// MARK: SkinArea
+"SkinArea.Head" = "Head";
+"SkinArea.Body" = "Body";
+"SkinArea.leftArm" = "Left arm";
+"SkinArea.RightArm" = "Right arm";
+"SkinArea.Stomach" = "Stomach";
+"SkinArea.LeftLeg" = "Left leg";
+"SkinArea.RightLeg" = "Right leg";
+
+// MARK: SaveAnalyseSetTitle
+"SaveAnalyseSetTitle.Title" = "Save result";
+"SaveAnalyseSetTitle.SubTitle" = "Add a few extra details to the result";
+"SaveAnalyseSetTitle.ScannedArea" = "Scanned area:\n%@";
+"SaveAnalyseSetTitle.AddTitle" = "Add scan title";
+"SaveAnalyseSetTitle.TitlePlaceholder" = "Enter text";
+"SaveAnalyseSetTitle.SaveButton" = "Save result";
+
+// MARK: SaveAnalyseComplete
+"SaveAnalyseComplete.Title" = "Done!";
+"SaveAnalyseComplete.Text" = "You can set notifications to take the skin rescan and keep track of any changes";
+"SaveAnalyseComplete.ReminderButton" = "Set a rescan reminder";
+"SaveAnalyseComplete.LaterButton" = "Do it later";

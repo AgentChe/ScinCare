@@ -61,8 +61,43 @@ private extension AnalyseScanAssembly {
         let nc = NavigationController()
         nc.modalPresentationStyle = .fullScreen
         
-        let scanResultVC = AnalyseScanResultViewController.make(image: croppedImage) { result in
-            complete()
+        let scanResultVC = AnalyseScanResultViewController.make(image: croppedImage) { [weak nc] result in
+            switch result {
+            case .close:
+                complete()
+            case .save(let analyseId):
+                let selectSkinAreaVC = SaveAnalyseSelectSkinAreaViewController.make(analyseId: analyseId) { [weak nc] result in
+                    switch result {
+                    case .back:
+                        nc?.popViewController(animated: true)
+                    case .output(let output):
+                        let input = SaveAnalyseSetTitleViewController.Input(
+                            analyseId: output.analyseId,
+                            side: output.side,
+                            area: output.area
+                        )
+                        
+                        let setTitleVC = SaveAnalyseSetTitleViewController.make(input: input) { [weak nc] result in
+                            switch result {
+                            case .back:
+                                nc?.popViewController(animated: true)
+                            case .complete:
+                                let resultVC = SaveAnalyseCompleteViewController.make { result in
+                                    switch result {
+                                    case .reminder:
+                                        break // TODO
+                                    case .later:
+                                        complete()
+                                    }
+                                }
+                                nc?.present(resultVC, animated: false)
+                            }
+                        }
+                        nc?.pushViewController(setTitleVC, animated: true)
+                    }
+                }
+                nc?.pushViewController(selectSkinAreaVC, animated: true)
+            }
         }
         nc.setViewControllers([scanResultVC], animated: false)
         
