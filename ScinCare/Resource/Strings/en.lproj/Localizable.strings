@@ -158,6 +158,7 @@
 "AnalyseScanResult.Recommendation" = "Recommendation: ";
 "AnalyseScanResult.Description" = "Description: ";
 "AnalyseScanResult.SaveButton" = "Save result";
+"AnalyseScanResult.SetNotificationButton" = "Set notification";
 
 // MARK: SaveAnalyseSelectSkinArea
 "SaveAnalyseSelectSkinArea.Title" = "Save result";

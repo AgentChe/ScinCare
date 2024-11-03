@@ -8,14 +8,21 @@
 import UIKit
 
 final class AnalyseScanResultView: UIView {
+    enum ActionButton {
+        case save
+        case setNotifications
+    }
+    
     lazy var titleLabel = makeTitleLabel()
     lazy var closeButton = makeCloseButton()
     lazy var tableView = makeTableView()
     lazy var disclaimerLabel = makeDisclaimerLabel()
-    lazy var saveButton = makeSaveButton()
+    lazy var actionButton = makeButton()
     lazy var preloader = makePreloader()
     
-    private lazy var disclaimerBottomConstraint = NSLayoutConstraint()
+    private lazy var buttonAttrs = TextAttributes()
+        .textColor(Appearance.mono100)
+        .font(Fonts.Roboto.bold(size: 16.scale))
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,18 +38,13 @@ final class AnalyseScanResultView: UIView {
 
 // MARK: Public
 extension AnalyseScanResultView {
-    func saveButton(hidden: Bool) {
-        saveButton.isHidden = hidden
-        
-        disclaimerBottomConstraint.isActive = false
-        if hidden {
-            disclaimerBottomConstraint = disclaimerLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8.scale)
-        } else {
-            disclaimerBottomConstraint = disclaimerLabel.bottomAnchor.constraint(equalTo: saveButton.topAnchor, constant: -8.scale)
+    func setup(actionButton state: ActionButton) {
+        switch state {
+        case .save:
+            actionButton.setAttributedTitle("AnalyseScanResult.SaveButton".localized.attributed(with: buttonAttrs), for: .normal)
+        case .setNotifications:
+            actionButton.setAttributedTitle("AnalyseScanResult.SetNotificationButton".localized.attributed(with: buttonAttrs), for: .normal)
         }
-        disclaimerBottomConstraint.isActive = true
-        
-        layoutIfNeeded()
     }
 }
 
@@ -75,18 +77,17 @@ private extension AnalyseScanResultView {
             tableView.bottomAnchor.constraint(equalTo: disclaimerLabel.topAnchor, constant: -2.scale)
         ])
         
-        disclaimerBottomConstraint = disclaimerLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8.scale)
         NSLayoutConstraint.activate([
             disclaimerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             disclaimerLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            disclaimerBottomConstraint
+            disclaimerLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8.scale)
         ])
         
         NSLayoutConstraint.activate([
-            saveButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            saveButton.heightAnchor.constraint(equalToConstant: 54.scale),
-            saveButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8.scale)
+            actionButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            actionButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            actionButton.heightAnchor.constraint(equalToConstant: 54.scale),
+            actionButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8.scale)
         ])
         
         NSLayoutConstraint.activate([
@@ -168,14 +169,8 @@ private extension AnalyseScanResultView {
         return view
     }
     
-    func makeSaveButton() -> UIButton {
-        let whiteButtonAttrs = TextAttributes()
-            .textColor(Appearance.mono100)
-            .font(Fonts.Roboto.bold(size: 16.scale))
-        
+    func makeButton() -> UIButton {
         let view = UIButton()
-        view.isHidden = true
-        view.setAttributedTitle("AnalyseScanResult.SaveButton".localized.attributed(with: whiteButtonAttrs), for: .normal)
         view.backgroundColor = Appearance.main100
         view.layer.cornerRadius = 16.scale
         view.translatesAutoresizingMaskIntoConstraints = false

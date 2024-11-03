@@ -97,6 +97,8 @@ private extension AnalyseScanAssembly {
                     }
                 }
                 nc?.pushViewController(selectSkinAreaVC, animated: true)
+            case .setNotifications(let analyseId):
+                break // TODO
             }
         }
         nc.setViewControllers([scanResultVC], animated: false)

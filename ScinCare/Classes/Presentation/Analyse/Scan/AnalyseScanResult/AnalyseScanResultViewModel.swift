@@ -13,6 +13,7 @@ final class AnalyseScanResultViewModel {
         case close
         case disclaimer
         case save(String)
+        case setNotification(String)
     }
     
     var tryAgain: ((Error) -> (Observable<Void>))?
@@ -39,28 +40,30 @@ extension AnalyseScanResultViewModel {
     struct Input {
         let didTapClose: Signal<Void>
         let didTapDisclaimer: Signal<Void>
-        let didTapSave: Signal<Void>
+        let didTapAction: Signal<Void>
     }
     
     struct Output {
         let activity: Driver<Bool>
-        let saveButtonHidden: Driver<Bool>
+        let actionButtonState: Driver<AnalyseScanResultView.ActionButton>
         let elements: Driver<[AnalyseScanResultTableElement]>
         let route: Driver<Route>
     }
     
     func configure(input: Input) -> Output {
         let scanResult = makeScanResult(source: source)
+        let actionButtonState = makeActionButtonState(scanResult: scanResult)
         
         return Output(
             activity: activity.asDriver(),
-            saveButtonHidden: makeSaveButtonHidden(scanResult: scanResult),
+            actionButtonState: actionButtonState,
             elements: makeElements(scanResult: scanResult),
             route: makeRoute(
                 didTapClose: input.didTapClose,
                 didTapDisclaimer: input.didTapDisclaimer,
-                didTapSave: input.didTapSave,
-                scanResult: scanResult
+                didTapAction: input.didTapAction,
+                scanResult: scanResult,
+                actionButtonState: actionButtonState
             )
         )
     }
@@ -98,9 +101,9 @@ private extension AnalyseScanResultViewModel {
             }
     }
     
-    func makeSaveButtonHidden(scanResult: Driver<AnalyseScanResult>) -> Driver<Bool> {
+    func makeActionButtonState(scanResult: Driver<AnalyseScanResult>) -> Driver<AnalyseScanResultView.ActionButton> {
         scanResult
-            .map { $0.saved }
+            .map { $0.saved ? .setNotifications : .save }
     }
     
     func makeScanResult(source: Driver<Source>) -> Driver<AnalyseScanResult> {
@@ -151,8 +154,9 @@ private extension AnalyseScanResultViewModel {
     func makeRoute(
         didTapClose: Signal<Void>,
         didTapDisclaimer: Signal<Void>,
-        didTapSave: Signal<Void>,
-        scanResult: Driver<AnalyseScanResult>
+        didTapAction: Signal<Void>,
+        scanResult: Driver<AnalyseScanResult>,
+        actionButtonState: Driver<AnalyseScanResultView.ActionButton>
     ) -> Driver<Route> {
         let close = didTapClose
             .map { Route.close }
@@ -162,12 +166,23 @@ private extension AnalyseScanResultViewModel {
             .map { Route.disclaimer }
             .asDriver(onErrorDriveWith: .never())
         
-        let save = didTapSave
-            .withLatestFrom(scanResult)
-            .map { Route.save($0.id) }
+        let action = didTapAction
             .asDriver(onErrorDriveWith: .never())
+            .withLatestFrom(scanResult)
+            .withLatestFrom(actionButtonState) { ($0, $1) }
+            .map { args -> Route in
+                let (scanResult, actionButtonState) = args
+                return {
+                    switch actionButtonState {
+                    case .save:
+                        return Route.save(scanResult.id)
+                    case .setNotifications:
+                        return Route.setNotification(scanResult.id)
+                    }
+                }()
+            }
         
         return Driver
-            .merge(close, disclaimer, save)
+            .merge(close, disclaimer, action)
     }
 }

@@ -12,6 +12,7 @@ final class AnalyseScanResultViewController: UIViewController {
     enum Result {
         case close
         case save(String)
+        case setNotifications(String)
     }
     
     private lazy var mainView = AnalyseScanResultView()
@@ -64,7 +65,7 @@ final class AnalyseScanResultViewController: UIViewController {
             didTapDisclaimer: disclaimerTapGesture.rx.event
                 .mapToVoid()
                 .asSignal(onErrorSignalWith: .never()),
-            didTapSave: mainView.saveButton.rx.tap.asSignal()
+            didTapAction: mainView.actionButton.rx.tap.asSignal()
         ))
         
         output.activity
@@ -73,9 +74,9 @@ final class AnalyseScanResultViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        output.saveButtonHidden
-            .drive(Binder(mainView) { base, hidden in
-                base.saveButton(hidden: hidden)
+        output.actionButtonState
+            .drive(Binder(mainView) { base, state in
+                base.setup(actionButton: state)
             })
             .disposed(by: disposeBag)
         
@@ -137,6 +138,8 @@ private extension AnalyseScanResultViewController {
             present(vc, animated: true)
         case .save(let analyseId):
             complete(.save(analyseId))
+        case .setNotification(let analyseId):
+            complete(.setNotifications(analyseId))
         }
     }
 }
