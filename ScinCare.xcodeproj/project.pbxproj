@@ -40,6 +40,12 @@
 		DECA03BF2CD702F4005E7C38 /* SASTInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03BE2CD702F4005E7C38 /* SASTInputField.swift */; };
 		DECA03C22CD70AC6005E7C38 /* SaveAnalyseCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03C12CD70AC6005E7C38 /* SaveAnalyseCompleteViewController.swift */; };
 		DECA03C62CD70AD1005E7C38 /* SaveAnalyseCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03C52CD70AD1005E7C38 /* SaveAnalyseCompleteView.swift */; };
+		DECA03CA2CD76F72005E7C38 /* ScanHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03C92CD76F72005E7C38 /* ScanHistoryViewController.swift */; };
+		DECA03CC2CD76F79005E7C38 /* ScanHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03CB2CD76F79005E7C38 /* ScanHistoryViewModel.swift */; };
+		DECA03CE2CD76F7E005E7C38 /* ScanHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03CD2CD76F7E005E7C38 /* ScanHistoryView.swift */; };
+		DECA03D22CD770D2005E7C38 /* ScanHistoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03D12CD770D2005E7C38 /* ScanHistoryTableView.swift */; };
+		DECA03D42CD770DC005E7C38 /* ScanHistoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03D32CD770DC005E7C38 /* ScanHistoryTableCell.swift */; };
+		DECA03D62CD77C45005E7C38 /* AnalyseScanResultAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03D52CD77C45005E7C38 /* AnalyseScanResultAssembly.swift */; };
 		DEDB8FA12CC6237F00E5BE41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDB8F952CC6237F00E5BE41 /* Assets.xcassets */; };
 		DEDB8FA32CC6237F00E5BE41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDB8F982CC6237F00E5BE41 /* LaunchScreen.storyboard */; };
 		DEDC838D2CCD40F500F7120F /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC838C2CCD40F500F7120F /* ChatViewController.swift */; };
@@ -283,6 +289,12 @@
 		DECA03BE2CD702F4005E7C38 /* SASTInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SASTInputField.swift; sourceTree = "<group>"; };
 		DECA03C12CD70AC6005E7C38 /* SaveAnalyseCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAnalyseCompleteViewController.swift; sourceTree = "<group>"; };
 		DECA03C52CD70AD1005E7C38 /* SaveAnalyseCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAnalyseCompleteView.swift; sourceTree = "<group>"; };
+		DECA03C92CD76F72005E7C38 /* ScanHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanHistoryViewController.swift; sourceTree = "<group>"; };
+		DECA03CB2CD76F79005E7C38 /* ScanHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanHistoryViewModel.swift; sourceTree = "<group>"; };
+		DECA03CD2CD76F7E005E7C38 /* ScanHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanHistoryView.swift; sourceTree = "<group>"; };
+		DECA03D12CD770D2005E7C38 /* ScanHistoryTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanHistoryTableView.swift; sourceTree = "<group>"; };
+		DECA03D32CD770DC005E7C38 /* ScanHistoryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanHistoryTableCell.swift; sourceTree = "<group>"; };
+		DECA03D52CD77C45005E7C38 /* AnalyseScanResultAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseScanResultAssembly.swift; sourceTree = "<group>"; };
 		DEDB8F7C2CC6236000E5BE41 /* ScinCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScinCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDB8F952CC6237F00E5BE41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEDB8F962CC6237F00E5BE41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -651,6 +663,34 @@
 			path = SaveAnalyseComplete;
 			sourceTree = "<group>";
 		};
+		DECA03C82CD76F51005E7C38 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				DECA03CF2CD770B8005E7C38 /* Views */,
+				DECA03C92CD76F72005E7C38 /* ScanHistoryViewController.swift */,
+				DECA03CB2CD76F79005E7C38 /* ScanHistoryViewModel.swift */,
+				DECA03CD2CD76F7E005E7C38 /* ScanHistoryView.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		DECA03CF2CD770B8005E7C38 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DECA03D02CD770C6005E7C38 /* TableView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DECA03D02CD770C6005E7C38 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DECA03D12CD770D2005E7C38 /* ScanHistoryTableView.swift */,
+				DECA03D32CD770DC005E7C38 /* ScanHistoryTableCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 		DEDB8F732CC6236000E5BE41 = {
 			isa = PBXGroup;
 			children = (
@@ -880,6 +920,7 @@
 		DEDC84012CD379CF00F7120F /* Analyse */ = {
 			isa = PBXGroup;
 			children = (
+				DECA03C82CD76F51005E7C38 /* History */,
 				DECA03A22CD589AE005E7C38 /* Save */,
 				DEDC84022CD379DA00F7120F /* Scan */,
 			);
@@ -893,6 +934,7 @@
 				DECA03722CD395A7005E7C38 /* AnalyseImageResize */,
 				DEDC84032CD379E000F7120F /* AnalyseCamera */,
 				DEDC84102CD386B600F7120F /* AnalyseScanAssembly.swift */,
+				DECA03D52CD77C45005E7C38 /* AnalyseScanResultAssembly.swift */,
 			);
 			path = Scan;
 			sourceTree = "<group>";
@@ -1717,6 +1759,7 @@
 				DEDC83C72CCF8F4C00F7120F /* ChatsTableSection.swift in Sources */,
 				DEDC83D62CD0B83900F7120F /* ChatTableView.swift in Sources */,
 				DECA03822CD4DDDD005E7C38 /* AnalyseScanResultViewController.swift in Sources */,
+				DECA03D22CD770D2005E7C38 /* ScanHistoryTableView.swift in Sources */,
 				DEFD3A2D2CC62541007050EF /* AmplitudeManager.swift in Sources */,
 				DEFD3B212CC7A8FA007050EF /* GetDiseasesRequest.swift in Sources */,
 				DEFD3B272CC7A969007050EF /* GetDiseaseDetailsRequest.swift in Sources */,
@@ -1737,6 +1780,7 @@
 				DECA03B62CD67171005E7C38 /* SaveAnalyseSetTitleViewModel.swift in Sources */,
 				DEDC840B2CD37B4700F7120F /* AnalyseCameraView.swift in Sources */,
 				DECA03992CD4E4EB005E7C38 /* AnalyseScanResultDescriptionCell.swift in Sources */,
+				DECA03D42CD770DC005E7C38 /* ScanHistoryTableCell.swift in Sources */,
 				DEFD3B602CC8DF5D007050EF /* CDTableTextCell.swift in Sources */,
 				DEFD3A392CC62541007050EF /* PaddingTextField.swift in Sources */,
 				DECA03B42CD67114005E7C38 /* SaveAnalyseSetTitleViewController.swift in Sources */,
@@ -1864,16 +1908,19 @@
 				DECA03B12CD59698005E7C38 /* SkinAreaItemView.swift in Sources */,
 				DEFD3B1B2CC7A46A007050EF /* CatalogBlock.swift in Sources */,
 				DEFD3B7B2CC90622007050EF /* BookmarksTableView.swift in Sources */,
+				DECA03CE2CD76F7E005E7C38 /* ScanHistoryView.swift in Sources */,
 				DEFD3AF72CC67714007050EF /* HomeView.swift in Sources */,
 				DEFD3A902CC62541007050EF /* UITapGestureRecognizer+Extension.swift in Sources */,
 				DEDC83CA2CCF905F00F7120F /* ChatsTableHeaderView.swift in Sources */,
 				DEFD3B232CC7A935007050EF /* GetGlossaryDetailsRequest.swift in Sources */,
 				DEFD3AF32CC67709007050EF /* HomeViewController.swift in Sources */,
+				DECA03D62CD77C45005E7C38 /* AnalyseScanResultAssembly.swift in Sources */,
 				DEFD3A932CC62541007050EF /* SplashReceiptValidationObserver.swift in Sources */,
 				DEDC839B2CCD4C2700F7120F /* ChatsViewModel.swift in Sources */,
 				DEFD3A952CC62541007050EF /* NumberLaunches.swift in Sources */,
 				DEDC83992CCD4C2200F7120F /* ChatsViewController.swift in Sources */,
 				DECA03842CD4DDE2005E7C38 /* AnalyseScanResultViewModel.swift in Sources */,
+				DECA03CC2CD76F79005E7C38 /* ScanHistoryViewModel.swift in Sources */,
 				DEFD3AEB2CC63227007050EF /* OChatView.swift in Sources */,
 				DEDC83DB2CD0BFCE00F7120F /* ChatQuestionImageCell.swift in Sources */,
 				DEFD3A962CC62541007050EF /* ObservableRetrySingle.swift in Sources */,
@@ -1918,6 +1965,7 @@
 				DEFD3AB52CC62541007050EF /* TextAttributes.swift in Sources */,
 				DEDC840F2CD37D4000F7120F /* AnalyseCameraOptionsView.swift in Sources */,
 				DECA03A72CD589F7005E7C38 /* SaveAnalyseSelectSkinAreaViewModel.swift in Sources */,
+				DECA03CA2CD76F72005E7C38 /* ScanHistoryViewController.swift in Sources */,
 				DEFD3AB92CC62541007050EF /* String+Extension.swift in Sources */,
 				DEDC83962CCD493100F7120F /* ChatInputField.swift in Sources */,
 				DEFD3ABA2CC62541007050EF /* PaygateInteractor.swift in Sources */,

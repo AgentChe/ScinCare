@@ -110,8 +110,8 @@ private extension HomeOpenScannerCell {
     func makeSubTitleLabel() -> UILabel {
         let attrs = TextAttributes()
             .textColor(Appearance.mono200)
-            .font(Fonts.Roboto.regular(size: 14.scale))
-            .lineHeight(20.scale)
+            .font(Fonts.Roboto.bold(size: 22.scale))
+            .lineHeight(30.scale)
         
         let view = UILabel()
         view.attributedText = "Home.OpenScanner.SubTitle".localized.attributed(with: attrs)

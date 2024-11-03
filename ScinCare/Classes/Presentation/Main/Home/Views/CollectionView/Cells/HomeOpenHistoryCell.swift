@@ -110,8 +110,8 @@ private extension HomeOpenHistoryCell {
     func makeSubTitleLabel() -> UILabel {
         let attrs = TextAttributes()
             .textColor(Appearance.mono200)
-            .font(Fonts.Roboto.regular(size: 14.scale))
-            .lineHeight(20.scale)
+            .font(Fonts.Roboto.bold(size: 22.scale))
+            .lineHeight(30.scale)
         
         let view = UILabel()
         view.attributedText = "Home.OpenHistory.SubTitle".localized.attributed(with: attrs)
@@ -135,7 +135,7 @@ private extension HomeOpenHistoryCell {
             .font(Fonts.Roboto.medium(size: 16.scale))
         
         let view = UIButton()
-        view.setAttributedTitle("Home.OpenScanner.Button".localized.attributed(with: attrs), for: .normal)
+        view.setAttributedTitle("Home.OpenHistory.Button".localized.attributed(with: attrs), for: .normal)
         view.layer.cornerRadius = 16.scale
         view.backgroundColor = Appearance.main300
         view.addTarget(self, action: #selector(openHistoryTapped), for: .touchUpInside)

@@ -189,3 +189,6 @@
 "SaveAnalyseComplete.Text" = "You can set notifications to take the skin rescan and keep track of any changes";
 "SaveAnalyseComplete.ReminderButton" = "Set a rescan reminder";
 "SaveAnalyseComplete.LaterButton" = "Do it later";
+
+// MARK: ScanHistory
+"ScanHistory.Title" = "Scan history";

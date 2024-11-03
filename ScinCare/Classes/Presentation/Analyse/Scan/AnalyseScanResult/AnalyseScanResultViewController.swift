@@ -29,6 +29,13 @@ final class AnalyseScanResultViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    private init(analyseId: String, complete: @escaping (Result) -> Void) {
+        self.viewModel = AnalyseScanResultViewModel(analyseId: analyseId)
+        self.complete = complete
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -90,6 +97,13 @@ final class AnalyseScanResultViewController: UIViewController {
 extension AnalyseScanResultViewController {
     static func make(image: UIImage, complete: @escaping (Result) -> Void) -> AnalyseScanResultViewController {
         let vc = AnalyseScanResultViewController(image: image, complete: complete)
+        vc.navigationItem.backButtonTitle = " "
+        vc.modalPresentationStyle = .fullScreen
+        return vc
+    }
+    
+    static func make(analyseId: String, complete: @escaping (Result) -> Void) -> AnalyseScanResultViewController {
+        let vc = AnalyseScanResultViewController(analyseId: analyseId, complete: complete)
         vc.navigationItem.backButtonTitle = " "
         vc.modalPresentationStyle = .fullScreen
         return vc

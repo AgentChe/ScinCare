@@ -23,6 +23,10 @@ final class AnalyseScanResultViewModel {
         source = BehaviorRelay(value: .scanImage(image)).asDriver()
     }
     
+    init(analyseId: String) {
+        source = BehaviorRelay(value: .byAnalyseId(analyseId)).asDriver()
+    }
+    
     private lazy var activity = RxActivityIndicator()
     
     private lazy var analyseManager = AnalyseManager()
@@ -66,6 +70,7 @@ extension AnalyseScanResultViewModel {
 private extension AnalyseScanResultViewModel {
     enum Source {
         case scanImage(UIImage)
+        case byAnalyseId(String)
     }
     
     func makeElements(scanResult: Driver<AnalyseScanResult>) -> Driver<[AnalyseScanResultTableElement]> {
@@ -104,18 +109,25 @@ private extension AnalyseScanResultViewModel {
                 guard let self else { return .never() }
                 
                 func source() -> Single<AnalyseScanResult> {
-                    switch dataSource {
-                    case .scanImage(let image):
-                        return analyseManager
-                            .analyseScan(image: image)
-                            .map { result -> AnalyseScanResult in
-                                guard let result else {
-                                    throw ContentError(.notContent)
-                                }
-                                
-                                return result
+                    let scanResult: Single<AnalyseScanResult?> = {
+                        switch dataSource {
+                        case .scanImage(let image):
+                            return self.analyseManager
+                                .analyseScan(image: image)
+                        case .byAnalyseId(let analyseId):
+                            return self.analyseManager
+                                .getAnalyseResult(analyseId: analyseId)
+                        }
+                    }()
+                    
+                    return scanResult
+                        .map { result -> AnalyseScanResult in
+                            guard let result else {
+                                throw ContentError(.notContent)
                             }
-                    }
+                            
+                            return result
+                        }
                 }
                 
                 func trigger(error: Error) -> Observable<Void> {

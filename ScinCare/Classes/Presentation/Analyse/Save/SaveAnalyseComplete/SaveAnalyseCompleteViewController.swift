@@ -10,7 +10,7 @@ import RxSwift
 
 final class SaveAnalyseCompleteViewController: UIViewController {
     enum Result {
-        case reminder
+        case setNotification
         case later
     }
     
@@ -40,7 +40,7 @@ final class SaveAnalyseCompleteViewController: UIViewController {
         Observable
             .merge(
                 mainView.reminderButton.rx.tap
-                    .map { Result.reminder },
+                    .map { Result.setNotification },
                 mainView.laterButton.rx.tap
                     .map { Result.later }
             )

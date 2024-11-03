@@ -65,7 +65,8 @@ private extension HomeViewController {
         case .openScanner:
             AnalyseScanAssembly().scan(from: self)
         case .openHistory:
-            break // TODO
+            let vc = ScanHistoryViewController.make()
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

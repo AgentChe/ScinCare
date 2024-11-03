@@ -84,7 +84,7 @@ private extension AnalyseScanAssembly {
                             case .complete:
                                 let resultVC = SaveAnalyseCompleteViewController.make { result in
                                     switch result {
-                                    case .reminder:
+                                    case .setNotification:
                                         break // TODO
                                     case .later:
                                         complete()
