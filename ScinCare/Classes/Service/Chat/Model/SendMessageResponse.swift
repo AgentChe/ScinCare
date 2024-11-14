@@ -14,10 +14,8 @@ struct SendMessageResponse {
 extension SendMessageResponse {
     init?(response: Any) {
         guard
-            let jsonOutput = response as? [String: Any],
-            let output = jsonOutput["output"] as? String,
-            let jsonData = XOREncryption.toJSON(output, key: GlobalDefinitions.XORKey),
-            let body = jsonData["body"] as? [String: Any],
+            let json = response as? [String: Any],
+            let body = json["body"] as? [String: Any],
             let messageJSON = body["user"] as? [String: Any],
             let message = ChatMessage(json: messageJSON),
             let runnerJSON = body["runner"] as? [String: Any],

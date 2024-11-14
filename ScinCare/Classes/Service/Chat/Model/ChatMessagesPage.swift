@@ -14,10 +14,8 @@ struct ChatMessagesPage {
 extension ChatMessagesPage {
     init?(response: Any, chatId: String) {
         guard
-            let jsonOutput = response as? [String: Any],
-            let output = jsonOutput["output"] as? String,
-            let jsonData = XOREncryption.toJSON(output, key: GlobalDefinitions.XORKey),
-            let body = jsonData["body"] as? [String: Any],
+            let json = response as? [String: Any],
+            let body = json["body"] as? [String: Any],
             let messagesArray = body["messages"] as? [[String: Any]],
             let pageJSON = body["pagination"] as? [String: Any],
             let page = Page(json: pageJSON)

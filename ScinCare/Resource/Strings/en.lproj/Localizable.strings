@@ -193,3 +193,43 @@
 
 // MARK: ScanHistory
 "ScanHistory.Title" = "Scan history";
+
+// MARK: Reminder
+"Reminders.Title" = "Calendar";
+"Reminders.SubTitle" = "Set notifications for taking medication on time or do the skin rescan";
+"Reminders.Empty" = "You don’t track any events yet.\nTap plus to add an event.";
+"Reminders.AddEvent" = "Tap plus to add an event.";
+"Reminders.SkinRescan.Title" = "SKIN RESCANE";
+"Reminders.Medication.Title" = "MEDICATION";
+"Reminders.Trigger.EveryDay" = "Every day at %@";
+"Reminders.Trigger.EveryMinutes" = "Every %i minutes";
+"Reminders.Trigger.EveryHours" = "Every %i hours";
+"Reminders.Trigger.EveryDays" = "Every %i days";
+"Reminders.Trigger.EveryMonth" = "Every month on the %@th";
+"Reminders.Trigger.EveryYear" = "Every year on the %@th";
+"Reminders.NoteTitle" = "Note: ";
+
+// MARK: ChooseReminderEvent
+"ChooseReminderEvent.Title" = "Choose the event you want to log";
+"ChooseReminderEvent.Medication" = "Medication";
+"ChooseReminderEvent.SkinRescan" = "Skin rescan";
+
+// MARK: CreteMedication
+"CreteMedication.Title" = "Create an event";
+
+// MARK: CreateReminder
+"CreateReminder.Medication" = "Medication";
+"CreateReminder.SkinRescan" = "Skin Rescan";
+"CreateReminder.Medication.Name.Placeholder" = "Medicine name";
+"CreateReminder.SkinRescan.Name.Placeholder" = "Title";
+
+// MARK: Repetitions
+"Repetitions.Title" = "Repetition";
+"Repetitions.EveryDay" = "Every day";
+"Repetitions.EveryMinutes" = "Every X minutes";
+"Repetitions.EveryHours" = "Every X hours";
+"Repetitions.EveryDays" = "Every X days";
+"Repetitions.EveryMonth" = "Every month";
+"Repetitions.EveryYear" = "Every year";
+"Repetitions.OnSpecificDate" = "On specific date";
+"Repetitions.ConfirmButton" = "Next";

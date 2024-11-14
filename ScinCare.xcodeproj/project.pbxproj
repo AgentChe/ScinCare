@@ -8,6 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		5A2D19C91F498CCD1F3E33CA /* Pods_ScinCare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3772ABB1EDB261C98D3A6613 /* Pods_ScinCare.framework */; };
+		DE57E03E2CDEFC5300AB2320 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E03D2CDEFC4E00AB2320 /* Reminder.swift */; };
+		DE57E0402CDEFE1B00AB2320 /* ReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E03F2CDEFE1B00AB2320 /* ReminderManager.swift */; };
+		DE57E0422CDF043E00AB2320 /* RemindersMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E0412CDF043E00AB2320 /* RemindersMediator.swift */; };
+		DE57E0462CDF098600AB2320 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E0452CDF098600AB2320 /* RemindersViewController.swift */; };
+		DE57E0482CDF098A00AB2320 /* RemindersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E0472CDF098A00AB2320 /* RemindersViewModel.swift */; };
+		DE57E04A2CDF098E00AB2320 /* RemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E0492CDF098E00AB2320 /* RemindersView.swift */; };
+		DE57E04E2CE1C6DE00AB2320 /* RemindersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E04D2CE1C6DE00AB2320 /* RemindersTableView.swift */; };
+		DE57E0532CE1C70C00AB2320 /* RemindersTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E0522CE1C70C00AB2320 /* RemindersTableElement.swift */; };
+		DE57E0552CE1C72600AB2320 /* RemindersTableAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E0542CE1C72600AB2320 /* RemindersTableAddCell.swift */; };
+		DE57E0592CE1EE1C00AB2320 /* RemindersEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E0582CE1EE1C00AB2320 /* RemindersEmptyView.swift */; };
+		DE57E05D2CE1F33F00AB2320 /* CREViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E05C2CE1F33F00AB2320 /* CREViewController.swift */; };
+		DE57E05F2CE1F34E00AB2320 /* CREView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E05E2CE1F34E00AB2320 /* CREView.swift */; };
+		DE57E0622CE1F41900AB2320 /* CREButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E0612CE1F41900AB2320 /* CREButton.swift */; };
+		DE57E0642CE1F8ED00AB2320 /* CreateReminderAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E0632CE1F8ED00AB2320 /* CreateReminderAssembly.swift */; };
+		DE57E0672CE1FA7200AB2320 /* CMRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E0662CE1FA7200AB2320 /* CMRViewController.swift */; };
+		DE57E0692CE1FA8F00AB2320 /* CMRViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E0682CE1FA8F00AB2320 /* CMRViewModel.swift */; };
+		DE57E06B2CE1FA9400AB2320 /* CMRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E06A2CE1FA9400AB2320 /* CMRView.swift */; };
+		DE57E06F2CE1FF7B00AB2320 /* CRHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E06E2CE1FF7B00AB2320 /* CRHeaderView.swift */; };
+		DE57E0732CE2028900AB2320 /* CMRInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E0722CE2028900AB2320 /* CMRInputView.swift */; };
+		DE57E0752CE204D000AB2320 /* CRNameField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E0742CE204D000AB2320 /* CRNameField.swift */; };
+		DE57E07B2CE32E1B00AB2320 /* RepetitionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E07A2CE32E1B00AB2320 /* RepetitionsViewController.swift */; };
+		DE57E07D2CE32E1F00AB2320 /* RepetitionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E07C2CE32E1F00AB2320 /* RepetitionsView.swift */; };
+		DE57E0832CE3318500AB2320 /* RepetitionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E0822CE3318500AB2320 /* RepetitionsViewModel.swift */; };
+		DE57E0852CE3319000AB2320 /* RepetitionsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E0842CE3319000AB2320 /* RepetitionsTableView.swift */; };
+		DE57E0872CE3319A00AB2320 /* RepetitionsTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E0862CE3319A00AB2320 /* RepetitionsTableElement.swift */; };
+		DE57E0892CE331BD00AB2320 /* RepetitionsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E0882CE331BD00AB2320 /* RepetitionsTableCell.swift */; };
 		DECA03742CD395B9005E7C38 /* AnalyseImageResizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03732CD395B9005E7C38 /* AnalyseImageResizeViewController.swift */; };
 		DECA03762CD395C0005E7C38 /* AnalyseImageResizeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03752CD395BF005E7C38 /* AnalyseImageResizeViewModel.swift */; };
 		DECA03782CD395C4005E7C38 /* AnalyseImageResizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03772CD395C4005E7C38 /* AnalyseImageResizeView.swift */; };
@@ -46,6 +72,9 @@
 		DECA03D22CD770D2005E7C38 /* ScanHistoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03D12CD770D2005E7C38 /* ScanHistoryTableView.swift */; };
 		DECA03D42CD770DC005E7C38 /* ScanHistoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03D32CD770DC005E7C38 /* ScanHistoryTableCell.swift */; };
 		DECA03D62CD77C45005E7C38 /* AnalyseScanResultAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECA03D52CD77C45005E7C38 /* AnalyseScanResultAssembly.swift */; };
+		DECD4A302CE5E47B0091A803 /* CRMRepetitionSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECD4A2F2CE5E47B0091A803 /* CRMRepetitionSelectView.swift */; };
+		DECD4A342CE5F9030091A803 /* RemindersTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECD4A332CE5F9030091A803 /* RemindersTableCell.swift */; };
+		DECD4A362CE6156E0091A803 /* RepetitionsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECD4A352CE6156E0091A803 /* RepetitionsAssembly.swift */; };
 		DEDB8FA12CC6237F00E5BE41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDB8F952CC6237F00E5BE41 /* Assets.xcassets */; };
 		DEDB8FA32CC6237F00E5BE41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDB8F982CC6237F00E5BE41 /* LaunchScreen.storyboard */; };
 		DEDC838D2CCD40F500F7120F /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC838C2CCD40F500F7120F /* ChatViewController.swift */; };
@@ -257,6 +286,32 @@
 		2007A49DE42A1F19BAD75436 /* Pods-ScinCare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScinCare.release.xcconfig"; path = "Target Support Files/Pods-ScinCare/Pods-ScinCare.release.xcconfig"; sourceTree = "<group>"; };
 		3772ABB1EDB261C98D3A6613 /* Pods_ScinCare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScinCare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67A0ABED1B078A961C00D7C2 /* Pods-ScinCare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScinCare.debug.xcconfig"; path = "Target Support Files/Pods-ScinCare/Pods-ScinCare.debug.xcconfig"; sourceTree = "<group>"; };
+		DE57E03D2CDEFC4E00AB2320 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		DE57E03F2CDEFE1B00AB2320 /* ReminderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderManager.swift; sourceTree = "<group>"; };
+		DE57E0412CDF043E00AB2320 /* RemindersMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersMediator.swift; sourceTree = "<group>"; };
+		DE57E0452CDF098600AB2320 /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
+		DE57E0472CDF098A00AB2320 /* RemindersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewModel.swift; sourceTree = "<group>"; };
+		DE57E0492CDF098E00AB2320 /* RemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersView.swift; sourceTree = "<group>"; };
+		DE57E04D2CE1C6DE00AB2320 /* RemindersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersTableView.swift; sourceTree = "<group>"; };
+		DE57E0522CE1C70C00AB2320 /* RemindersTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersTableElement.swift; sourceTree = "<group>"; };
+		DE57E0542CE1C72600AB2320 /* RemindersTableAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersTableAddCell.swift; sourceTree = "<group>"; };
+		DE57E0582CE1EE1C00AB2320 /* RemindersEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersEmptyView.swift; sourceTree = "<group>"; };
+		DE57E05C2CE1F33F00AB2320 /* CREViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CREViewController.swift; sourceTree = "<group>"; };
+		DE57E05E2CE1F34E00AB2320 /* CREView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CREView.swift; sourceTree = "<group>"; };
+		DE57E0612CE1F41900AB2320 /* CREButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CREButton.swift; sourceTree = "<group>"; };
+		DE57E0632CE1F8ED00AB2320 /* CreateReminderAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReminderAssembly.swift; sourceTree = "<group>"; };
+		DE57E0662CE1FA7200AB2320 /* CMRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMRViewController.swift; sourceTree = "<group>"; };
+		DE57E0682CE1FA8F00AB2320 /* CMRViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMRViewModel.swift; sourceTree = "<group>"; };
+		DE57E06A2CE1FA9400AB2320 /* CMRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMRView.swift; sourceTree = "<group>"; };
+		DE57E06E2CE1FF7B00AB2320 /* CRHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRHeaderView.swift; sourceTree = "<group>"; };
+		DE57E0722CE2028900AB2320 /* CMRInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMRInputView.swift; sourceTree = "<group>"; };
+		DE57E0742CE204D000AB2320 /* CRNameField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRNameField.swift; sourceTree = "<group>"; };
+		DE57E07A2CE32E1B00AB2320 /* RepetitionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepetitionsViewController.swift; sourceTree = "<group>"; };
+		DE57E07C2CE32E1F00AB2320 /* RepetitionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepetitionsView.swift; sourceTree = "<group>"; };
+		DE57E0822CE3318500AB2320 /* RepetitionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepetitionsViewModel.swift; sourceTree = "<group>"; };
+		DE57E0842CE3319000AB2320 /* RepetitionsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepetitionsTableView.swift; sourceTree = "<group>"; };
+		DE57E0862CE3319A00AB2320 /* RepetitionsTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepetitionsTableElement.swift; sourceTree = "<group>"; };
+		DE57E0882CE331BD00AB2320 /* RepetitionsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepetitionsTableCell.swift; sourceTree = "<group>"; };
 		DECA03732CD395B9005E7C38 /* AnalyseImageResizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseImageResizeViewController.swift; sourceTree = "<group>"; };
 		DECA03752CD395BF005E7C38 /* AnalyseImageResizeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseImageResizeViewModel.swift; sourceTree = "<group>"; };
 		DECA03772CD395C4005E7C38 /* AnalyseImageResizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseImageResizeView.swift; sourceTree = "<group>"; };
@@ -295,6 +350,9 @@
 		DECA03D12CD770D2005E7C38 /* ScanHistoryTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanHistoryTableView.swift; sourceTree = "<group>"; };
 		DECA03D32CD770DC005E7C38 /* ScanHistoryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanHistoryTableCell.swift; sourceTree = "<group>"; };
 		DECA03D52CD77C45005E7C38 /* AnalyseScanResultAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseScanResultAssembly.swift; sourceTree = "<group>"; };
+		DECD4A2F2CE5E47B0091A803 /* CRMRepetitionSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRMRepetitionSelectView.swift; sourceTree = "<group>"; };
+		DECD4A332CE5F9030091A803 /* RemindersTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersTableCell.swift; sourceTree = "<group>"; };
+		DECD4A352CE6156E0091A803 /* RepetitionsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepetitionsAssembly.swift; sourceTree = "<group>"; };
 		DEDB8F7C2CC6236000E5BE41 /* ScinCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScinCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDB8F952CC6237F00E5BE41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEDB8F962CC6237F00E5BE41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -525,6 +583,158 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DE57E03B2CDEFC4500AB2320 /* Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				DE57E03C2CDEFC4A00AB2320 /* Model */,
+				DE57E03F2CDEFE1B00AB2320 /* ReminderManager.swift */,
+				DE57E0412CDF043E00AB2320 /* RemindersMediator.swift */,
+			);
+			path = Reminder;
+			sourceTree = "<group>";
+		};
+		DE57E03C2CDEFC4A00AB2320 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE57E03D2CDEFC4E00AB2320 /* Reminder.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE57E0432CDF08E200AB2320 /* Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				DE57E05A2CE1F32400AB2320 /* Create */,
+				DE57E0442CDF092D00AB2320 /* Reminders */,
+			);
+			path = Reminder;
+			sourceTree = "<group>";
+		};
+		DE57E0442CDF092D00AB2320 /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+				DE57E04B2CE1C6CC00AB2320 /* Views */,
+				DE57E0452CDF098600AB2320 /* RemindersViewController.swift */,
+				DE57E0472CDF098A00AB2320 /* RemindersViewModel.swift */,
+				DE57E0492CDF098E00AB2320 /* RemindersView.swift */,
+			);
+			path = Reminders;
+			sourceTree = "<group>";
+		};
+		DE57E04B2CE1C6CC00AB2320 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE57E04C2CE1C6D100AB2320 /* TableView */,
+				DE57E0582CE1EE1C00AB2320 /* RemindersEmptyView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE57E04C2CE1C6D100AB2320 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE57E0512CE1C70100AB2320 /* Cells */,
+				DE57E04D2CE1C6DE00AB2320 /* RemindersTableView.swift */,
+				DE57E0522CE1C70C00AB2320 /* RemindersTableElement.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DE57E0512CE1C70100AB2320 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DE57E0542CE1C72600AB2320 /* RemindersTableAddCell.swift */,
+				DECD4A332CE5F9030091A803 /* RemindersTableCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DE57E05A2CE1F32400AB2320 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				DE57E06D2CE1FF3F00AB2320 /* Atoms */,
+				DE57E0652CE1FA5400AB2320 /* CreateMedication */,
+				DE57E05B2CE1F32D00AB2320 /* ChooseReminderEvent */,
+				DE57E0632CE1F8ED00AB2320 /* CreateReminderAssembly.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		DE57E05B2CE1F32D00AB2320 /* ChooseReminderEvent */ = {
+			isa = PBXGroup;
+			children = (
+				DE57E0602CE1F41000AB2320 /* Views */,
+				DE57E05C2CE1F33F00AB2320 /* CREViewController.swift */,
+				DE57E05E2CE1F34E00AB2320 /* CREView.swift */,
+			);
+			path = ChooseReminderEvent;
+			sourceTree = "<group>";
+		};
+		DE57E0602CE1F41000AB2320 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE57E0612CE1F41900AB2320 /* CREButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE57E0652CE1FA5400AB2320 /* CreateMedication */ = {
+			isa = PBXGroup;
+			children = (
+				DE57E0712CE2022E00AB2320 /* Views */,
+				DE57E0662CE1FA7200AB2320 /* CMRViewController.swift */,
+				DE57E0682CE1FA8F00AB2320 /* CMRViewModel.swift */,
+				DE57E06A2CE1FA9400AB2320 /* CMRView.swift */,
+			);
+			path = CreateMedication;
+			sourceTree = "<group>";
+		};
+		DE57E06D2CE1FF3F00AB2320 /* Atoms */ = {
+			isa = PBXGroup;
+			children = (
+				DE57E0792CE32E0900AB2320 /* Repetitions */,
+				DE57E06E2CE1FF7B00AB2320 /* CRHeaderView.swift */,
+				DE57E0742CE204D000AB2320 /* CRNameField.swift */,
+			);
+			path = Atoms;
+			sourceTree = "<group>";
+		};
+		DE57E0712CE2022E00AB2320 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE57E0722CE2028900AB2320 /* CMRInputView.swift */,
+				DECD4A2F2CE5E47B0091A803 /* CRMRepetitionSelectView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE57E0792CE32E0900AB2320 /* Repetitions */ = {
+			isa = PBXGroup;
+			children = (
+				DECD4A312CE5EB840091A803 /* Repetitions */,
+				DECD4A352CE6156E0091A803 /* RepetitionsAssembly.swift */,
+			);
+			path = Repetitions;
+			sourceTree = "<group>";
+		};
+		DE57E07E2CE32E2500AB2320 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE57E0812CE3317200AB2320 /* TableView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE57E0812CE3317200AB2320 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE57E0842CE3319000AB2320 /* RepetitionsTableView.swift */,
+				DE57E0862CE3319A00AB2320 /* RepetitionsTableElement.swift */,
+				DE57E0882CE331BD00AB2320 /* RepetitionsTableCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 		DECA03722CD395A7005E7C38 /* AnalyseImageResize */ = {
 			isa = PBXGroup;
 			children = (
@@ -689,6 +899,17 @@
 				DECA03D32CD770DC005E7C38 /* ScanHistoryTableCell.swift */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		DECD4A312CE5EB840091A803 /* Repetitions */ = {
+			isa = PBXGroup;
+			children = (
+				DE57E07E2CE32E2500AB2320 /* Views */,
+				DE57E07A2CE32E1B00AB2320 /* RepetitionsViewController.swift */,
+				DE57E0822CE3318500AB2320 /* RepetitionsViewModel.swift */,
+				DE57E07C2CE32E1F00AB2320 /* RepetitionsView.swift */,
+			);
+			path = Repetitions;
 			sourceTree = "<group>";
 		};
 		DEDB8F732CC6236000E5BE41 = {
@@ -1233,6 +1454,7 @@
 		DEFD39E62CC62541007050EF /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DE57E0432CDF08E200AB2320 /* Reminder */,
 				DEDC84012CD379CF00F7120F /* Analyse */,
 				DEDC838A2CCD40E700F7120F /* Chat */,
 				DEFD3B6C2CC90232007050EF /* Bookmarks */,
@@ -1305,6 +1527,7 @@
 		DEFD3A142CC62541007050EF /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				DE57E03B2CDEFC4500AB2320 /* Reminder */,
 				DEDC83EB2CD36A0A00F7120F /* Analyse */,
 				DEDC839F2CCD50E300F7120F /* Chat */,
 				DEFD3B0F2CC7A38C007050EF /* Catalog */,
@@ -1736,8 +1959,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE57E0422CDF043E00AB2320 /* RemindersMediator.swift in Sources */,
 				DECA03C62CD70AD1005E7C38 /* SaveAnalyseCompleteView.swift in Sources */,
 				DEFD3A182CC62541007050EF /* FacebookManager.swift in Sources */,
+				DE57E07D2CE32E1F00AB2320 /* RepetitionsView.swift in Sources */,
 				DEFD3A192CC62541007050EF /* SignError.swift in Sources */,
 				DEDC83FA2CD375F700F7120F /* GetAnalyseScanResultRequest.swift in Sources */,
 				DEDC83942CCD458E00F7120F /* ChatPlaceholderView.swift in Sources */,
@@ -1747,6 +1972,7 @@
 				DEFD3A1E2CC62541007050EF /* UIDevice+Extension.swift in Sources */,
 				DEFD3B642CC8DF6B007050EF /* CDTableSectionCell.swift in Sources */,
 				DECA038A2CD4E3ED005E7C38 /* AnalyseScanResultTableView.swift in Sources */,
+				DE57E0592CE1EE1C00AB2320 /* RemindersEmptyView.swift in Sources */,
 				DEDC83E32CD0F85B00F7120F /* ChatRegenerateView.swift in Sources */,
 				DECA03AC2CD590AD005E7C38 /* SkinAreaView.swift in Sources */,
 				DEFD3B562CC8DF00007050EF /* CatalogDetailsViewModel.swift in Sources */,
@@ -1761,8 +1987,10 @@
 				DECA03822CD4DDDD005E7C38 /* AnalyseScanResultViewController.swift in Sources */,
 				DECA03D22CD770D2005E7C38 /* ScanHistoryTableView.swift in Sources */,
 				DEFD3A2D2CC62541007050EF /* AmplitudeManager.swift in Sources */,
+				DE57E04A2CDF098E00AB2320 /* RemindersView.swift in Sources */,
 				DEFD3B212CC7A8FA007050EF /* GetDiseasesRequest.swift in Sources */,
 				DEFD3B272CC7A969007050EF /* GetDiseaseDetailsRequest.swift in Sources */,
+				DE57E0832CE3318500AB2320 /* RepetitionsViewModel.swift in Sources */,
 				DEFD3A312CC62541007050EF /* Appearance.swift in Sources */,
 				DEFD3B4D2CC7B479007050EF /* CatalogsSearchField.swift in Sources */,
 				DEFD3B312CC7AAA8007050EF /* SaveDiseaseRequest.swift in Sources */,
@@ -1791,12 +2019,17 @@
 				DEFD3A412CC62541007050EF /* OnboardingView.swift in Sources */,
 				DECA037F2CD3FABB005E7C38 /* GetAnalyseHistoryRequest.swift in Sources */,
 				DEFD3A422CC62541007050EF /* SceneDelegate.swift in Sources */,
+				DE57E05D2CE1F33F00AB2320 /* CREViewController.swift in Sources */,
+				DE57E0892CE331BD00AB2320 /* RepetitionsTableCell.swift in Sources */,
+				DECD4A302CE5E47B0091A803 /* CRMRepetitionSelectView.swift in Sources */,
 				DEFD3B472CC7B348007050EF /* CatalogsTableView.swift in Sources */,
 				DEDC83BF2CCD6C0D00F7120F /* GetChatsRequest.swift in Sources */,
 				DEDC840D2CD37B6C00F7120F /* CameraService.swift in Sources */,
 				DEDC83D42CCFAB7100F7120F /* CDCViewController.swift in Sources */,
+				DE57E0552CE1C72600AB2320 /* RemindersTableAddCell.swift in Sources */,
 				DEFD3B542CC8DEF7007050EF /* CatalogDetailsViewController.swift in Sources */,
 				DECA03A42CD589DC005E7C38 /* SaveAnalyseSelectSkinAreaView.swift in Sources */,
+				DECD4A362CE6156E0091A803 /* RepetitionsAssembly.swift in Sources */,
 				DECA03912CD4E4BF005E7C38 /* AnalyseScanResultNameCell.swift in Sources */,
 				DEFD3B492CC7B34F007050EF /* CatalogsTableElement.swift in Sources */,
 				DEDC83F32CD36D0100F7120F /* APIFormDataRequestBody.swift in Sources */,
@@ -1808,19 +2041,24 @@
 				DEFD3A572CC62541007050EF /* NavigationControllerSettings.swift in Sources */,
 				DEFD3A582CC62541007050EF /* TryAgainView.swift in Sources */,
 				DEFD3B4B2CC7B362007050EF /* CatalogsTableCell.swift in Sources */,
+				DE57E06F2CE1FF7B00AB2320 /* CRHeaderView.swift in Sources */,
 				DECA03932CD4E4C9005E7C38 /* AnalyseScanResultAssessmentCell.swift in Sources */,
 				DEFD3A592CC62541007050EF /* ObservableAndSingle+Extension.swift in Sources */,
 				DEDC83EA2CD365A700F7120F /* HomeOpenHistoryCell.swift in Sources */,
+				DE57E0402CDEFE1B00AB2320 /* ReminderManager.swift in Sources */,
 				DEFD3A5D2CC62541007050EF /* Scalable.swift in Sources */,
 				DEFD3B702CC90243007050EF /* BookmarksViewModel.swift in Sources */,
 				DEFD3B112CC7A39A007050EF /* CatalogManager.swift in Sources */,
 				DEFD3A5F2CC62541007050EF /* ProfileCreateRequest.swift in Sources */,
 				DEDC83E12CD0D7D900F7120F /* ChatAnswerCell.swift in Sources */,
+				DE57E04E2CE1C6DE00AB2320 /* RemindersTableView.swift in Sources */,
 				DEDC83B42CCD644E00F7120F /* CheckMessageCompleteRequest.swift in Sources */,
 				DEFD3A602CC62541007050EF /* PaygateActionsView.swift in Sources */,
 				DEDC83CC2CCF906A00F7120F /* ChatsTableCell.swift in Sources */,
 				DECA03972CD4E4E3005E7C38 /* AnalyseScanResultRecommendationsCell.swift in Sources */,
+				DE57E0482CDF098A00AB2320 /* RemindersViewModel.swift in Sources */,
 				DEDC83C12CCD6ED800F7120F /* DeleteChatRequest.swift in Sources */,
+				DE57E03E2CDEFC5300AB2320 /* Reminder.swift in Sources */,
 				DEFD3B762CC9026A007050EF /* BookmarksFilterView.swift in Sources */,
 				DEFD3B512CC7CCD3007050EF /* DermatologySyncTokensRequest.swift in Sources */,
 				DEFD3A612CC62541007050EF /* PaygateInfoView.swift in Sources */,
@@ -1831,12 +2069,15 @@
 				DEFD3B062CC79635007050EF /* MenuViewController.swift in Sources */,
 				DEFD3AF02CC63BDA007050EF /* DisclaimerView.swift in Sources */,
 				DEFD3A6C2CC62541007050EF /* IAPManager.swift in Sources */,
+				DE57E0732CE2028900AB2320 /* CMRInputView.swift in Sources */,
 				DEFD3A6E2CC62541007050EF /* NetworkError.swift in Sources */,
+				DE57E0642CE1F8ED00AB2320 /* CreateReminderAssembly.swift in Sources */,
 				DEDC838D2CCD40F500F7120F /* ChatViewController.swift in Sources */,
 				DEFD3B582CC8DF04007050EF /* CatalogDetailsView.swift in Sources */,
 				DEFD3B0A2CC7963E007050EF /* MenuView.swift in Sources */,
 				DEFD3A702CC62541007050EF /* MainCoordinator.swift in Sources */,
 				DEFD3B722CC9024D007050EF /* BookmarksView.swift in Sources */,
+				DE57E0462CDF098600AB2320 /* RemindersViewController.swift in Sources */,
 				DECA03BB2CD6FCF1005E7C38 /* SASTScannedAreaImageView.swift in Sources */,
 				DEDC83DD2CD0D29E00F7120F /* ChatQuestionTextCell.swift in Sources */,
 				DEFD3A712CC62541007050EF /* UIView+RxExtension.swift in Sources */,
@@ -1877,12 +2118,15 @@
 				DEFD3B392CC7AB56007050EF /* GetBookmarksDiseasesRequest.swift in Sources */,
 				DEDC84112CD386B600F7120F /* AnalyseScanAssembly.swift in Sources */,
 				DEDC83BD2CCD6A0D00F7120F /* ChatMessagesPage.swift in Sources */,
+				DE57E0852CE3319000AB2320 /* RepetitionsTableView.swift in Sources */,
 				DEFD3AE32CC6317C007050EF /* ODisclaimerView.swift in Sources */,
 				DEFD3A822CC62541007050EF /* Collection+Extension.swift in Sources */,
 				DEDC83B82CCD685700F7120F /* GetMessagesRequest.swift in Sources */,
+				DE57E0622CE1F41900AB2320 /* CREButton.swift in Sources */,
 				DEDC838F2CCD40FA00F7120F /* ChatViewModel.swift in Sources */,
 				DEFD3AFB2CC679BC007050EF /* HomeCollectionView.swift in Sources */,
 				DEFD3B032CC78B98007050EF /* HomeExploreItemButton.swift in Sources */,
+				DE57E0872CE3319A00AB2320 /* RepetitionsTableElement.swift in Sources */,
 				DEFD3B5C2CC8DF4B007050EF /* CDTableTitleCell.swift in Sources */,
 				DEDC83C52CCF8F4600F7120F /* ChatsTableView.swift in Sources */,
 				DEFD3B252CC7A955007050EF /* GetProcedureDetailsRequest.swift in Sources */,
@@ -1919,14 +2163,18 @@
 				DEDC839B2CCD4C2700F7120F /* ChatsViewModel.swift in Sources */,
 				DEFD3A952CC62541007050EF /* NumberLaunches.swift in Sources */,
 				DEDC83992CCD4C2200F7120F /* ChatsViewController.swift in Sources */,
+				DE57E07B2CE32E1B00AB2320 /* RepetitionsViewController.swift in Sources */,
 				DECA03842CD4DDE2005E7C38 /* AnalyseScanResultViewModel.swift in Sources */,
 				DECA03CC2CD76F79005E7C38 /* ScanHistoryViewModel.swift in Sources */,
 				DEFD3AEB2CC63227007050EF /* OChatView.swift in Sources */,
+				DE57E05F2CE1F34E00AB2320 /* CREView.swift in Sources */,
 				DEDC83DB2CD0BFCE00F7120F /* ChatQuestionImageCell.swift in Sources */,
 				DEFD3A962CC62541007050EF /* ObservableRetrySingle.swift in Sources */,
 				DEFD3A982CC62541007050EF /* XOREncryption.swift in Sources */,
+				DE57E0532CE1C70C00AB2320 /* RemindersTableElement.swift in Sources */,
 				DEDC83F62CD36F9100F7120F /* AnalyseCheckCorrectImageRequest.swift in Sources */,
 				DEFD3B292CC7A983007050EF /* SaveGlossaryRequest.swift in Sources */,
+				DE57E0752CE204D000AB2320 /* CRNameField.swift in Sources */,
 				DEFD3A9C2CC62541007050EF /* RestAPITransport.swift in Sources */,
 				DEFD3A9D2CC62541007050EF /* GradientView.swift in Sources */,
 				DEFD3B782CC90273007050EF /* BookmarksFilterItemButton.swift in Sources */,
@@ -1945,10 +2193,12 @@
 				DEFD3AA42CC62541007050EF /* RequestReview.swift in Sources */,
 				DEFD3AA62CC62541007050EF /* PushNotificationsModel.swift in Sources */,
 				DEFD3AA82CC62541007050EF /* Fonts.swift in Sources */,
+				DECD4A342CE5F9030091A803 /* RemindersTableCell.swift in Sources */,
 				DEFD3AAA2CC62541007050EF /* APIRequestBody.swift in Sources */,
 				DEDC83AE2CCD5C7600F7120F /* CreateChatResponse.swift in Sources */,
 				DEFD3AAC2CC62541007050EF /* PushNotificationsManager.swift in Sources */,
 				DEFD3AAE2CC62541007050EF /* ContentError.swift in Sources */,
+				DE57E06B2CE1FA9400AB2320 /* CMRView.swift in Sources */,
 				DEFD3B352CC7AACF007050EF /* GetBookmarksGlossariesRequest.swift in Sources */,
 				DEFD3B862CCA7CDD007050EF /* CDBViewController.swift in Sources */,
 				DEFD3B412CC7B31E007050EF /* CatalogsViewModel.swift in Sources */,
@@ -1959,6 +2209,8 @@
 				DEDC83A82CCD57D900F7120F /* SendMessageResponse.swift in Sources */,
 				DEFD3AB12CC62541007050EF /* PaygateView.swift in Sources */,
 				DEFD3AB32CC62541007050EF /* IAPErrorHelper.swift in Sources */,
+				DE57E0672CE1FA7200AB2320 /* CMRViewController.swift in Sources */,
+				DE57E0692CE1FA8F00AB2320 /* CMRViewModel.swift in Sources */,
 				DEFD3AE92CC6320C007050EF /* OStayOnTrackView.swift in Sources */,
 				DEDC83A62CCD56F000F7120F /* ChatMessageRunner.swift in Sources */,
 				DEFD3B372CC7AAF1007050EF /* GetBookmarksProceduresRequest.swift in Sources */,

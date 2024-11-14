@@ -19,10 +19,8 @@ struct AnalyseScanResult {
     
     init?(response: Any) {
         guard
-            let jsonOutput = response as? [String: Any],
-            let output = jsonOutput["output"] as? String,
-            let jsonData = XOREncryption.toJSON(output, key: GlobalDefinitions.XORKey),
-            let body = jsonData["body"] as? [String: Any],
+            let json = response as? [String: Any],
+            let body = json["body"] as? [String: Any],
             let id = body["analyses_id"] as? String,
             let name = body["name"] as? String,
             let image: URL = {

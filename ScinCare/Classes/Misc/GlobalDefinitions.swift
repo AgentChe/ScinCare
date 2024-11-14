@@ -25,8 +25,6 @@ final class GlobalDefinitions {
     static let privacyPolicyUrl = URL(string: "https://camplain-apps.com/privacy-policy.html")!
     static let contactUsUrl = URL(string: "https://camplain-apps.com/contacts.html")!
     
-    static let XORKey = "W4o24tt2bkUR"
-    
     enum Paygate {
         static let yearly = "app.iphone.tracker.lifetime"
         static let weekly = "app.iphone.tracker.monthly"

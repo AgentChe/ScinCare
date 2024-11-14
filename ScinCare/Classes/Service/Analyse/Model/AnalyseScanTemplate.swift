@@ -18,10 +18,8 @@ struct AnalyseScanTemplate {
 extension AnalyseScanTemplate {
     static func map(response: Any) -> [AnalyseScanTemplate]? {
         guard
-            let jsonOutput = response as? [String: Any],
-            let output = jsonOutput["output"] as? String,
-            let jsonData = XOREncryption.toJSON(output, key: GlobalDefinitions.XORKey),
-            let body = jsonData["body"] as? [[String: Any]]
+            let json = response as? [String: Any],
+            let body = json["body"] as? [[String: Any]]
         else { return nil }
         
         return body.compactMap { AnalyseScanTemplate(json: $0) }
