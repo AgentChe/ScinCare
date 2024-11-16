@@ -15,16 +15,16 @@ final class CMRViewModel {
         case counter(RepetitionCountType)
     }
     
-    private let initial: Reminder
+    let initial: Reminder
     
-    init(initial: Reminder? = nil) {
+    init(initial: Reminder? = nil, event: Reminder.Event) {
         if let initial {
             self.initial = initial
         } else {
             self.initial = .init(
                 id: UUID().uuidString,
                 created: .init(),
-                event: .medication,
+                event: event,
                 name: "",
                 trigger: .everyDay(.init()),
                 note: nil
@@ -40,6 +40,7 @@ extension CMRViewModel {
         let didTapClose: Signal<Void>
         let didTapNext: Signal<Void>
         let name: Observable<String?>
+        let note: Observable<String?>
         let repetition: Observable<Repetition?>
         let changedDate: Observable<Date>
         let changeCount: Signal<Void>
@@ -76,11 +77,17 @@ extension CMRViewModel {
                 changedCount
             )
             .compactMap { $0 }
+            .startWith(initial.trigger)
             .share(replay: 1)
     
-        let note = Observable<String?>.just(nil)
+        let note = input.note
+            .startWith(nil)
+            .distinctUntilChanged()
+        
         let name = input.name
             .map { $0 ?? "" }
+            .startWith("")
+            .distinctUntilChanged()
         
         let reminder = Observable
             .combineLatest(
@@ -98,7 +105,6 @@ extension CMRViewModel {
                     note: note
                 )
             }
-            .startWith(initial)
             .asDriver(onErrorJustReturn: initial)
         
         let isEnabled = reminder

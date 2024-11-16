@@ -38,6 +38,5 @@ extension RepetitionSpecificDayViewController {
 private extension RepetitionSpecificDayViewController {
     @objc func saveAction() {
         action?(mainView.datePicker.date)
-        dismiss(animated: true)
     }
 }

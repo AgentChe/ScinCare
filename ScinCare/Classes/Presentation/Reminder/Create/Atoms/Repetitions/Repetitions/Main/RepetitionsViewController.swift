@@ -97,6 +97,7 @@ private extension RepetitionsViewController {
         case .specificDate:
             openCalendarSheet(min: .init()) { [weak self] in
                 self?.repetitionRelay.accept(.onSpecificDate($0))
+                self?.dismiss(animated: true)
             }
         case .everyDay:
             openTimeSheet()
@@ -104,10 +105,12 @@ private extension RepetitionsViewController {
             let current = Date()
             openCalendarSheet(min: current.firstDayInMonth, max: current.endDayInMonth) { [weak self] in
                 self?.repetitionRelay.accept(.everyMonth($0))
+                self?.dismiss(animated: true)
             }
         case .everyYear:
             openCalendarSheet { [weak self] in
                 self?.repetitionRelay.accept(.everyYear($0))
+                self?.dismiss(animated: true)
             }
         }
     }

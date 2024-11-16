@@ -7,12 +7,20 @@
 
 import UIKit
 
-class CMRNoteView: UIView {
+final class CMRNoteView: UIView {
+    enum Event {
+        case medication
+        case skinRescan
+    }
+    
+    let event: Event
     
     lazy var textField = makeNoteField()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(event: Event) {
+        self.event = event
+        
+        super.init(frame: .zero)
         
         makeConstraints()
         initialize()
@@ -20,6 +28,13 @@ class CMRNoteView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension CMRNoteView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
@@ -56,10 +71,24 @@ private extension CMRNoteView {
         label.attributedText = "CreteMedication.Optional".localized.attributed(with: attrs)
         view.rightView = label
         view.rightViewMode = .unlessEditing
-        view.attributedPlaceholder = "CreteMedication.Note".localized.attributed(with: attrs)
+        view.attributedPlaceholder = event.key.localized.attributed(with: attrs)
         view.backgroundColor = Appearance.mono100
+        view.returnKeyType = .done
+        view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
+    }
+}
+
+// MARK: Additional
+private extension CMRNoteView.Event {
+    var key: String {
+        switch self {
+        case .medication:
+            return "CreteMedication.AddNote"
+        case .skinRescan:
+            return "CreteMedication.Note"
+        }
     }
 }

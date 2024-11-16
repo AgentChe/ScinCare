@@ -15,18 +15,19 @@ final class CMRViewController: UIViewController {
         case close
     }
     
-    private lazy var mainView = CMRView(vc: self)
-    
-    private lazy var viewModel = CMRViewModel()
+    private lazy var mainView = CMRView(vc: self, event: viewModel.initial.event)
     
     private lazy var disposeBag = DisposeBag()
     
     private lazy var changedCountRelay = PublishRelay<Int>()
     
+    private let viewModel: CMRViewModel
+    
     private let result: (Result) -> Void
     
-    private init(result: @escaping (Result) -> Void) {
+    private init(reminder: Reminder? = nil, event: Reminder.Event, result: @escaping (Result) -> Void) {
         self.result = result
+        self.viewModel = .init(initial: reminder, event: event)
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -47,6 +48,7 @@ final class CMRViewController: UIViewController {
             didTapClose: mainView.closeButton.rx.tap.asSignal(),
             didTapNext: mainView.confirmButton.rx.tap.asSignal(),
             name: mainView.inputDataView.nameField.textField.rx.text.asObservable(),
+            note: mainView.inputDataView.noteField.textField.rx.text.asObservable(),
             repetition: mainView.inputDataView.repetitionView.repetition,
             changedDate: mainView.inputDataView.reminderView.datePicker.rx.date.asObservable(),
             changeCount: mainView.inputDataView.reminderView.countButton.rx.tap.asSignal(),
@@ -78,15 +80,18 @@ final class CMRViewController: UIViewController {
             .disposed(by: disposeBag)
         
         output.isEnabled
-            .drive(mainView.confirmButton.rx.isEnabled)
+            .drive(Binder(mainView.confirmButton) { base, isEnabled in
+                base.isEnabled = isEnabled
+                base.alpha = isEnabled ? 1 : 0.5
+            })
             .disposed(by: disposeBag)
     }
 }
 
 // MARK: Public
 extension CMRViewController {
-    static func make(result: @escaping (Result) -> Void) -> CMRViewController {
-        let vc = CMRViewController(result: result)
+    static func make(reminder: Reminder? = nil, event: Reminder.Event, result: @escaping (Result) -> Void) -> CMRViewController {
+        let vc = CMRViewController(reminder: reminder, event: event, result: result)
         vc.navigationItem.backButtonTitle = " "
         return vc
     }

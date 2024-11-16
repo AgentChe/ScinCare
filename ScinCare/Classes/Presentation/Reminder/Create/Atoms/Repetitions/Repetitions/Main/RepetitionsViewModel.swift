@@ -130,7 +130,9 @@ private extension RepetitionsViewModel {
         let close = didTapClose
             .map { Route.close }
         
-        let sheet = selectedRepetition
+        let sheet = didTapConfirm
+            .asObservable()
+            .withLatestFrom(selectedRepetition)
             .compactMap { value -> Route? in
                 switch value {
                 case .everyDay:
@@ -153,11 +155,8 @@ private extension RepetitionsViewModel {
             }
             .asSignal(onErrorSignalWith: .empty())
         
-        let next = didTapConfirm
-            .asObservable()
-            .withLatestFrom(currentRepetition) { _, item in
-                Route.next(item)
-            }
+        let next = currentRepetition
+            .map { Route.next($0) }
             .asSignal(onErrorSignalWith: .empty())
         
         return Signal

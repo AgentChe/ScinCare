@@ -18,9 +18,11 @@ final class CMRInputView: UIView {
     lazy var noteField = makeNoteField()
     
     private weak var vc: UIViewController?
+    private let event: Reminder.Event
     
-    init(vc: UIViewController?) {
+    init(vc: UIViewController?, event: Reminder.Event) {
         self.vc = vc
+        self.event = event
         
         super.init(frame: .zero)
         
@@ -104,21 +106,21 @@ private extension CMRInputView {
     }
     
     func makeHeaderView() -> CRHeaderView {
-        let view = CRHeaderView(event: .medication)
+        let view = CRHeaderView(event: .init(event))
         view.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(view)
         return view
     }
     
     func makeNameField() -> CRNameField {
-        let view = CRNameField(event: .medication)
+        let view = CRNameField(event: .init(event))
         view.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(view)
         return view
     }
     
     func makeRepetitionView() -> CRMRepetitionSelectView {
-        let view = CRMRepetitionSelectView(vc: vc)
+        let view = CRMRepetitionSelectView(vc: vc, event: event)
         view.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(view)
         return view
@@ -132,9 +134,42 @@ private extension CMRInputView {
     }
     
     func makeNoteField() -> CMRNoteView {
-        let view = CMRNoteView()
+        let view = CMRNoteView(event: .init(event))
         view.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(view)
         return view
+    }
+}
+
+private extension CRHeaderView.Event {
+    init(_ event: Reminder.Event) {
+        switch event {
+        case .medication:
+            self = .medication
+        case .skinRescan:
+            self = .skinRescan
+        }
+    }
+}
+
+private extension CRNameField.Event {
+    init(_ event: Reminder.Event) {
+        switch event {
+        case .medication:
+            self = .medication
+        case .skinRescan:
+            self = .skinRescan
+        }
+    }
+}
+
+private extension CMRNoteView.Event {
+    init(_ event: Reminder.Event) {
+        switch event {
+        case .medication:
+            self = .medication
+        case .skinRescan:
+            self = .skinRescan
+        }
     }
 }

@@ -220,6 +220,7 @@
 "CreteMedication.EveryMinutes" = "Every %i minutes";
 "CreteMedication.EveryHours" = "Every %i hours";
 "CreteMedication.EveryDays" = "Every %i days";
+"CreteMedication.AddNote" = "Add note";
 "CreteMedication.Note" = "Note";
 "CreteMedication.Optional" = "Optional";
 

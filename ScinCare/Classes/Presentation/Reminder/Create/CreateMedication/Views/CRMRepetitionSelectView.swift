@@ -22,13 +22,14 @@ final class CRMRepetitionSelectView: UIView {
     private lazy var disposeBag = DisposeBag()
     
     private weak var vc: UIViewController?
+    private let event: Reminder.Event
     
     private var selected: RepetitionsTableElement.Repetition?
     private let selectedRepetition = BehaviorRelay<Repetition?>(value: nil)
     
-    init(vc: UIViewController?) {
+    init(vc: UIViewController?, event: Reminder.Event) {
         self.vc = vc
-        
+        self.event = event
         super.init(frame: .zero)
         
         makeConstraints()
@@ -78,7 +79,7 @@ private extension CRMRepetitionSelectView {
         tapGesture.rx.event
             .bind(to: Binder(self) { base, event in
                 guard let vc = base.vc else { return }
-                assembly.select(from: vc, event: .medication, initial: base.selected)
+                assembly.select(from: vc, event: base.event, initial: base.selected)
             })
             .disposed(by: disposeBag)
     }

@@ -15,9 +15,11 @@ final class CMRView: UIView {
     lazy var confirmButton = makeConfirmButton()
     
     private weak var vc: UIViewController?
+    private let event: Reminder.Event
     
-    init(vc: UIViewController) {
+    init(vc: UIViewController, event: Reminder.Event) {
         self.vc = vc
+        self.event = event
         
         super.init(frame: .zero)
         
@@ -109,7 +111,7 @@ private extension CMRView {
     }
     
     func makeInputDataView() -> CMRInputView {
-        let view = CMRInputView(vc: vc)
+        let view = CMRInputView(vc: vc, event: event)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
