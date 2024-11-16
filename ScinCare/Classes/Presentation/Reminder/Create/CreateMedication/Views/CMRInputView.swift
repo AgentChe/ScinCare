@@ -6,12 +6,16 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class CMRInputView: UIView {
     lazy var scrollView = makeScrollView()
     lazy var headerView = makeHeaderView()
     lazy var nameField = makeNameField()
     lazy var repetitionView = makeRepetitionView()
+    lazy var reminderView = makeReminderView()
+    lazy var noteField = makeNoteField()
     
     private weak var vc: UIViewController?
     
@@ -65,8 +69,22 @@ private extension CMRInputView {
             repetitionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             repetitionView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             repetitionView.topAnchor.constraint(equalTo: nameField.bottomAnchor, constant: 16.scale),
-            repetitionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             repetitionView.heightAnchor.constraint(equalToConstant: 44.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            reminderView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            reminderView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            reminderView.topAnchor.constraint(equalTo: repetitionView.bottomAnchor, constant: 16.scale),
+            reminderView.heightAnchor.constraint(equalToConstant: 44.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            noteField.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            noteField.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            noteField.topAnchor.constraint(equalTo: reminderView.bottomAnchor, constant: 16.scale),
+            noteField.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            noteField.heightAnchor.constraint(equalToConstant: 44.scale)
         ])
     }
 }
@@ -79,6 +97,7 @@ private extension CMRInputView {
         view.contentInset = UIEdgeInsets(vertical: 16.scale)
         view.setContentOffset(CGPoint(x: 0, y: -16.scale), animated: false)
         view.showsVerticalScrollIndicator = false
+        view.keyboardDismissMode = .interactive
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
@@ -100,6 +119,20 @@ private extension CMRInputView {
     
     func makeRepetitionView() -> CRMRepetitionSelectView {
         let view = CRMRepetitionSelectView(vc: vc)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(view)
+        return view
+    }
+    
+    func makeReminderView() -> CMRReminderView {
+        let view = CMRReminderView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(view)
+        return view
+    }
+    
+    func makeNoteField() -> CMRNoteView {
+        let view = CMRNoteView()
         view.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(view)
         return view

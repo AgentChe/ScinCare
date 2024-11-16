@@ -12,6 +12,7 @@ final class CMRView: UIView {
     lazy var titleLabel = makeTitleLabel()
     lazy var closeButton = makeCloseButton()
     lazy var inputDataView = makeInputDataView()
+    lazy var confirmButton = makeConfirmButton()
     
     private weak var vc: UIViewController?
     
@@ -64,6 +65,13 @@ private extension CMRView {
             inputDataView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 2.scale),
             inputDataView.bottomAnchor.constraint(equalTo: keyboardLayoutGuide.topAnchor, constant: -2.scale)
         ])
+        
+        NSLayoutConstraint.activate([
+            confirmButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            confirmButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            confirmButton.heightAnchor.constraint(equalToConstant: 54.scale),
+            confirmButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -14.scale)
+        ])
     }
 }
 
@@ -102,6 +110,20 @@ private extension CMRView {
     
     func makeInputDataView() -> CMRInputView {
         let view = CMRInputView(vc: vc)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeConfirmButton() -> UIButton {
+        let attrs = TextAttributes()
+            .textColor(Appearance.mono100)
+            .font(Fonts.Roboto.bold(size: 16.scale))
+        
+        let view = UIButton()
+        view.setAttributedTitle("Repetitions.ConfirmButton".localized.attributed(with: attrs), for: .normal)
+        view.backgroundColor = Appearance.main100
+        view.layer.cornerRadius = 16.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

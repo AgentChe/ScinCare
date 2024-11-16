@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 final class CMRViewController: UIViewController {
     enum Result {
@@ -19,6 +20,8 @@ final class CMRViewController: UIViewController {
     private lazy var viewModel = CMRViewModel()
     
     private lazy var disposeBag = DisposeBag()
+    
+    private lazy var changedCountRelay = PublishRelay<Int>()
     
     private let result: (Result) -> Void
     
@@ -41,13 +44,41 @@ final class CMRViewController: UIViewController {
         
         let output = viewModel.configure(input: CMRViewModel.Input(
             didTapBack: mainView.backButton.rx.tap.asSignal(),
-            didTapClose: mainView.closeButton.rx.tap.asSignal()
+            didTapClose: mainView.closeButton.rx.tap.asSignal(),
+            didTapNext: mainView.confirmButton.rx.tap.asSignal(),
+            name: mainView.inputDataView.nameField.textField.rx.text.asObservable(),
+            repetition: mainView.inputDataView.repetitionView.repetition,
+            changedDate: mainView.inputDataView.reminderView.datePicker.rx.date.asObservable(),
+            changeCount: mainView.inputDataView.reminderView.countButton.rx.tap.asSignal(),
+            changedCount: changedCountRelay.asSignal()
         ))
         
         output.route
-            .drive(Binder(self) { base, route in
-                base.route(route)
-            })
+            .emit(with: self) { $0.route($1) }
+            .disposed(by: disposeBag)
+        
+        output.reminder
+            .map(\.trigger)
+            .drive(mainView.inputDataView.reminderView.setup)
+            .disposed(by: disposeBag)
+        
+        output.reminder
+            .map(\.trigger)
+            .drive(mainView.inputDataView.repetitionView.repetitionBinder)
+            .disposed(by: disposeBag)
+        
+        output.reminder
+            .map(\.name)
+            .drive(mainView.inputDataView.nameField.textField.rx.text)
+            .disposed(by: disposeBag)
+        
+        output.reminder
+            .map(\.note)
+            .drive(mainView.inputDataView.noteField.textField.rx.text)
+            .disposed(by: disposeBag)
+        
+        output.isEnabled
+            .drive(mainView.confirmButton.rx.isEnabled)
             .disposed(by: disposeBag)
     }
 }
@@ -69,6 +100,23 @@ private extension CMRViewController {
             result(.back)
         case .close:
             result(.close)
+        case let .counter(type):
+            openCountSheet(for: type)
         }
+    }
+    
+    func openCountSheet(for type: RepetitionCountType) {
+        let vc = RepetitionCountPickerViewController.make(type: type) { [weak self] in
+            self?.changedCountRelay.accept($0)
+            self?.dismiss(animated: true)
+        }
+        
+        let nv = UINavigationController(rootViewController: vc)
+        if let sheet = nv.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.preferredCornerRadius = 16.scale
+        }
+        
+        present(nv, animated: true)
     }
 }

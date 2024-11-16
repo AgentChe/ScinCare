@@ -216,6 +216,12 @@
 
 // MARK: CreteMedication
 "CreteMedication.Title" = "Create an event";
+"CreteMedication.Reminder" = "Reminder";
+"CreteMedication.EveryMinutes" = "Every %i minutes";
+"CreteMedication.EveryHours" = "Every %i hours";
+"CreteMedication.EveryDays" = "Every %i days";
+"CreteMedication.Note" = "Note";
+"CreteMedication.Optional" = "Optional";
 
 // MARK: CreateReminder
 "CreateReminder.Medication" = "Medication";
@@ -233,3 +239,8 @@
 "Repetitions.EveryYear" = "Every year";
 "Repetitions.OnSpecificDate" = "On specific date";
 "Repetitions.ConfirmButton" = "Next";
+"Repetitions.SaveButton" = "Save";
+"Repetitions.Every" = "Every";
+"Repetitions.Minutes" = "minutes";
+"Repetitions.Hours" = "hours";
+"Repetitions.Days" = "days";

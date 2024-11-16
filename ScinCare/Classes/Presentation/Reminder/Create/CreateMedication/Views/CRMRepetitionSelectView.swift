@@ -23,7 +23,8 @@ final class CRMRepetitionSelectView: UIView {
     
     private weak var vc: UIViewController?
     
-    private var selected: Repetition?
+    private var selected: RepetitionsTableElement.Repetition?
+    private let selectedRepetition = BehaviorRelay<Repetition?>(value: nil)
     
     init(vc: UIViewController?) {
         self.vc = vc
@@ -36,6 +37,24 @@ final class CRMRepetitionSelectView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension CRMRepetitionSelectView {
+    var repetition: Observable<Repetition?> {
+        selectedRepetition.asObservable()
+    }
+    
+    var repetitionBinder: Binder<Repetition> {
+        Binder(self) { base, repetition in
+            let element = RepetitionsTableElement(repetition: .init(repetition), marked: true)
+            let attrs = TextAttributes()
+                .font(Fonts.Roboto.regular(size: 16.scale))
+                .textColor(Appearance.mono200)
+                .textAlignment(.left)
+            base.selected = element.repetition
+            base.label.attributedText = element.localizedTitle.attributed(with: attrs)
+        }
     }
 }
 
@@ -52,12 +71,37 @@ private extension CRMRepetitionSelectView {
         isUserInteractionEnabled = true
         addGestureRecognizer(tapGesture)
         
+        let assembly = RepetitionsAssembly { [weak self] value in
+            self?.selectedRepetition.accept(value)
+        }
+        
         tapGesture.rx.event
             .bind(to: Binder(self) { base, event in
                 guard let vc = base.vc else { return }
-                RepetitionsAssembly().select(from: vc, event: .medication)
+                assembly.select(from: vc, event: .medication, initial: base.selected)
             })
             .disposed(by: disposeBag)
+    }
+}
+
+extension RepetitionsTableElement.Repetition {
+    init(_ value: Repetition) {
+        switch value {
+        case .everyDay:
+            self = .everyDay
+        case .everyMinutes:
+            self = .everyMinutes
+        case .everyHours:
+            self = .everyHours
+        case .everyDays:
+            self = .everyDays
+        case .everyMonth:
+            self = .everyMonth
+        case .everyYear:
+            self = .everyYear
+        case .onSpecificDate:
+            self = .onSpecificDate
+        }
     }
 }
 
