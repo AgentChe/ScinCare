@@ -82,10 +82,10 @@ private extension AnalyseScanAssembly {
                             case .back:
                                 nc?.popViewController(animated: true)
                             case .complete:
-                                let resultVC = SaveAnalyseCompleteViewController.make { result in
+                                let resultVC = SaveAnalyseCompleteViewController.make { vc, result in
                                     switch result {
                                     case .setNotification:
-                                        break // TODO
+                                        CreateReminderAssembly().create(from: vc)
                                     case .later:
                                         complete()
                                     }
@@ -97,8 +97,10 @@ private extension AnalyseScanAssembly {
                     }
                 }
                 nc?.pushViewController(selectSkinAreaVC, animated: true)
-            case .setNotifications(let analyseId):
-                break // TODO
+            case .setNotifications:
+                if let nc {
+                    CreateReminderAssembly().create(from: nc)
+                }
             }
         }
         nc.setViewControllers([scanResultVC], animated: false)

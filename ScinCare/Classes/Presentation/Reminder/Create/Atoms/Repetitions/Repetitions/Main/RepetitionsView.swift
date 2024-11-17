@@ -107,7 +107,7 @@ private extension RepetitionsView {
             .font(Fonts.Roboto.bold(size: 16.scale))
         
         let view = UIButton()
-        view.setAttributedTitle("Repetitions.ConfirmButton".localized.attributed(with: attrs), for: .normal)
+        view.setAttributedTitle("Repetitions.Create.ConfirmButton".localized.attributed(with: attrs), for: .normal)
         view.backgroundColor = Appearance.main100
         view.layer.cornerRadius = 16.scale
         view.translatesAutoresizingMaskIntoConstraints = false

@@ -22,24 +22,30 @@ extension RemindersViewModel {
     struct Input {
         let didTapAddEvent: Signal<Void>
         let didSelect: Signal<Reminder>
+        let selectedDate: Signal<Date>
     }
     
     struct Output {
         let route: Driver<Route>
         let elements: Driver<[RemindersTableElement]>
+        let reminders: Driver<[Reminder]>
         let isEmpty: Driver<Bool>
     }
     
     func configure(input: Input) -> Output {
+        let selectedDate = input.selectedDate
+            .startWith(.init())
         let reminders = makeReminders()
-        let elements = makeElements(reminders: reminders)
+        let filteredReminders = makeReminders(reminders: reminders, for: selectedDate)
+        let elements = makeElements(reminders: filteredReminders)
         
         return Output(
             route: makeRoute(
                 didTapAddEvent: input.didTapAddEvent,
                 didSelect: input.didSelect
             ),
-            elements: makeElements(reminders: reminders),
+            elements: elements,
+            reminders: reminders,
             isEmpty: makeIsEmpty(elements: elements)
         )
     }
@@ -78,6 +84,17 @@ private extension RemindersViewModel {
                 elements.append(contentsOf: sorted)
                 
                 return elements
+            }
+            .asDriver(onErrorJustReturn: [])
+    }
+    
+    func makeReminders(reminders: Driver<[Reminder]>, for date: Signal<Date>) -> Driver<[Reminder]> {
+        Observable
+            .combineLatest(
+                reminders.asObservable(),
+                date.asObservable()
+            ) { reminders, date -> [Reminder] in
+                reminders.filter { $0.isEvent(for: date) }
             }
             .asDriver(onErrorJustReturn: [])
     }

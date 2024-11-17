@@ -10,8 +10,8 @@ import RxCocoa
 
 protocol ReminderManagerProtocol {
     func reminders() -> Single<[Reminder]>
-    func add(event: Reminder.Event, name: String, trigger: Repetition, note: String?) -> Single<Reminder>
-    func edit(id: String, name: String, trigger: Repetition, note: String?) -> Single<Reminder?>
+    func add(reminder: Reminder) -> Single<Reminder>
+    func change(reminder: Reminder) -> Single<Reminder?>
     func delete(id: String) -> Single<Void>
 }
 
@@ -38,36 +38,27 @@ extension ReminderManager: ReminderManagerProtocol {
         }
     }
     
-    func add(event: Reminder.Event, name: String, trigger: Repetition, note: String?) -> Single<Reminder> {
+    func add(reminder: Reminder) -> Single<Reminder> {
         reminders()
             .flatMap { reminders -> Single<Reminder> in
                 Single<Reminder>.create { single in
                     var result = reminders
-                    
-                    let new = Reminder(
-                        id: UUID().uuidString,
-                        created: Date(),
-                        event: event,
-                        name: name,
-                        trigger: trigger,
-                        note: note
-                    )
-                    result.append(new)
+                    result.append(reminder)
                     
                     if let data = try? JSONEncoder().encode(result) {
                         UserDefaults.standard.set(data, forKey: Constants.remindersKey)
                     }
                     
-                    single(.success(new))
+                    single(.success(reminder))
                     
-                    RemindersMediator.shared.add(reminder: new)
+                    RemindersMediator.shared.add(reminder: reminder)
                     
                     return Disposables.create()
                 }
             }
     }
     
-    func edit(id: String, name: String, trigger: Repetition, note: String?) -> Single<Reminder?> {
+    func change(reminder new: Reminder) -> Single<Reminder?> {
         reminders()
             .flatMap { reminders -> Single<Reminder?> in
                 Single<Reminder?>.create { single in
@@ -75,16 +66,7 @@ extension ReminderManager: ReminderManagerProtocol {
                     
                     var reminder: Reminder?
                     
-                    if let index = result.firstIndex(where: { $0.id == id }){
-                        let new = Reminder(
-                            id: id,
-                            created: result[index].created,
-                            event: result[index].event,
-                            name: name,
-                            trigger: trigger,
-                            note: note
-                        )
-                        
+                    if let index = result.firstIndex(where: { $0.id == new.id }) {
                         reminder = new
                         result[index] = new
                     }

@@ -24,6 +24,7 @@ target 'ScinCare' do
   pod 'Branch'
   pod 'Firebase/Analytics'
   pod 'Firebase/Messaging'
+  pod 'JTAppleCalendar'
 end
 
 post_install do |installer|

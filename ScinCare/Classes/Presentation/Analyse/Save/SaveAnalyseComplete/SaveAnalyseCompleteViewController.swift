@@ -18,9 +18,9 @@ final class SaveAnalyseCompleteViewController: UIViewController {
     
     private lazy var disposeBag = DisposeBag()
     
-    private let result: (Result) -> Void
+    private let result: (UIViewController, Result) -> Void
     
-    private init(result: @escaping (Result) -> Void) {
+    private init(result: @escaping (UIViewController, Result) -> Void) {
         self.result = result
         
         super.init(nibName: nil, bundle: nil)
@@ -45,7 +45,7 @@ final class SaveAnalyseCompleteViewController: UIViewController {
                     .map { Result.later }
             )
             .bind(to: Binder(self) { base, result in
-                base.result(result)
+                base.result(base, result)
             })
             .disposed(by: disposeBag)
     }
@@ -59,7 +59,7 @@ final class SaveAnalyseCompleteViewController: UIViewController {
 
 // MARK: Public
 extension SaveAnalyseCompleteViewController {
-    static func make(result: @escaping (Result) -> Void) -> SaveAnalyseCompleteViewController {
+    static func make(result: @escaping (UIViewController, Result) -> Void) -> SaveAnalyseCompleteViewController {
         let vc = SaveAnalyseCompleteViewController(result: result)
         vc.modalPresentationStyle = .overFullScreen
         return vc

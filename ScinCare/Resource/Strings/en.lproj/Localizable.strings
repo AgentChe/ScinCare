@@ -208,6 +208,13 @@
 "Reminders.Trigger.EveryMonth" = "Every month on the %@th";
 "Reminders.Trigger.EveryYear" = "Every year on the %@th";
 "Reminders.NoteTitle" = "Note: ";
+"Reminders.DaysOfWeek.Su" = "S";
+"Reminders.DaysOfWeek.Mo" = "M";
+"Reminders.DaysOfWeek.Tu" = "T";
+"Reminders.DaysOfWeek.We" = "W";
+"Reminders.DaysOfWeek.Th" = "T";
+"Reminders.DaysOfWeek.Fr" = "F";
+"Reminders.DaysOfWeek.Sa" = "S";
 
 // MARK: ChooseReminderEvent
 "ChooseReminderEvent.Title" = "Choose the event you want to log";
@@ -215,13 +222,24 @@
 "ChooseReminderEvent.SkinRescan" = "Skin rescan";
 
 // MARK: CreteMedication
-"CreteMedication.Title" = "Create an event";
+"CreteMedication.Create.Title" = "Create an event";
+"CreteMedication.Edit.Title" = "Edit event";
+"CreteMedication.Reminder" = "Reminder";
+"CreteMedication.EveryMinutes" = "Every %i minutes";
+"CreteMedication.EveryHours" = "Every %i hours";
+"CreteMedication.EveryDays" = "Every %i days";
+"CreteMedication.AddNote" = "Add note";
+"CreteMedication.Note" = "Note";
+"CreteMedication.Optional" = "Optional";
 
 // MARK: CreateReminder
 "CreateReminder.Medication" = "Medication";
 "CreateReminder.SkinRescan" = "Skin Rescan";
 "CreateReminder.Medication.Name.Placeholder" = "Medicine name";
 "CreateReminder.SkinRescan.Name.Placeholder" = "Title";
+"CreateReminder.ConfirmDelete.Title" = "Are you sure?";
+"CreateReminder.ConfirmDelete.Text" = "Do you really want to remove this event?";
+"CreateReminder.ConfirmDelete.Remove" = "Remove";
 
 // MARK: Repetitions
 "Repetitions.Title" = "Repetition";
@@ -232,4 +250,11 @@
 "Repetitions.EveryMonth" = "Every month";
 "Repetitions.EveryYear" = "Every year";
 "Repetitions.OnSpecificDate" = "On specific date";
-"Repetitions.ConfirmButton" = "Next";
+"Repetitions.Create.ConfirmButton" = "Next";
+"Repetitions.Edit.ConfirmButton" = "Save event";
+"Repetitions.SaveButton" = "Save";
+"Repetitions.Every" = "Every";
+"Repetitions.Minutes" = "minutes";
+"Repetitions.Hours" = "hours";
+"Repetitions.Days" = "days";
+"Repetitions.RemoveButton" = "Remove this event";

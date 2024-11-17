@@ -10,6 +10,7 @@ import UIKit
 final class RemindersView: UIView {
     lazy var titleLabel = makeTitleLabel()
     lazy var subTitleLabel = makeSubTitleLabel()
+    lazy var calendarView = makeCalendarView()
     lazy var tableView = makeTableView()
     lazy var emptyView = makeEmptyView()
     
@@ -48,9 +49,16 @@ private extension RemindersView {
         ])
         
         NSLayoutConstraint.activate([
+            calendarView.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 30.scale),
+            calendarView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            calendarView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            calendarView.heightAnchor.constraint(equalToConstant: 93.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 2.scale),
+            tableView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 2.scale),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2.scale)
         ])
         
@@ -101,6 +109,13 @@ private extension RemindersView {
         view.showsVerticalScrollIndicator = false
         view.contentInsetAdjustmentBehavior = .never
         view.backgroundColor = UIColor.clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeCalendarView() -> RemindersCalendarView {
+        let view = RemindersCalendarView()
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

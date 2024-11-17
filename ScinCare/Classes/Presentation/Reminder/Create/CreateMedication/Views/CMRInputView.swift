@@ -6,17 +6,23 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class CMRInputView: UIView {
     lazy var scrollView = makeScrollView()
     lazy var headerView = makeHeaderView()
     lazy var nameField = makeNameField()
     lazy var repetitionView = makeRepetitionView()
+    lazy var reminderView = makeReminderView()
+    lazy var noteField = makeNoteField()
     
     private weak var vc: UIViewController?
+    private let event: Reminder.Event
     
-    init(vc: UIViewController?) {
+    init(vc: UIViewController?, event: Reminder.Event) {
         self.vc = vc
+        self.event = event
         
         super.init(frame: .zero)
         
@@ -65,8 +71,22 @@ private extension CMRInputView {
             repetitionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             repetitionView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             repetitionView.topAnchor.constraint(equalTo: nameField.bottomAnchor, constant: 16.scale),
-            repetitionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             repetitionView.heightAnchor.constraint(equalToConstant: 44.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            reminderView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            reminderView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            reminderView.topAnchor.constraint(equalTo: repetitionView.bottomAnchor, constant: 16.scale),
+            reminderView.heightAnchor.constraint(equalToConstant: 44.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            noteField.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            noteField.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            noteField.topAnchor.constraint(equalTo: reminderView.bottomAnchor, constant: 16.scale),
+            noteField.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            noteField.heightAnchor.constraint(equalToConstant: 44.scale)
         ])
     }
 }
@@ -79,29 +99,77 @@ private extension CMRInputView {
         view.contentInset = UIEdgeInsets(vertical: 16.scale)
         view.setContentOffset(CGPoint(x: 0, y: -16.scale), animated: false)
         view.showsVerticalScrollIndicator = false
+        view.keyboardDismissMode = .interactive
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
     }
     
     func makeHeaderView() -> CRHeaderView {
-        let view = CRHeaderView(event: .medication)
+        let view = CRHeaderView(event: .init(event))
         view.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(view)
         return view
     }
     
     func makeNameField() -> CRNameField {
-        let view = CRNameField(event: .medication)
+        let view = CRNameField(event: .init(event))
         view.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(view)
         return view
     }
     
     func makeRepetitionView() -> CRMRepetitionSelectView {
-        let view = CRMRepetitionSelectView(vc: vc)
+        let view = CRMRepetitionSelectView(vc: vc, event: event)
         view.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(view)
         return view
+    }
+    
+    func makeReminderView() -> CMRReminderView {
+        let view = CMRReminderView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(view)
+        return view
+    }
+    
+    func makeNoteField() -> CMRNoteView {
+        let view = CMRNoteView(event: .init(event))
+        view.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(view)
+        return view
+    }
+}
+
+private extension CRHeaderView.Event {
+    init(_ event: Reminder.Event) {
+        switch event {
+        case .medication:
+            self = .medication
+        case .skinRescan:
+            self = .skinRescan
+        }
+    }
+}
+
+private extension CRNameField.Event {
+    init(_ event: Reminder.Event) {
+        switch event {
+        case .medication:
+            self = .medication
+        case .skinRescan:
+            self = .skinRescan
+        }
+    }
+}
+
+private extension CMRNoteView.Event {
+    init(_ event: Reminder.Event) {
+        switch event {
+        case .medication:
+            self = .medication
+        case .skinRescan:
+            self = .skinRescan
+        }
     }
 }

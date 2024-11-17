@@ -11,6 +11,12 @@ import RxCocoa
 final class RepetitionsViewModel {
     enum Route {
         case close
+        case count(RepetitionCountType)
+        case everyDay
+        case specificDate
+        case everyMonth
+        case everyYear
+        case next(Repetition)
     }
     
     private let event: Driver<Reminder.Event>
@@ -28,11 +34,12 @@ extension RepetitionsViewModel {
         let didTapClose: Signal<Void>
         let didSelect: Signal<RepetitionsTableElement>
         let didTapConfirm: Signal<Void>
+        let currentRepetition: Signal<Repetition>
     }
     
     struct Output {
         let elements: Driver<[RepetitionsTableElement]>
-        let route: Driver<Route>
+        let route: Signal<Route>
         let isEnableConfirm: Driver<Bool>
     }
     
@@ -50,7 +57,8 @@ extension RepetitionsViewModel {
             route: makeRoute(
                 didTapClose: input.didTapClose,
                 selectedRepetition: selectedRepetition,
-                didTapConfirm: input.didTapConfirm
+                didTapConfirm: input.didTapConfirm,
+                currentRepetition: input.currentRepetition
             ),
             isEnableConfirm: makeIsEnableConfirm(selectedRepetition: selectedRepetition)
         )
@@ -116,14 +124,43 @@ private extension RepetitionsViewModel {
     func makeRoute(
         didTapClose: Signal<Void>,
         selectedRepetition: Driver<RepetitionsTableElement.Repetition?>,
-        didTapConfirm: Signal<Void>
-    ) -> Driver<Route> {
+        didTapConfirm: Signal<Void>,
+        currentRepetition: Signal<Repetition>
+    ) -> Signal<Route> {
         let close = didTapClose
             .map { Route.close }
-            .asDriver(onErrorDriveWith: .never())
         
-        return Driver
-            .merge(close)
+        let sheet = didTapConfirm
+            .asObservable()
+            .withLatestFrom(selectedRepetition)
+            .compactMap { value -> Route? in
+                switch value {
+                case .everyDay:
+                    return .everyDay
+                case .everyMinutes:
+                    return .count(.minutes)
+                case .everyHours:
+                    return .count(.hours)
+                case .everyDays:
+                    return .count(.days)
+                case .everyMonth:
+                    return .everyMonth
+                case .everyYear:
+                    return .everyYear
+                case .onSpecificDate:
+                    return .specificDate
+                case .none:
+                    return nil
+                }
+            }
+            .asSignal(onErrorSignalWith: .empty())
+        
+        let next = currentRepetition
+            .map { Route.next($0) }
+            .asSignal(onErrorSignalWith: .empty())
+        
+        return Signal
+            .merge(close, sheet, next)
     }
     
     func makeIsEnableConfirm(selectedRepetition: Driver<RepetitionsTableElement.Repetition?>) -> Driver<Bool> {
