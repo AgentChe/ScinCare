@@ -25,36 +25,34 @@ final class SASTScannedAreaImageView: UIView {
 // MARK: Public
 extension SASTScannedAreaImageView {
     func setup(side: Side, area: SkinArea) {
-        // TODO: картинки на каждое состояние
-        imageView.image = UIImage(named: "Side.Back")
-//        let sName: String = {
-//            switch side {
-//            case .back:
-//                return "B"
-//            case .front:
-//                return "F"
-//            }
-//        }()
-//        let areaName: String = {
-//            switch area {
-//            case .head:
-//                return "Head"
-//            case .body:
-//                return "Body"
-//            case .leftArm:
-//                return "LeftArm"
-//            case .rightArm:
-//                return "RightArm"
-//            case .stomach:
-//                return "Stomach"
-//            case .leftLeg:
-//                return "LeftLeg"
-//            case .rightLeg:
-//                return "RightLeg"
-//            }
-//        }()
-//        let imageName = String(format: "SAST.%@.%@", sName, areaName)
-//        imageView.image = UIImage(named: imageName)
+        let sName: String = {
+            switch side {
+            case .back:
+                return "B"
+            case .front:
+                return "F"
+            }
+        }()
+        let areaName: String = {
+            switch area {
+            case .head:
+                return "Head"
+            case .body:
+                return "Body"
+            case .leftArm:
+                return "LeftArm"
+            case .rightArm:
+                return "RightArm"
+            case .stomach:
+                return "Stomach"
+            case .leftLeg:
+                return "LeftLeg"
+            case .rightLeg:
+                return "RightLeg"
+            }
+        }()
+        let imageName = String(format: "SAST.%@.%@", sName, areaName)
+        imageView.image = UIImage(named: imageName)
     }
 }
 

@@ -33,10 +33,10 @@ final class AnalyseScanResultAssembly {
                             case .back:
                                 nc?.popViewController(animated: true)
                             case .complete:
-                                let resultVC = SaveAnalyseCompleteViewController.make { result in
+                                let resultVC = SaveAnalyseCompleteViewController.make { vc, result in
                                     switch result {
                                     case .setNotification:
-                                        break // TODO
+                                        CreateReminderAssembly().create(from: vc)
                                     case .later:
                                         nc?.dismiss(animated: true)
                                     }
@@ -49,7 +49,9 @@ final class AnalyseScanResultAssembly {
                 }
                 nc?.pushViewController(selectSkinAreaVC, animated: true)
             case .setNotifications(let analyseId):
-                break // TODO
+                if let nc {
+                    CreateReminderAssembly().create(from: nc)
+                }
             }
         }
         
