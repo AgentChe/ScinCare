@@ -16,6 +16,8 @@ final class RemindersViewController: UIViewController {
     
     private lazy var disposeBag = DisposeBag()
     
+    private lazy var selectedDateRelay = PublishRelay<Date>()
+    
     override func loadView() {
         view = mainView
     }
@@ -29,7 +31,8 @@ final class RemindersViewController: UIViewController {
                     mainView.tableView.didTapAddEvent,
                     mainView.emptyView.addButton.rx.tap.asSignal()
                 ),
-            didSelect: mainView.tableView.didSelectReminder
+            didSelect: mainView.tableView.didSelectReminder,
+            selectedDate: selectedDateRelay.asSignal()
         ))
         
         output.route
@@ -48,6 +51,14 @@ final class RemindersViewController: UIViewController {
             .drive(Binder(mainView) { base, isEmpty in
                 base.tableView.isHidden = isEmpty
                 base.emptyView.isHidden = !isEmpty
+            })
+            .disposed(by: disposeBag)
+        
+        output.reminders
+            .drive(Binder(self) { base, reminders in
+                base.mainView.calendarView.setup(elements: reminders, didSelectDate: { [weak base] in
+                    base?.selectedDateRelay.accept($0)
+                })
             })
             .disposed(by: disposeBag)
     }
@@ -69,7 +80,7 @@ private extension RemindersViewController {
         case .addEvent:
             CreateReminderAssembly().create(from: self)
         case .open(let reminder):
-            break // TODO
+            CreateReminderAssembly().open(from: self, reminder: reminder)
         }
     }
 }

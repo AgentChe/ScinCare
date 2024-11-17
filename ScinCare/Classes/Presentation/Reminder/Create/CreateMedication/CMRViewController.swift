@@ -15,19 +15,34 @@ final class CMRViewController: UIViewController {
         case close
     }
     
-    private lazy var mainView = CMRView(vc: self, event: viewModel.initial.event)
+    enum Mode {
+        case edit(Reminder)
+        case create(Reminder.Event)
+        
+        var event: Reminder.Event {
+            switch self {
+            case .edit(let reminder):
+                reminder.event
+            case .create(let event):
+                event
+            }
+        }
+    }
+    
+    private lazy var mainView = CMRView(vc: self, mode: viewModel.mode)
     
     private lazy var disposeBag = DisposeBag()
     
     private lazy var changedCountRelay = PublishRelay<Int>()
+    private lazy var didTapDeleteTrigger = PublishRelay<Void>()
     
     private let viewModel: CMRViewModel
     
     private let result: (Result) -> Void
     
-    private init(reminder: Reminder? = nil, event: Reminder.Event, result: @escaping (Result) -> Void) {
+    private init(mode: Mode, result: @escaping (Result) -> Void) {
         self.result = result
-        self.viewModel = .init(initial: reminder, event: event)
+        self.viewModel = .init(mode: mode)
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -52,7 +67,8 @@ final class CMRViewController: UIViewController {
             repetition: mainView.inputDataView.repetitionView.repetition,
             changedDate: mainView.inputDataView.reminderView.datePicker.rx.date.asObservable(),
             changeCount: mainView.inputDataView.reminderView.countButton.rx.tap.asSignal(),
-            changedCount: changedCountRelay.asSignal()
+            changedCount: changedCountRelay.asSignal(),
+            didTapDelete: didTapDeleteTrigger.asSignal()
         ))
         
         output.route
@@ -85,13 +101,19 @@ final class CMRViewController: UIViewController {
                 base.alpha = isEnabled ? 1 : 0.5
             })
             .disposed(by: disposeBag)
+        
+        mainView.deleteButton.rx.tap
+            .bind(to: Binder(self) { base, void in
+                base.confirmDelete()
+            })
+            .disposed(by: disposeBag)
     }
 }
 
 // MARK: Public
 extension CMRViewController {
-    static func make(reminder: Reminder? = nil, event: Reminder.Event, result: @escaping (Result) -> Void) -> CMRViewController {
-        let vc = CMRViewController(reminder: reminder, event: event, result: result)
+    static func make(mode: Mode, result: @escaping (Result) -> Void) -> CMRViewController {
+        let vc = CMRViewController(mode: mode, result: result)
         vc.navigationItem.backButtonTitle = " "
         return vc
     }
@@ -123,5 +145,12 @@ private extension CMRViewController {
         }
         
         present(nv, animated: true)
+    }
+    
+    func confirmDelete() {
+        let vc = CDBViewController.make { [weak self] in
+            self?.didTapDeleteTrigger.accept(Void())
+        }
+        present(vc, animated: false)
     }
 }

@@ -17,6 +17,10 @@
 		86C256C42CE78E3800CA0559 /* RepetitionEveryDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C256C32CE78E3800CA0559 /* RepetitionEveryDayViewController.swift */; };
 		86C256C62CE791B500CA0559 /* CMRReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C256C52CE791B500CA0559 /* CMRReminderView.swift */; };
 		86C256CD2CE7DB6F00CA0559 /* CMRNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C256CC2CE7DB6F00CA0559 /* CMRNoteView.swift */; };
+		86C256D22CE8E26C00CA0559 /* CDRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C256D12CE8E26C00CA0559 /* CDRViewController.swift */; };
+		86C256D42CE8E27A00CA0559 /* CDRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C256D32CE8E27A00CA0559 /* CDRView.swift */; };
+		86C256D62CE9E40400CA0559 /* RemindersCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C256D52CE9E40400CA0559 /* RemindersCalendarView.swift */; };
+		86C256DA2CE9E5D700CA0559 /* ReminderCalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C256D92CE9E5D700CA0559 /* ReminderCalendarDayCell.swift */; };
 		DE57E03E2CDEFC5300AB2320 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E03D2CDEFC4E00AB2320 /* Reminder.swift */; };
 		DE57E0402CDEFE1B00AB2320 /* ReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E03F2CDEFE1B00AB2320 /* ReminderManager.swift */; };
 		DE57E0422CDF043E00AB2320 /* RemindersMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE57E0412CDF043E00AB2320 /* RemindersMediator.swift */; };
@@ -304,6 +308,10 @@
 		86C256C32CE78E3800CA0559 /* RepetitionEveryDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepetitionEveryDayViewController.swift; sourceTree = "<group>"; };
 		86C256C52CE791B500CA0559 /* CMRReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMRReminderView.swift; sourceTree = "<group>"; };
 		86C256CC2CE7DB6F00CA0559 /* CMRNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMRNoteView.swift; sourceTree = "<group>"; };
+		86C256D12CE8E26C00CA0559 /* CDRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDRViewController.swift; sourceTree = "<group>"; };
+		86C256D32CE8E27A00CA0559 /* CDRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDRView.swift; sourceTree = "<group>"; };
+		86C256D52CE9E40400CA0559 /* RemindersCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersCalendarView.swift; sourceTree = "<group>"; };
+		86C256D92CE9E5D700CA0559 /* ReminderCalendarDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCalendarDayCell.swift; sourceTree = "<group>"; };
 		DE57E03D2CDEFC4E00AB2320 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		DE57E03F2CDEFE1B00AB2320 /* ReminderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderManager.swift; sourceTree = "<group>"; };
 		DE57E0412CDF043E00AB2320 /* RemindersMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersMediator.swift; sourceTree = "<group>"; };
@@ -639,6 +647,32 @@
 			path = EveryDay;
 			sourceTree = "<group>";
 		};
+		86C256D02CE8D69F00CA0559 /* ConfirmRemoveAlert */ = {
+			isa = PBXGroup;
+			children = (
+				86C256D12CE8E26C00CA0559 /* CDRViewController.swift */,
+				86C256D32CE8E27A00CA0559 /* CDRView.swift */,
+			);
+			path = ConfirmRemoveAlert;
+			sourceTree = "<group>";
+		};
+		86C256D72CE9E5A100CA0559 /* CalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				86C256D82CE9E5AC00CA0559 /* Cells */,
+				86C256D52CE9E40400CA0559 /* RemindersCalendarView.swift */,
+			);
+			path = CalendarView;
+			sourceTree = "<group>";
+		};
+		86C256D82CE9E5AC00CA0559 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				86C256D92CE9E5D700CA0559 /* ReminderCalendarDayCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		AB517F7B6AE4CB901687A6B4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -689,6 +723,7 @@
 		DE57E04B2CE1C6CC00AB2320 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				86C256D72CE9E5A100CA0559 /* CalendarView */,
 				DE57E04C2CE1C6D100AB2320 /* TableView */,
 				DE57E0582CE1EE1C00AB2320 /* RemindersEmptyView.swift */,
 			);
@@ -746,6 +781,7 @@
 		DE57E0652CE1FA5400AB2320 /* CreateMedication */ = {
 			isa = PBXGroup;
 			children = (
+				86C256D02CE8D69F00CA0559 /* ConfirmRemoveAlert */,
 				DE57E0712CE2022E00AB2320 /* Views */,
 				DE57E0662CE1FA7200AB2320 /* CMRViewController.swift */,
 				DE57E0682CE1FA8F00AB2320 /* CMRViewModel.swift */,
@@ -2127,7 +2163,9 @@
 				DECA03972CD4E4E3005E7C38 /* AnalyseScanResultRecommendationsCell.swift in Sources */,
 				DE57E0482CDF098A00AB2320 /* RemindersViewModel.swift in Sources */,
 				DEDC83C12CCD6ED800F7120F /* DeleteChatRequest.swift in Sources */,
+				86C256D42CE8E27A00CA0559 /* CDRView.swift in Sources */,
 				86C256BA2CE737EA00CA0559 /* RepetitionSpecificDayViewController.swift in Sources */,
+				86C256D22CE8E26C00CA0559 /* CDRViewController.swift in Sources */,
 				86C256A92CE64DFC00CA0559 /* RepetitionCountPickerViewController.swift in Sources */,
 				DE57E03E2CDEFC5300AB2320 /* Reminder.swift in Sources */,
 				DEFD3B762CC9026A007050EF /* BookmarksFilterView.swift in Sources */,
@@ -2280,6 +2318,7 @@
 				DEFD3B412CC7B31E007050EF /* CatalogsViewModel.swift in Sources */,
 				DEFD3B5E2CC8DF54007050EF /* CDTableSeparatorCell.swift in Sources */,
 				DECA037D2CD3F8DD005E7C38 /* AnalyseScanTemplate.swift in Sources */,
+				86C256D62CE9E40400CA0559 /* RemindersCalendarView.swift in Sources */,
 				DEFD3AB02CC62541007050EF /* Weak.swift in Sources */,
 				DEDC83D82CD0B84000F7120F /* ChatTableElement.swift in Sources */,
 				DEDC83A82CCD57D900F7120F /* SendMessageResponse.swift in Sources */,
@@ -2299,6 +2338,7 @@
 				DEFD3ABA2CC62541007050EF /* PaygateInteractor.swift in Sources */,
 				DEFD3ABB2CC62541007050EF /* MainView.swift in Sources */,
 				DEFD3ABF2CC62541007050EF /* TabItemButton.swift in Sources */,
+				86C256DA2CE9E5D700CA0559 /* ReminderCalendarDayCell.swift in Sources */,
 				DEFD3AC22CC62541007050EF /* OnboardingViewController.swift in Sources */,
 				DEFD3B002CC679F8007050EF /* HomeExploreCell.swift in Sources */,
 			);

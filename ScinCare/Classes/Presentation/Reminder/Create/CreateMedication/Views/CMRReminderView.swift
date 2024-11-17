@@ -32,25 +32,25 @@ extension CMRReminderView {
         Binder(self) { base, repetition in
             switch repetition {
             case .everyDay(let date):
-                base.datePicker.date = date
                 base.datePicker.datePickerMode = .time
                 base.datePicker.isHidden = false
                 base.countButton.isHidden = true
+                base.datePicker.date = date
             case .everyMonth(let date):
-                base.datePicker.date = date
                 base.datePicker.datePickerMode = .dateAndTime
                 base.datePicker.isHidden = false
                 base.countButton.isHidden = true
+                base.datePicker.date = date
             case .everyYear(let date):
-                base.datePicker.date = date
                 base.datePicker.datePickerMode = .dateAndTime
                 base.datePicker.isHidden = false
                 base.countButton.isHidden = true
+                base.datePicker.date = date
             case .onSpecificDate(let date):
-                base.datePicker.date = date
                 base.datePicker.datePickerMode = .dateAndTime
                 base.datePicker.isHidden = false
                 base.countButton.isHidden = true
+                base.datePicker.date = date
             case .everyMinutes(let int):
                 base.datePicker.isHidden = true
                 base.countButton.isHidden = false
@@ -128,7 +128,6 @@ private extension CMRReminderView {
     
     func makeDatePicker() -> UIDatePicker {
         let view = UIDatePicker()
-        view.datePickerMode = .date
         view.preferredDatePickerStyle = .compact
         view.tintColor = Appearance.main100
         view.translatesAutoresizingMaskIntoConstraints = false

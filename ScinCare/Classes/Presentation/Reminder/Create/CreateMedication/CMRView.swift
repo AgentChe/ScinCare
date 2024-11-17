@@ -13,18 +13,19 @@ final class CMRView: UIView {
     lazy var closeButton = makeCloseButton()
     lazy var inputDataView = makeInputDataView()
     lazy var confirmButton = makeConfirmButton()
+    lazy var deleteButton = makeRemoveButton()
     
     private weak var vc: UIViewController?
-    private let event: Reminder.Event
+    private let mode: CMRViewController.Mode
     
-    init(vc: UIViewController, event: Reminder.Event) {
+    init(vc: UIViewController, mode: CMRViewController.Mode) {
         self.vc = vc
-        self.event = event
+        self.mode = mode
         
         super.init(frame: .zero)
         
-        makeConstraints()
         initialize()
+        makeConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -36,6 +37,9 @@ final class CMRView: UIView {
 private extension CMRView {
     func initialize() {
         backgroundColor = Appearance.main700
+        if case .edit = mode {
+            addSubview(deleteButton)
+        }
     }
 }
 
@@ -68,12 +72,29 @@ private extension CMRView {
             inputDataView.bottomAnchor.constraint(equalTo: keyboardLayoutGuide.topAnchor, constant: -2.scale)
         ])
         
-        NSLayoutConstraint.activate([
-            confirmButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            confirmButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            confirmButton.heightAnchor.constraint(equalToConstant: 54.scale),
-            confirmButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -14.scale)
-        ])
+        switch mode {
+        case .create:
+            NSLayoutConstraint.activate([
+                confirmButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+                confirmButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+                confirmButton.heightAnchor.constraint(equalToConstant: 54.scale),
+                confirmButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -14.scale)
+            ])
+        case .edit:
+            NSLayoutConstraint.activate([
+                confirmButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+                confirmButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+                confirmButton.heightAnchor.constraint(equalToConstant: 54.scale),
+                confirmButton.bottomAnchor.constraint(equalTo: deleteButton.topAnchor, constant: -12.scale)
+            ])
+            
+            NSLayoutConstraint.activate([
+                deleteButton.leadingAnchor.constraint(equalTo: confirmButton.leadingAnchor),
+                deleteButton.trailingAnchor.constraint(equalTo: confirmButton.trailingAnchor),
+                deleteButton.heightAnchor.constraint(equalToConstant: 54.scale),
+                deleteButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -14.scale)
+            ])
+        }
     }
 }
 
@@ -95,7 +116,7 @@ private extension CMRView {
             .textAlignment(.center)
         
         let view = UILabel()
-        view.attributedText = "CreteMedication.Title".localized.attributed(with: attrs)
+        view.attributedText = mode.title.attributed(with: attrs)
         view.numberOfLines = 0
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
@@ -111,7 +132,7 @@ private extension CMRView {
     }
     
     func makeInputDataView() -> CMRInputView {
-        let view = CMRInputView(vc: vc, event: event)
+        let view = CMRInputView(vc: vc, event: mode.event)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
@@ -123,11 +144,44 @@ private extension CMRView {
             .font(Fonts.Roboto.bold(size: 16.scale))
         
         let view = UIButton()
-        view.setAttributedTitle("Repetitions.ConfirmButton".localized.attributed(with: attrs), for: .normal)
+        view.setAttributedTitle(mode.confirmTitle.attributed(with: attrs), for: .normal)
         view.backgroundColor = Appearance.main100
         view.layer.cornerRadius = 16.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
+    }
+    
+    func makeRemoveButton() -> UIButton {
+        let attrs = TextAttributes()
+            .textColor(Appearance.mono100)
+            .font(Fonts.Roboto.bold(size: 16.scale))
+        
+        let view = UIButton()
+        view.setAttributedTitle("Repetitions.RemoveButton".localized.attributed(with: attrs), for: .normal)
+        view.backgroundColor = Appearance.system100
+        view.layer.cornerRadius = 16.scale
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }
+}
+
+private extension CMRViewController.Mode {
+    var title: String {
+        switch self {
+        case .edit:
+            "CreteMedication.Edit.Title".localized
+        case .create:
+            "CreteMedication.Create.Title".localized
+        }
+    }
+    
+    var confirmTitle: String {
+        switch self {
+        case .edit:
+            "Repetitions.Edit.ConfirmButton".localized
+        case .create:
+            "Repetitions.Create.ConfirmButton".localized
+        }
     }
 }

@@ -15,12 +15,15 @@ final class CMRViewModel {
         case counter(RepetitionCountType)
     }
     
-    let initial: Reminder
+    let mode: CMRViewController.Mode
+    private let initial: Reminder
+    private lazy var reminderManager = ReminderManager()
     
-    init(initial: Reminder? = nil, event: Reminder.Event) {
-        if let initial {
-            self.initial = initial
-        } else {
+    init(mode: CMRViewController.Mode) {
+        switch mode {
+        case .edit(let reminder):
+            self.initial = reminder
+        case .create(let event):
             self.initial = .init(
                 id: UUID().uuidString,
                 created: .init(),
@@ -30,6 +33,7 @@ final class CMRViewModel {
                 note: nil
             )
         }
+        self.mode = mode
     }
 }
 
@@ -45,11 +49,7 @@ extension CMRViewModel {
         let changedDate: Observable<Date>
         let changeCount: Signal<Void>
         let changedCount: Signal<Int>
-    }
-    
-    enum Action {
-        case add(Repetition)
-        case change(Date)
+        let didTapDelete: Signal<Void>
     }
     
     struct Output {
@@ -59,34 +59,41 @@ extension CMRViewModel {
     }
     
     func configure(input: Input) -> Output {
+        let repetition = input.repetition
+            .compactMap { $0 }
+            .startWith(initial.trigger)
+            .share(replay: 1)
+        
         let changedDate = input.changedDate
-            .withLatestFrom(input.repetition) { date, repetition in
-                return repetition?.changed(date: date)
+            .skip(1)
+            .withLatestFrom(repetition) { date, repetition in
+                return repetition.changed(date: date)
             }
         
         let changedCount = input.changedCount
             .asObservable()
-            .withLatestFrom(input.repetition) { count, repetition in
-                return repetition?.changed(count: count)
+            .withLatestFrom(repetition) { count, repetition in
+                return repetition.changed(count: count)
             }
         
         let currentRepetition = Observable
             .merge(
-                input.repetition,
+                repetition.map { $0 },
                 changedDate,
                 changedCount
             )
             .compactMap { $0 }
-            .startWith(initial.trigger)
             .share(replay: 1)
     
         let note = input.note
-            .startWith(nil)
+            .skip(1)
+            .startWith(initial.note)
             .distinctUntilChanged()
         
         let name = input.name
-            .map { $0 ?? "" }
-            .startWith("")
+            .skip(1)
+            .compactMap { $0 }
+            .startWith(initial.name)
             .distinctUntilChanged()
         
         let reminder = Observable
@@ -108,20 +115,44 @@ extension CMRViewModel {
             .asDriver(onErrorJustReturn: initial)
         
         let isEnabled = reminder
-            .map { !$0.name.isEmpty }
+            .map { [mode] reminder in
+                switch mode {
+                case .create:
+                    return !reminder.name.isEmpty
+                case .edit(let initial):
+                    return initial != reminder && !reminder.name.isEmpty
+                }
+            }
         
-        // TODO: Добавить сохранение
-        let saveReminder = input.didTapNext
+        let didSave = input.didTapNext
             .asObservable()
             .withLatestFrom(reminder)
-            
+            .flatMapFirst { [reminderManager, mode] reminder in
+                switch mode {
+                case .edit:
+                    return reminderManager.change(reminder: reminder)
+                case .create:
+                    return reminderManager.add(reminder: reminder).map { $0 }
+                }
+            }
+            .mapToVoid()
+            .asSignal(onErrorSignalWith: .never())
+        
+        let didDelete = input.didTapDelete
+            .asObservable()
+            .withLatestFrom(reminder)
+            .flatMapFirst { [reminderManager] reminder in
+                return reminderManager.delete(id: reminder.id)
+            }
+            .asSignal(onErrorSignalWith: .never())
         
         return Output(
             route: makeRoute(
                 didTapBack: input.didTapBack,
                 didTapClose: input.didTapClose,
                 didTapChangeCount: input.changeCount,
-                currentRepetition: currentRepetition
+                currentRepetition: currentRepetition,
+                saveOrDelete: .merge(didSave, didDelete)
             ),
             reminder: reminder,
             isEnabled: isEnabled
@@ -135,13 +166,17 @@ extension CMRViewModel {
         didTapBack: Signal<Void>,
         didTapClose: Signal<Void>,
         didTapChangeCount: Signal<Void>,
-        currentRepetition: Observable<Repetition>
+        currentRepetition: Observable<Repetition>,
+        saveOrDelete: Signal<Void>
     ) -> Signal<Route> {
         let back = didTapBack
             .map { Route.back }
         
         let close = didTapClose
             .map { Route.close }
+        
+        let saveOrDelete = saveOrDelete
+            .map { _ in Route.close }
         
         let changeCount = didTapChangeCount
             .asObservable()
@@ -161,7 +196,7 @@ extension CMRViewModel {
             .asSignal(onErrorSignalWith: .never())
         
         return Signal
-            .merge(back, close, changeCount)
+            .merge(back, close, changeCount, saveOrDelete)
     }
 }
 

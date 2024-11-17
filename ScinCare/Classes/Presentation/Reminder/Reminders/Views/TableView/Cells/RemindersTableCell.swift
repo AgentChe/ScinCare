@@ -232,6 +232,7 @@ private extension RemindersTableCell {
         view.distribution = .fill
         view.contentMode = .scaleAspectFit
         view.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(view)
         return view
     }
 }
