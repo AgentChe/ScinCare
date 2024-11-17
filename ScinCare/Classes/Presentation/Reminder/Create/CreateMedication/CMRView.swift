@@ -14,6 +14,7 @@ final class CMRView: UIView {
     lazy var inputDataView = makeInputDataView()
     lazy var confirmButton = makeConfirmButton()
     lazy var deleteButton = makeRemoveButton()
+    private lazy var stackView = makeStackView()
     
     private weak var vc: UIViewController?
     private let mode: CMRViewController.Mode
@@ -24,8 +25,8 @@ final class CMRView: UIView {
         
         super.init(frame: .zero)
         
-        initialize()
         makeConstraints()
+        initialize()
     }
     
     required init?(coder: NSCoder) {
@@ -37,9 +38,15 @@ final class CMRView: UIView {
 private extension CMRView {
     func initialize() {
         backgroundColor = Appearance.main700
-        if case .edit = mode {
-            addSubview(deleteButton)
+        stackView.addArrangedSubview(confirmButton)
+        stackView.addArrangedSubview(deleteButton)
+        if case .create = mode {
+            deleteButton.isHidden = true
         }
+        NSLayoutConstraint.activate([
+            confirmButton.heightAnchor.constraint(equalToConstant: 54.scale),
+            deleteButton.heightAnchor.constraint(equalToConstant: 54.scale)
+        ])
     }
 }
 
@@ -72,29 +79,11 @@ private extension CMRView {
             inputDataView.bottomAnchor.constraint(equalTo: keyboardLayoutGuide.topAnchor, constant: -2.scale)
         ])
         
-        switch mode {
-        case .create:
-            NSLayoutConstraint.activate([
-                confirmButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-                confirmButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-                confirmButton.heightAnchor.constraint(equalToConstant: 54.scale),
-                confirmButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -14.scale)
-            ])
-        case .edit:
-            NSLayoutConstraint.activate([
-                confirmButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-                confirmButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-                confirmButton.heightAnchor.constraint(equalToConstant: 54.scale),
-                confirmButton.bottomAnchor.constraint(equalTo: deleteButton.topAnchor, constant: -12.scale)
-            ])
-            
-            NSLayoutConstraint.activate([
-                deleteButton.leadingAnchor.constraint(equalTo: confirmButton.leadingAnchor),
-                deleteButton.trailingAnchor.constraint(equalTo: confirmButton.trailingAnchor),
-                deleteButton.heightAnchor.constraint(equalToConstant: 54.scale),
-                deleteButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -14.scale)
-            ])
-        }
+        NSLayoutConstraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            stackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -14.scale)
+        ])
     }
 }
 
@@ -148,7 +137,6 @@ private extension CMRView {
         view.backgroundColor = Appearance.main100
         view.layer.cornerRadius = 16.scale
         view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
         return view
     }
     
@@ -162,6 +150,15 @@ private extension CMRView {
         view.backgroundColor = Appearance.system100
         view.layer.cornerRadius = 16.scale
         view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }
+    
+    func makeStackView() -> UIStackView {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.spacing = 12.scale
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
         return view
     }
 }
