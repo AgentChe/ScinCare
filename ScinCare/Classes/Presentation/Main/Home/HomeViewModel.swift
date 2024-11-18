@@ -14,6 +14,7 @@ final class HomeViewModel {
         case catalogs(CatalogsViewController.Item)
         case openScanner
         case openHistory
+        case addReminder
     }
     
     private lazy var analyseManager = AnalyseManager()
@@ -26,6 +27,7 @@ extension HomeViewModel {
         let didTapExplore: Signal<HomeExploreItemButton.Item>
         let didOpenScanner: Signal<Void>
         let didOpenHistory: Signal<Void>
+        let didAddReminder: Signal<Void>
     }
     
     struct Output {
@@ -42,7 +44,8 @@ extension HomeViewModel {
                 didTapMenu: input.didTapMenu,
                 didTapExplore: input.didTapExplore,
                 didOpenScanner: input.didOpenScanner,
-                didOpenHistory: input.didOpenHistory
+                didOpenHistory: input.didOpenHistory,
+                didAddReminder: input.didAddReminder
             )
         )
     }
@@ -55,6 +58,7 @@ private extension HomeViewModel {
             .map { hasHistory -> [HomeCollectionElement] in
                 [
                     hasHistory ? .openHistory : .openScanner,
+                    .addReminder,
                     .explore
                 ]
             }
@@ -72,7 +76,8 @@ private extension HomeViewModel {
         didTapMenu: Signal<Void>,
         didTapExplore: Signal<HomeExploreItemButton.Item>,
         didOpenScanner: Signal<Void>,
-        didOpenHistory: Signal<Void>
+        didOpenHistory: Signal<Void>,
+        didAddReminder: Signal<Void>
     ) -> Driver<Route> {
         let menu = didTapMenu
             .map { Route.menu }
@@ -99,7 +104,11 @@ private extension HomeViewModel {
             .map { Route.openHistory }
             .asDriver(onErrorDriveWith: .never())
         
+        let addReminder = didAddReminder
+            .map { Route.addReminder }
+            .asDriver(onErrorDriveWith: .never())
+        
         return Driver
-            .merge(menu, catalogs, scanner, history)
+            .merge(menu, catalogs, scanner, history, addReminder)
     }
 }

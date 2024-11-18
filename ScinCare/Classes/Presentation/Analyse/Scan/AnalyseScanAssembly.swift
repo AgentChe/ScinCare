@@ -10,6 +10,13 @@ import AVFoundation
 
 final class AnalyseScanAssembly {
     func scan(from: UIViewController) {
+        if !SessionManager().hasActiveSubscriptions() {
+            let vc = PaygateViewController.make()
+            from.present(vc, animated: true)
+            
+            return
+        }
+        
         let cameraAuthStatus = AVCaptureDevice.authorizationStatus(for: .video)
         
         switch cameraAuthStatus {

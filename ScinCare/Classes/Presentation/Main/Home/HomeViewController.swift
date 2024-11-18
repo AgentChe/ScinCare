@@ -22,11 +22,14 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        PushNotificationsManager.shared.requestAuthorization()
+        
         let output = viewModel.configure(input: HomeViewModel.Input(
             didTapMenu: mainView.menuButton.rx.tap.asSignal(),
             didTapExplore: mainView.collectionView.didTapExplore,
             didOpenScanner: mainView.collectionView.didOpenScanner,
-            didOpenHistory: mainView.collectionView.didOpenHistory
+            didOpenHistory: mainView.collectionView.didOpenHistory,
+            didAddReminder: mainView.collectionView.didAddReminder
         ))
         
         output.elements
@@ -67,6 +70,8 @@ private extension HomeViewController {
         case .openHistory:
             let vc = ScanHistoryViewController.make()
             navigationController?.pushViewController(vc, animated: true)
+        case .addReminder:
+            CreateReminderAssembly().create(from: self)
         }
     }
 }

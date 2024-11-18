@@ -48,7 +48,7 @@ final class AnalyseScanResultAssembly {
                     }
                 }
                 nc?.pushViewController(selectSkinAreaVC, animated: true)
-            case .setNotifications(let analyseId):
+            case .setNotifications:
                 if let nc {
                     CreateReminderAssembly().create(from: nc)
                 }

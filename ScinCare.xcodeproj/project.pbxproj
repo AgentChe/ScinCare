@@ -88,6 +88,8 @@
 		DECD4A302CE5E47B0091A803 /* CRMRepetitionSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECD4A2F2CE5E47B0091A803 /* CRMRepetitionSelectView.swift */; };
 		DECD4A342CE5F9030091A803 /* RemindersTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECD4A332CE5F9030091A803 /* RemindersTableCell.swift */; };
 		DECD4A362CE6156E0091A803 /* RepetitionsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECD4A352CE6156E0091A803 /* RepetitionsAssembly.swift */; };
+		DED95F912CEB4F78003CBC48 /* ReminderRegisterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED95F902CEB4F78003CBC48 /* ReminderRegisterManager.swift */; };
+		DED95F942CEB6068003CBC48 /* HomeAddReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED95F932CEB6068003CBC48 /* HomeAddReminderCell.swift */; };
 		DEDB8FA12CC6237F00E5BE41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDB8F952CC6237F00E5BE41 /* Assets.xcassets */; };
 		DEDB8FA32CC6237F00E5BE41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDB8F982CC6237F00E5BE41 /* LaunchScreen.storyboard */; };
 		DEDC838D2CCD40F500F7120F /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC838C2CCD40F500F7120F /* ChatViewController.swift */; };
@@ -379,6 +381,9 @@
 		DECD4A2F2CE5E47B0091A803 /* CRMRepetitionSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRMRepetitionSelectView.swift; sourceTree = "<group>"; };
 		DECD4A332CE5F9030091A803 /* RemindersTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersTableCell.swift; sourceTree = "<group>"; };
 		DECD4A352CE6156E0091A803 /* RepetitionsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepetitionsAssembly.swift; sourceTree = "<group>"; };
+		DED95F902CEB4F78003CBC48 /* ReminderRegisterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRegisterManager.swift; sourceTree = "<group>"; };
+		DED95F922CEB5373003CBC48 /* ScinCare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScinCare.entitlements; sourceTree = "<group>"; };
+		DED95F932CEB6068003CBC48 /* HomeAddReminderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddReminderCell.swift; sourceTree = "<group>"; };
 		DEDB8F7C2CC6236000E5BE41 /* ScinCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScinCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDB8F952CC6237F00E5BE41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEDB8F962CC6237F00E5BE41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -688,6 +693,7 @@
 				DE57E03C2CDEFC4A00AB2320 /* Model */,
 				DE57E03F2CDEFE1B00AB2320 /* ReminderManager.swift */,
 				DE57E0412CDF043E00AB2320 /* RemindersMediator.swift */,
+				DED95F902CEB4F78003CBC48 /* ReminderRegisterManager.swift */,
 			);
 			path = Reminder;
 			sourceTree = "<group>";
@@ -1036,6 +1042,7 @@
 		DEDB8F9D2CC6237F00E5BE41 /* ScinCare */ = {
 			isa = PBXGroup;
 			children = (
+				DED95F922CEB5373003CBC48 /* ScinCare.entitlements */,
 				DEFD3A152CC62541007050EF /* Classes */,
 				DEDB8FA52CC6238E00E5BE41 /* Resource */,
 			);
@@ -1722,6 +1729,7 @@
 				DEFD3AFF2CC679F8007050EF /* HomeExploreCell.swift */,
 				DEDC83E72CD35EDC00F7120F /* HomeOpenScannerCell.swift */,
 				DEDC83E92CD365A700F7120F /* HomeOpenHistoryCell.swift */,
+				DED95F932CEB6068003CBC48 /* HomeAddReminderCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -2087,6 +2095,7 @@
 				DEDC83D22CCFAB6C00F7120F /* CDCView.swift in Sources */,
 				DEDC83C72CCF8F4C00F7120F /* ChatsTableSection.swift in Sources */,
 				DEDC83D62CD0B83900F7120F /* ChatTableView.swift in Sources */,
+				DED95F942CEB6068003CBC48 /* HomeAddReminderCell.swift in Sources */,
 				DECA03822CD4DDDD005E7C38 /* AnalyseScanResultViewController.swift in Sources */,
 				DECA03D22CD770D2005E7C38 /* ScanHistoryTableView.swift in Sources */,
 				DEFD3A2D2CC62541007050EF /* AmplitudeManager.swift in Sources */,
@@ -2124,6 +2133,7 @@
 				DEFD3A412CC62541007050EF /* OnboardingView.swift in Sources */,
 				DECA037F2CD3FABB005E7C38 /* GetAnalyseHistoryRequest.swift in Sources */,
 				DEFD3A422CC62541007050EF /* SceneDelegate.swift in Sources */,
+				DED95F912CEB4F78003CBC48 /* ReminderRegisterManager.swift in Sources */,
 				DE57E05D2CE1F33F00AB2320 /* CREViewController.swift in Sources */,
 				DE57E0892CE331BD00AB2320 /* RepetitionsTableCell.swift in Sources */,
 				DECD4A302CE5E47B0091A803 /* CRMRepetitionSelectView.swift in Sources */,
@@ -2372,6 +2382,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ScinCare/ScinCare.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2GY8CB289H;
@@ -2393,6 +2405,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = scincare.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -2409,6 +2422,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ScinCare/ScinCare.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2GY8CB289H;
@@ -2430,6 +2445,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = scincare.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

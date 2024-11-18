@@ -8,5 +8,6 @@
 enum HomeCollectionElement {
     case openScanner
     case openHistory
+    case addReminder
     case explore
 }

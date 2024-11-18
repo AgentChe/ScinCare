@@ -93,6 +93,9 @@
 "Home.OpenHistory.Title" = "Skin scan history";
 "Home.OpenHistory.SubTitle" = "Check your scan results";
 "Home.OpenHistory.Button" = "Open history";
+"Home.AddReminder.Title" = "Set a notification";
+"Home.AddReminder.SubTitle" = "Stay on track with meds\nand rescans";
+"Home.AddReminder.Button" = "Add event";
 
 // MARK: Menu
 "Menu.Title" = "Menu";
