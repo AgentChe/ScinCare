@@ -178,7 +178,6 @@
 		DEFD3A702CC62541007050EF /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD39972CC62541007050EF /* MainCoordinator.swift */; };
 		DEFD3A712CC62541007050EF /* UIView+RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD39342CC62541007050EF /* UIView+RxExtension.swift */; };
 		DEFD3A722CC62541007050EF /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD39DF2CC62541007050EF /* SplashViewController.swift */; };
-		DEFD3A732CC62541007050EF /* BranchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD391C2CC62541007050EF /* BranchManager.swift */; };
 		DEFD3A752CC62541007050EF /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD39202CC62541007050EF /* ImagePicker.swift */; };
 		DEFD3A782CC62541007050EF /* PaygateProductButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD39D52CC62541007050EF /* PaygateProductButton.swift */; };
 		DEFD3A7A2CC62541007050EF /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD39482CC62541007050EF /* ScreenSize.swift */; };
@@ -440,7 +439,6 @@
 		DEDC840E2CD37D4000F7120F /* AnalyseCameraOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseCameraOptionsView.swift; sourceTree = "<group>"; };
 		DEDC84102CD386B600F7120F /* AnalyseScanAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseScanAssembly.swift; sourceTree = "<group>"; };
 		DEFD391B2CC62541007050EF /* AmplitudeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplitudeManager.swift; sourceTree = "<group>"; };
-		DEFD391C2CC62541007050EF /* BranchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchManager.swift; sourceTree = "<group>"; };
 		DEFD391D2CC62541007050EF /* FacebookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
 		DEFD391E2CC62541007050EF /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		DEFD39202CC62541007050EF /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -1301,7 +1299,6 @@
 			isa = PBXGroup;
 			children = (
 				DEFD391B2CC62541007050EF /* AmplitudeManager.swift */,
-				DEFD391C2CC62541007050EF /* BranchManager.swift */,
 				DEFD391D2CC62541007050EF /* FacebookManager.swift */,
 				DEFD391E2CC62541007050EF /* FirebaseManager.swift */,
 			);
@@ -2203,7 +2200,6 @@
 				DEFD3A722CC62541007050EF /* SplashViewController.swift in Sources */,
 				86C256BC2CE737FA00CA0559 /* RepetitionSpecificDayView.swift in Sources */,
 				DEFD3B2D2CC7AA7B007050EF /* SaveProcedureRequest.swift in Sources */,
-				DEFD3A732CC62541007050EF /* BranchManager.swift in Sources */,
 				DEDC83A42CCD550800F7120F /* ChatMessage.swift in Sources */,
 				DEDC83B62CCD659500F7120F /* CheckMessageCompleteResponse.swift in Sources */,
 				DECA03762CD395C0005E7C38 /* AnalyseImageResizeViewModel.swift in Sources */,
