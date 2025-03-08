@@ -72,8 +72,6 @@ private extension ChatQuestionTextCell {
         view.backgroundColor = Appearance.main300
         view.layer.cornerRadius = 16.scale
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        view.layer.borderColor = Appearance.main200.cgColor
-        view.layer.borderWidth = 1.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(view)
         return view

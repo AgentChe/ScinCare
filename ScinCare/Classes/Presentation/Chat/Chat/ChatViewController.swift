@@ -76,6 +76,8 @@ final class ChatViewController: UIViewController {
                 base.action(action)
             })
             .disposed(by: disposeBag)
+        
+        addHideKeyboardAction()
     }
 }
 
@@ -142,5 +144,17 @@ private extension ChatViewController {
         case .lockSendMessage(let lock):
             mainView.inputField.sendButton.isEnabled = !lock
         }
+    }
+    
+    func addHideKeyboardAction() {
+        let tapGesture = UITapGestureRecognizer()
+        tapGesture.cancelsTouchesInView = true
+        mainView.addGestureRecognizer(tapGesture)
+        
+        tapGesture.rx.event
+            .bind(to: Binder(mainView) { base, event in
+                base.endEditing(true)
+            })
+            .disposed(by: disposeBag)
     }
 }

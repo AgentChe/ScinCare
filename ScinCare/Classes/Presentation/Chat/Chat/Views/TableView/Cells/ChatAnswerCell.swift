@@ -37,6 +37,7 @@ final class ChatAnswerCell: UITableViewCell {
 
 // MARK: Public
 extension ChatAnswerCell {
+    // TODO: Передать Толе замечание о пустом переносе в конце
     func setup(text: String, refreshHidden: Bool) {
         let html: NSAttributedString = {
             let font = Fonts.Roboto.regular(size: 16.scale)
@@ -141,8 +142,6 @@ private extension ChatAnswerCell {
         view.backgroundColor = Appearance.mono100
         view.layer.cornerRadius = 16.scale
         view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        view.layer.borderColor = Appearance.main200.cgColor
-        view.layer.borderWidth = 1.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(view)
         return view

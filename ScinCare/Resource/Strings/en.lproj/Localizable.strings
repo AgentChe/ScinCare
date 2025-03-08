@@ -129,7 +129,7 @@
 "Chat.Title" = "AI Dermatologist";
 "Chat.Placeholder.Title" = "Ask the AI Dermatologist";
 "Chat.Placeholder.SubTitle" = "Type any skin question for instant answers";
-"Chat.Input.Placeholder" = "Type in your quiestion";
+"Chat.Input.Placeholder" = "Type in your question";
 "Chat.Regenerate.Text" = "There was an error generating a response";
 "Chat.Regenerate.Button" = "Regenerate";
 "Chat.Copied.Toast" = "Text copied";
