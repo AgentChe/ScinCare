@@ -88,7 +88,10 @@ private extension CatalogDetailsViewModel {
                 catalogDetails.sections.enumerated().forEach { index, catalogDetailsSection in
                     let isLast = (catalogDetails.sections.count - 1) == index
                     
-                    let sectionElement = CDSectionElement(name: catalogDetailsSection.name, opened: true)
+                    let sectionElement = CDSectionElement(
+                        name: catalogDetailsSection.name,
+                        opened: index == 1
+                    )
                     
                     var openedElements: [CDTableElement] = [.section(sectionElement)]
                     catalogDetailsSection.blocks.forEach { block in
@@ -107,7 +110,7 @@ private extension CatalogDetailsViewModel {
                     }
                     
                     let section = CDTableSection(
-                        opened: false,
+                        opened: index == 0,
                         openedElements: openedElements,
                         closedElements: [.section(sectionElement), isLast ? nil : .separator].compactMap { $0 }
                     )
