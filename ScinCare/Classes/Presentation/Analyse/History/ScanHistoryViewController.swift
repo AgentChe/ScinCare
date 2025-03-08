@@ -23,7 +23,6 @@ final class ScanHistoryViewController: UIViewController {
         super.viewDidLoad()
         
         let output = viewModel.configure(input: ScanHistoryViewModel.Input(
-            didTapBack: mainView.backButton.rx.tap.asSignal(),
             didSelect: mainView.tableView.didSelect
         ))
         
@@ -52,6 +51,7 @@ extension ScanHistoryViewController {
     static func make() -> ScanHistoryViewController {
         let vc = ScanHistoryViewController()
         vc.navigationItem.backButtonTitle = " "
+        vc.navigationItem.title = "ScanHistory.Title".localized
         return vc
     }
 }
@@ -60,8 +60,6 @@ extension ScanHistoryViewController {
 private extension ScanHistoryViewController {
     func route(_ route: ScanHistoryViewModel.Route) {
         switch route {
-        case .back:
-            navigationController?.popViewController(animated: true)
         case .open(let analyseId):
             AnalyseScanResultAssembly().open(with: analyseId, from: self)
         }

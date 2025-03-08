@@ -10,7 +10,6 @@ import RxCocoa
 
 final class MenuViewModel {
     enum Route {
-        case back
         case disclaimer
         case open(URL)
     }
@@ -19,7 +18,6 @@ final class MenuViewModel {
 // MARK: Public
 extension MenuViewModel {
     struct Input {
-        let didTapBack: Signal<Void>
         let didTapMenuRoute: Signal<MenuRouteButton.Route>
     }
     
@@ -29,24 +27,14 @@ extension MenuViewModel {
     
     func configure(input: Input) -> Output {
         Output(
-            route: makeRoute(
-                didTapBack: input.didTapBack,
-                didTapMenuRoute: input.didTapMenuRoute
-            )
+            route: makeRoute(didTapMenuRoute: input.didTapMenuRoute)
         )
     }
 }
 
 // MARK: Private
 private extension MenuViewModel {
-    func makeRoute(
-        didTapBack: Signal<Void>,
-        didTapMenuRoute: Signal<MenuRouteButton.Route>
-    ) -> Driver<Route> {
-        let back = didTapBack
-            .map { Route.back }
-            .asDriver(onErrorDriveWith: .never())
-        
+    func makeRoute(didTapMenuRoute: Signal<MenuRouteButton.Route>) -> Driver<Route> {
         let menuRoute = didTapMenuRoute
             .map { menuRoute -> Route in
                 switch menuRoute {
@@ -63,6 +51,6 @@ private extension MenuViewModel {
             .asDriver(onErrorDriveWith: .never())
         
         return Driver
-            .merge(back, menuRoute)
+            .merge(menuRoute)
     }
 }

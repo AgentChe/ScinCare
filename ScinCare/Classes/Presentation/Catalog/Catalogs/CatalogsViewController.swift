@@ -13,7 +13,7 @@ final class CatalogsViewController: UIViewController {
         case glossary, procedure, disease
     }
     
-    private lazy var mainView = CatalogsView(item: item)
+    private lazy var mainView = CatalogsView()
     
     private lazy var viewModel = CatalogsViewModel(item: item)
     
@@ -39,7 +39,6 @@ final class CatalogsViewController: UIViewController {
         super.viewDidLoad()
         
         let output = viewModel.configure(input: CatalogsViewModel.Input(
-            didTapBack: mainView.backButton.rx.tap.asSignal(),
             didSearch: mainView.searchField.changedText,
             didSelect: mainView.tableView.didSelect
         ))
@@ -63,6 +62,7 @@ extension CatalogsViewController {
     static func make(item: Item) -> CatalogsViewController {
         let vc = CatalogsViewController(item: item)
         vc.navigationItem.backButtonTitle = " "
+        vc.navigationItem.title = item.title
         return vc
     }
 }
@@ -71,8 +71,6 @@ extension CatalogsViewController {
 private extension CatalogsViewController {
     func route(_ route: CatalogsViewModel.Route) {
         switch route {
-        case .back:
-            navigationController?.popViewController(animated: true)
         case .details(let element):
             if element.locked {
                 let vc = PaygateViewController.make()
@@ -91,6 +89,20 @@ private extension CatalogsViewController {
                 let vc = CatalogDetailsViewController.make(item: detailsItem, catalog: element.catalog)
                 navigationController?.pushViewController(vc, animated: true)
             }
+        }
+    }
+}
+
+// MARK: Additional
+private extension CatalogsViewController.Item {
+    var title: String {
+        switch self {
+        case .glossary:
+            return "Catalogs.Glossaries.Title".localized
+        case .procedure:
+            return "Catalogs.Procedures.Title".localized
+        case .disease:
+            return "Catalogs.Diseases.Title".localized
         }
     }
 }

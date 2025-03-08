@@ -46,10 +46,12 @@ private extension OnboardingViewController {
     
     func goNext() {
         if SessionManager().hasActiveSubscriptions() {
-            UIApplication.shared.keyWindow?.rootViewController = MainViewController.make(requestReview: true)
+            let nc = NavigationController(rootViewController: MainViewController.make(requestReview: true))
+            UIApplication.shared.keyWindow?.rootViewController = nc
         } else {
             let vc = PaygateViewController.make {
-                UIApplication.shared.keyWindow?.rootViewController = MainViewController.make(requestReview: true)
+                let nc = NavigationController(rootViewController: MainViewController.make(requestReview: true))
+                UIApplication.shared.keyWindow?.rootViewController = nc
             }
             present(vc, animated: true)
         }

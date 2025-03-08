@@ -10,7 +10,6 @@ import RxCocoa
 
 final class CatalogsViewModel {
     enum Route {
-        case back
         case details(CatalogsTableElement)
     }
     
@@ -26,7 +25,6 @@ final class CatalogsViewModel {
 // MARK: Public
 extension CatalogsViewModel {
     struct Input {
-        let didTapBack: Signal<Void>
         let didSearch: Signal<String>
         let didSelect: Signal<CatalogsTableElement>
     }
@@ -43,10 +41,7 @@ extension CatalogsViewModel {
                 catalogs: makeCatalogs(),
                 didSearch: input.didSearch
             ),
-            route: makeRoute(
-                didTapBack: input.didTapBack,
-                didSelect: input.didSelect
-            )
+            route: makeRoute(didSelect: input.didSelect)
         )
     }
 }
@@ -104,20 +99,13 @@ private extension CatalogsViewModel {
             }
     }
     
-    func makeRoute(
-        didTapBack: Signal<Void>,
-        didSelect: Signal<CatalogsTableElement>
-    ) -> Driver<Route> {
-        let back = didTapBack
-            .map { Route.back }
-            .asDriver(onErrorDriveWith: .never())
-        
+    func makeRoute(didSelect: Signal<CatalogsTableElement>) -> Driver<Route> {
         let details = didSelect
             .map { Route.details($0) }
             .asDriver(onErrorDriveWith: .never())
         
         return Driver
-            .merge(back, details)
+            .merge(details)
     }
     
     func makeActiveSubscription() -> Driver<Bool> {

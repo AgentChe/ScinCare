@@ -10,7 +10,6 @@ import RxCocoa
 
 final class ScanHistoryViewModel {
     enum Route {
-        case back
         case open(String)
     }
     
@@ -22,7 +21,6 @@ final class ScanHistoryViewModel {
 // MARK: Public
 extension ScanHistoryViewModel {
     struct Input {
-        let didTapBack: Signal<Void>
         let didSelect: Signal<AnalyseScanTemplate>
     }
     
@@ -34,10 +32,7 @@ extension ScanHistoryViewModel {
     
     func configure(input: Input) -> Output {
         Output(
-            route: makeRoute(
-                didTapBack: input.didTapBack,
-                didSelect: input.didSelect
-            ),
+            route: makeRoute(didSelect: input.didSelect),
             elements: makeElements(),
             activity: activity.asDriver()
         )
@@ -46,20 +41,13 @@ extension ScanHistoryViewModel {
 
 // MARK: Private
 private extension ScanHistoryViewModel {
-    func makeRoute(
-        didTapBack: Signal<Void>,
-        didSelect: Signal<AnalyseScanTemplate>
-    ) -> Driver<Route> {
-        let back = didTapBack
-            .map { Route.back }
-            .asDriver(onErrorDriveWith: .never())
-        
+    func makeRoute(didSelect: Signal<AnalyseScanTemplate>) -> Driver<Route> {
         let open = didSelect
             .map { Route.open($0.id) }
             .asDriver(onErrorDriveWith: .never())
         
         return Driver
-            .merge(back, open)
+            .merge(open)
     }
     
     func makeElements() -> Driver<[AnalyseScanTemplate]> {

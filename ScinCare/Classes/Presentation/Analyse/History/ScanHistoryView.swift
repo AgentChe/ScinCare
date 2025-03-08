@@ -8,8 +8,6 @@
 import UIKit
 
 final class ScanHistoryView: UIView {
-    lazy var backButton = makeBackButton()
-    lazy var titleLabel = makeTitleLabel()
     lazy var tableView = makeTableView()
     lazy var preloader = makePreloader()
     
@@ -36,21 +34,9 @@ private extension ScanHistoryView {
 private extension ScanHistoryView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            backButton.widthAnchor.constraint(equalToConstant: 24.scale),
-            backButton.heightAnchor.constraint(equalToConstant: 24.scale),
-            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16.scale)
-        ])
-        
-        NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: backButton.trailingAnchor, constant: 6.scale),
-            titleLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 2.scale),
+            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
         
@@ -63,28 +49,6 @@ private extension ScanHistoryView {
 
 // MARK: Lazy initialization
 private extension ScanHistoryView {
-    func makeBackButton() -> TapAreaButton {
-        let view = TapAreaButton()
-        view.setImage(UIImage(named: "Back.Black"), for: .normal)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        return view
-    }
-    
-    func makeTitleLabel() -> UILabel {
-        let attrs = TextAttributes()
-            .textColor(Appearance.mono200)
-            .font(Fonts.Roboto.bold(size: 22.scale))
-            .lineHeight(30.scale)
-            .textAlignment(.left)
-        
-        let view = UILabel()
-        view.attributedText = "ScanHistory.Title".localized.attributed(with: attrs)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        return view
-    }
-    
     func makeTableView() -> ScanHistoryTableView {
         let view = ScanHistoryTableView()
         view.contentInset = UIEdgeInsets(vertical: 16.scale)

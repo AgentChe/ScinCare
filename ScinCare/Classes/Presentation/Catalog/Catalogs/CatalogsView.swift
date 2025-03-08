@@ -8,17 +8,11 @@
 import UIKit
 
 final class CatalogsView: UIView {
-    lazy var backButton = makeBackButton()
-    lazy var titleLabel = makeTitleLabel()
     lazy var searchField = makeSearchField()
     lazy var tableView = makeTableView()
     
-    private let title: String
-    
-    init(item: CatalogsViewController.Item) {
-        self.title = item.title
-        
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         makeConstraints()
         initialize()
@@ -40,21 +34,9 @@ private extension CatalogsView {
 private extension CatalogsView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            backButton.widthAnchor.constraint(equalToConstant: 24.scale),
-            backButton.heightAnchor.constraint(equalToConstant: 24.scale),
-            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16.scale)
-        ])
-        
-        NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: backButton.trailingAnchor, constant: 6.scale),
-            titleLabel.centerYAnchor.constraint(equalTo: backButton.centerYAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
             searchField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             searchField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            searchField.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 26.scale)
+            searchField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 26.scale)
         ])
         
         NSLayoutConstraint.activate([
@@ -68,28 +50,6 @@ private extension CatalogsView {
 
 // MARK: Lazy initialization
 private extension CatalogsView {
-    func makeBackButton() -> TapAreaButton {
-        let view = TapAreaButton()
-        view.setImage(UIImage(named: "Back.Black"), for: .normal)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        return view
-    }
-
-    func makeTitleLabel() -> UILabel {
-        let attrs = TextAttributes()
-            .textColor(Appearance.mono200)
-            .font(Fonts.Roboto.bold(size: 22.scale))
-            .lineHeight(30.scale)
-            .textAlignment(.left)
-        
-        let view = UILabel()
-        view.attributedText = title.attributed(with: attrs)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        return view
-    }
-    
     func makeSearchField() -> CatalogsSearchField {
         let view = CatalogsSearchField()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -110,19 +70,5 @@ private extension CatalogsView {
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
-    }
-}
-
-// MARK: Additional
-private extension CatalogsViewController.Item {
-    var title: String {
-        switch self {
-        case .glossary:
-            return "Catalogs.Glossaries.Title".localized
-        case .procedure:
-            return "Catalogs.Procedures.Title".localized
-        case .disease:
-            return "Catalogs.Diseases.Title".localized
-        }
     }
 }

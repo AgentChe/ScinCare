@@ -32,7 +32,6 @@ final class MenuViewController: UIViewController {
             )
         
         let output = viewModel.configure(input: MenuViewModel.Input(
-            didTapBack: mainView.backButton.rx.tap.asSignal(),
             didTapMenuRoute: menuRoute
         ))
         
@@ -49,6 +48,7 @@ extension MenuViewController {
     static func make() -> MenuViewController {
         let vc = MenuViewController()
         vc.navigationItem.backButtonTitle = " "
+        vc.navigationItem.title = "Menu.Title".localized
         return vc
     }
 }
@@ -57,8 +57,6 @@ extension MenuViewController {
 private extension MenuViewController {
     func route(_ route: MenuViewModel.Route) {
         switch route {
-        case .back:
-            navigationController?.popViewController(animated: true)
         case .disclaimer:
             let vc = DisclaimerViewController.make()
             present(vc, animated: true)

@@ -10,7 +10,7 @@ import RxCocoa
 
 final class CatalogDetailsViewModel {
     enum Route {
-        case back, paygate
+        case paygate
     }
     
     var tryAgain: ((Error) -> (Observable<Void>))?
@@ -35,7 +35,6 @@ final class CatalogDetailsViewModel {
 // MARK: Public
 extension CatalogDetailsViewModel {
     struct Input {
-        let didTapBack: Signal<Void>
         let didTapMark: Signal<Bool>
     }
     
@@ -66,7 +65,7 @@ extension CatalogDetailsViewModel {
             ),
             sections: makeSections(catalogDetails: catalogDetails),
             activity: activity.asDriver(),
-            route: makeRoute(didTapBack: input.didTapBack),
+            route: makeRoute(),
             disposable: canSave.drive()
         )
     }
@@ -224,17 +223,13 @@ private extension CatalogDetailsViewModel {
             }
     }
     
-    func makeRoute(didTapBack: Signal<Void>) -> Driver<Route> {
-        let back = didTapBack
-            .map { Route.back }
-            .asDriver(onErrorDriveWith: .never())
-        
+    func makeRoute() -> Driver<Route> {
         let paygate = needPaygateTrigger
             .map { Route.paygate }
             .asDriver(onErrorDriveWith: .never())
         
         return Driver
-            .merge(back, paygate)
+            .merge(paygate)
     }
     
     func makeCanSave(

@@ -14,11 +14,13 @@ final class CatalogDetailsViewController: UIViewController {
         case glossary, procedure, disease
     }
     
-    private lazy var mainView = CatalogDetailsView(title: catalog.name)
+    private lazy var mainView = CatalogDetailsView()
     
     private lazy var viewModel = CatalogDetailsViewModel(item: item, catalog: catalog)
     
     private lazy var disposeBag = DisposeBag()
+    
+    private lazy var bookmarkButton = TapAreaButton()
     
     private lazy var didTapMarkedTrigger = PublishRelay<Bool>()
     
@@ -52,19 +54,18 @@ final class CatalogDetailsViewController: UIViewController {
         }
         
         let output = viewModel.configure(input: CatalogDetailsViewModel.Input(
-            didTapBack: mainView.backButton.rx.tap.asSignal(),
             didTapMark: didTapMarkedTrigger.asSignal()
         ))
         
         let marked = output.marked
         
-        mainView.bookmarkButton.rx.tap
+        bookmarkButton.rx.tap
             .withLatestFrom(marked)
             .bind(to: didTapMarkedTrigger)
             .disposed(by: disposeBag)
         
         marked
-            .drive(Binder(mainView) { base, marked in
+            .drive(Binder(self) { base, marked in
                 base.update(marked: marked)
             })
             .disposed(by: disposeBag)
@@ -89,6 +90,8 @@ final class CatalogDetailsViewController: UIViewController {
         
         output.disposable
             .disposed(by: disposeBag)
+        
+        addBookmarkButton()
     }
 }
 
@@ -97,12 +100,25 @@ extension CatalogDetailsViewController {
     static func make(item: Item, catalog: Catalog) -> CatalogDetailsViewController {
         let vc = CatalogDetailsViewController(item: item, catalog: catalog)
         vc.navigationItem.backButtonTitle = " "
+        vc.navigationItem.title = catalog.name
         return vc
     }
 }
 
 // MARK: Private
 private extension CatalogDetailsViewController {
+    func addBookmarkButton() {
+        bookmarkButton.backgroundColor = UIColor.clear
+        
+        let item = UIBarButtonItem(customView: bookmarkButton)
+        item.customView?.translatesAutoresizingMaskIntoConstraints = false
+        
+        item.customView?.widthAnchor.constraint(equalToConstant: 24.scale).isActive = true
+        item.customView?.heightAnchor.constraint(equalToConstant: 24.scale).isActive = true
+        
+        navigationItem.rightBarButtonItem = item
+    }
+    
     func open(error: Error) -> Observable<Void> {
         Observable<Void>
             .create { [weak self] observe in
@@ -121,11 +137,14 @@ private extension CatalogDetailsViewController {
     
     func route(_ route: CatalogDetailsViewModel.Route) {
         switch route {
-        case .back:
-            navigationController?.popViewController(animated: true)
         case .paygate:
             let vc = PaygateViewController.make()
             present(vc, animated: true)
         }
+    }
+    
+    func update(marked: Bool) {
+        let image = UIImage(named: marked ? "CatalogDetails.Saved" : "CatalogDetails.Unsaved")
+        bookmarkButton.setImage(image, for: .normal)
     }
 }

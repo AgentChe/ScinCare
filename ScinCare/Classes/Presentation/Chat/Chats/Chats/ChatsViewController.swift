@@ -46,7 +46,6 @@ final class ChatsViewController: UIViewController {
         }
         
         let output = viewModel.configure(input: ChatsViewModel.Input(
-            didTapBack: mainView.backButton.rx.tap.asSignal(),
             didWantDelete: mainView.tableView.didDelete,
             didConfirmDelete: didConfirmDeleteTrigger.asSignal(),
             selectChat: mainView.tableView.didSelect
@@ -77,6 +76,7 @@ extension ChatsViewController {
     static func make(didSelectChat: @escaping (Chat) -> Void) -> ChatsViewController {
         let vc = ChatsViewController(didSelectChat: didSelectChat)
         vc.navigationItem.backButtonTitle = " "
+        vc.navigationItem.title = "Chats.Title".localized
         return vc
     }
 }
@@ -101,8 +101,6 @@ private extension ChatsViewController {
     
     func route(_ route: ChatsViewModel.Route) {
         switch route {
-        case .back:
-            navigationController?.popViewController(animated: true)
         case .requestConfirmDelete(let chat):
             let vc = CDCViewController.make { [weak self] in
                 self?.didConfirmDeleteTrigger.accept(chat)

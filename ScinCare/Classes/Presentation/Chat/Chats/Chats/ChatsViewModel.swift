@@ -10,7 +10,6 @@ import RxCocoa
 
 final class ChatsViewModel {
     enum Route {
-        case back
         case requestConfirmDelete(Chat)
         case chat(Chat)
     }
@@ -27,7 +26,6 @@ final class ChatsViewModel {
 // MARK: Public
 extension ChatsViewModel {
     struct Input {
-        let didTapBack: Signal<Void>
         let didWantDelete: Signal<Chat>
         let didConfirmDelete: Signal<Chat>
         let selectChat: Signal<Chat>
@@ -44,7 +42,6 @@ extension ChatsViewModel {
         
         return Output(
             route: makeRoute(
-                didTapBack: input.didTapBack,
                 didWantDelete: input.didWantDelete,
                 selectChat: input.selectChat
             ),
@@ -66,14 +63,9 @@ private extension ChatsViewModel {
     }()
     
     func makeRoute(
-        didTapBack: Signal<Void>,
         didWantDelete: Signal<Chat>,
         selectChat: Signal<Chat>
     ) -> Driver<Route> {
-        let back = didTapBack
-            .map { Route.back }
-            .asDriver(onErrorDriveWith: .never())
-        
         let requestConfirmDelete = didWantDelete
             .map { Route.requestConfirmDelete($0) }
             .asDriver(onErrorDriveWith: .never())
@@ -83,7 +75,7 @@ private extension ChatsViewModel {
             .asDriver(onErrorDriveWith: .never())
         
         return Driver
-            .merge(back, requestConfirmDelete, chat)
+            .merge(requestConfirmDelete, chat)
     }
     
     func makeSections(chats: Driver<[Chat]>) -> Driver<[ChatsTableSection]> {
