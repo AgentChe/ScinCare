@@ -8,6 +8,7 @@
 import UIKit
 
 final class BookmarksView: UIView {
+    lazy var navigationsActionsContainer = makeNavigationActionsContainer()
     lazy var editButton = makeNavigationButton(iconName: "Bookmark.Edit")
     lazy var doneButton = makeNavigationButton(iconName: "Bookmark.Done")
     lazy var deleteButton = makeNavigationButton(iconName: "Bookmark.Delete")
@@ -49,29 +50,36 @@ private extension BookmarksView {
 private extension BookmarksView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
+            navigationsActionsContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            navigationsActionsContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            navigationsActionsContainer.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16.scale),
+            navigationsActionsContainer.heightAnchor.constraint(equalToConstant: 24.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
             editButton.widthAnchor.constraint(equalToConstant: 24.scale),
             editButton.heightAnchor.constraint(equalToConstant: 24.scale),
-            editButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            editButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16.scale)
+            editButton.leadingAnchor.constraint(equalTo: navigationsActionsContainer.leadingAnchor),
+            editButton.centerYAnchor.constraint(equalTo: navigationsActionsContainer.centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
             doneButton.widthAnchor.constraint(equalToConstant: 24.scale),
             doneButton.heightAnchor.constraint(equalToConstant: 24.scale),
-            doneButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            doneButton.centerYAnchor.constraint(equalTo: editButton.centerYAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: editButton.centerYAnchor)
+            doneButton.leadingAnchor.constraint(equalTo: navigationsActionsContainer.leadingAnchor),
+            doneButton.centerYAnchor.constraint(equalTo: navigationsActionsContainer.centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
             deleteButton.widthAnchor.constraint(equalToConstant: 24.scale),
             deleteButton.heightAnchor.constraint(equalToConstant: 24.scale),
-            deleteButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            deleteButton.centerYAnchor.constraint(equalTo: editButton.centerYAnchor)
+            deleteButton.trailingAnchor.constraint(equalTo: navigationsActionsContainer.trailingAnchor),
+            deleteButton.centerYAnchor.constraint(equalTo: navigationsActionsContainer.centerYAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            titleLabel.centerYAnchor.constraint(equalTo: editButton.centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
@@ -103,11 +111,19 @@ private extension BookmarksView {
 
 // MARK: Lazy initialization
 private extension BookmarksView {
+    func makeNavigationActionsContainer() -> UIView {
+        let view = UIView()
+        view.backgroundColor = UIColor.clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
     func makeNavigationButton(iconName: String) -> TapAreaButton {
         let view = TapAreaButton()
         view.setImage(UIImage(named: iconName), for: .normal)
         view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
+        navigationsActionsContainer.addSubview(view)
         return view
     }
     

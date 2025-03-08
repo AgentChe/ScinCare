@@ -142,6 +142,8 @@ private extension BookmarksViewController {
     }
     
     func isEmpty(unit: BookmarksEmptyView.Unit?) {
+        mainView.navigationsActionsContainer.isHidden = unit != nil
+        
         mainView.emptyView.isHidden = unit == nil
         mainView.tableView.isHidden = unit != nil
         
