@@ -15,7 +15,13 @@ final class AnalyseCameraViewController: UIViewController {
         case close
         case image(UIImage)
     }
-    
+
+    private enum ZoomAction {
+        case increase
+        case decrease
+        case reset
+    }
+
     private lazy var mainView = AnalyseCameraView()
     
     private lazy var disposeBag = DisposeBag()
@@ -70,21 +76,29 @@ final class AnalyseCameraViewController: UIViewController {
                 base.fromWallapers()
             })
             .disposed(by: disposeBag)
-        
+
+        mainView.optionsView
+            .refreshButton.rx.tap
+            .bind(to: Binder(self) { base, void in
+                base.cameraService.switchCameraInput()
+            })
+            .disposed(by: disposeBag)
+
         Observable
             .merge(
-                mainView.optionsView.minusButton.rx.tap.map { -1 },
-                mainView.optionsView.plusButton.rx.tap.map { 1 },
-                mainView.optionsView.refreshButton.rx.tap.map { -20 } // Вернет зум на 1
+                mainView.optionsView.minusButton.rx.tap.map { ZoomAction.decrease },
+                mainView.optionsView.plusButton.rx.tap.map { ZoomAction.increase },
+                mainView.optionsView.refreshButton.rx.tap.map { ZoomAction.reset } // Смена камеры сбрасывает зум
             )
-            .scan(1) { value, incr -> Int in
-                let result = value + incr
-                if result < 1 {
+            .scan(1) { value, action -> Int in
+                switch action {
+                case .increase:
+                    return min(value + 1, 10)
+                case .decrease:
+                    return max(value - 1, 1)
+                case .reset:
                     return 1
-                } else if result > 10 {
-                    return 10
                 }
-                return result
             }
             .bind(to: Binder(self) { base, zoom in
                 base.cameraService.setZoom(scale: CGFloat(zoom))

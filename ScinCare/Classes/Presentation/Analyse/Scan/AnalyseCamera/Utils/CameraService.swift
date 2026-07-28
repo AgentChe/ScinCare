@@ -38,27 +38,13 @@ final class CameraService: NSObject {
     }
 
     func setZoom(scale: CGFloat) {
-        updateZoom(scale: minMaxZoom(scale))
+        updateZoom(scale: scale)
     }
 
     func switchCameraInput() {
-        captureSession.beginConfiguration()
-        if backCameraOn {
-            captureSession.removeInput(backInput)
-            captureSession.addInput(frontInput)
-            captureDevice = frontCamera
-            backCameraOn = false
-        } else {
-            captureSession.removeInput(frontInput)
-            captureSession.addInput(backInput)
-            captureDevice = backCamera
-            backCameraOn = true
-            updateZoom(scale: startZoom)
+        cameraQueue.async { [weak self] in
+            self?.performCameraSwitch()
         }
-
-        photoOutput.connections.first?.videoOrientation = .portrait
-        photoOutput.connections.first?.isVideoMirrored = !backCameraOn
-        captureSession.commitConfiguration()
     }
 }
 
@@ -84,6 +70,44 @@ extension CameraService: AVCapturePhotoCaptureDelegate {
 
 // MARK: Private
 private extension CameraService {
+    func performCameraSwitch() {
+        guard let backInput, let frontInput else {
+            return
+        }
+
+        let currentInput = backCameraOn ? backInput : frontInput
+        let newInput = backCameraOn ? frontInput : backInput
+
+        captureSession.beginConfiguration()
+        captureSession.removeInput(currentInput)
+
+        guard captureSession.canAddInput(newInput) else {
+            captureSession.addInput(currentInput)
+            captureSession.commitConfiguration()
+            return
+        }
+
+        captureSession.addInput(newInput)
+
+        backCameraOn.toggle()
+        captureDevice = backCameraOn ? backCamera : frontCamera
+
+        if let connection = photoOutput.connections.first {
+            if connection.isVideoOrientationSupported {
+                connection.videoOrientation = .portrait
+            }
+
+            if connection.isVideoMirroringSupported {
+                connection.automaticallyAdjustsVideoMirroring = false
+                connection.isVideoMirrored = !backCameraOn
+            }
+        }
+
+        captureSession.commitConfiguration()
+
+        updateZoom(scale: startZoom)
+    }
+
     func currentDevice() -> AVCaptureDevice? {
         let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes:
                                                                     [.builtInTripleCamera,.builtInDualWideCamera, .builtInDualCamera, .builtInWideAngleCamera],
@@ -161,25 +185,21 @@ private extension CameraService {
         captureSession.addOutput(photoOutput)
     }
 
-    func minMaxZoom(_ factor: CGFloat) -> CGFloat {
-        guard let captureDevice else {
-            return min(max(factor, 1.0), zoomLimit)
-        }
-
-        let minZoom = max(1.0, captureDevice.minAvailableVideoZoomFactor)
-        let maxZoom = min(zoomLimit, captureDevice.maxAvailableVideoZoomFactor)
+    func minMaxZoom(_ factor: CGFloat, for device: AVCaptureDevice) -> CGFloat {
+        let minZoom = max(1.0, device.minAvailableVideoZoomFactor)
+        let maxZoom = min(zoomLimit, device.maxAvailableVideoZoomFactor)
         return min(max(factor, minZoom), maxZoom)
     }
 
     func updateZoom(scale: CGFloat) {
-        guard let captureDevice else {
+        guard let device = captureDevice else {
             return
         }
 
         do {
-            try captureDevice.lockForConfiguration()
-            defer { captureDevice.unlockForConfiguration() }
-            captureDevice.videoZoomFactor = scale
+            try device.lockForConfiguration()
+            defer { device.unlockForConfiguration() }
+            device.videoZoomFactor = minMaxZoom(scale, for: device)
         } catch {
             print(error.localizedDescription)
         }
