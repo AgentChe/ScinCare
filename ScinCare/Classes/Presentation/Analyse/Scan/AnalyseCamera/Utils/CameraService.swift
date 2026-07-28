@@ -38,17 +38,7 @@ final class CameraService: NSObject {
     }
 
     func setZoom(scale: CGFloat) {
-        guard let zoomFactor = captureDevice?.videoZoomFactor else {
-            return
-        }
-        var newScaleFactor: CGFloat = 0
-
-        newScaleFactor = (scale < 1.0
-        ? (zoomFactor - pow(zoomLimit, 1.0 - scale))
-        : (zoomFactor + pow(zoomLimit, (scale - 1.0) / 2.0)))
-
-        newScaleFactor = minMaxZoom(zoomFactor * scale)
-        updateZoom(scale: newScaleFactor)
+        updateZoom(scale: minMaxZoom(scale))
     }
 
     func switchCameraInput() {
@@ -172,14 +162,24 @@ private extension CameraService {
     }
 
     func minMaxZoom(_ factor: CGFloat) -> CGFloat {
-        min(max(factor, 1.0), zoomLimit)
+        guard let captureDevice else {
+            return min(max(factor, 1.0), zoomLimit)
+        }
+
+        let minZoom = max(1.0, captureDevice.minAvailableVideoZoomFactor)
+        let maxZoom = min(zoomLimit, captureDevice.maxAvailableVideoZoomFactor)
+        return min(max(factor, minZoom), maxZoom)
     }
 
     func updateZoom(scale: CGFloat) {
+        guard let captureDevice else {
+            return
+        }
+
         do {
-            defer { captureDevice?.unlockForConfiguration() }
-            try captureDevice?.lockForConfiguration()
-            captureDevice?.videoZoomFactor = scale
+            try captureDevice.lockForConfiguration()
+            defer { captureDevice.unlockForConfiguration() }
+            captureDevice.videoZoomFactor = scale
         } catch {
             print(error.localizedDescription)
         }
